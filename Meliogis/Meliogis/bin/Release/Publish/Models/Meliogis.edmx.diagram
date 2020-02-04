@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f94ea6362b6f4e7c8402f38122d90817" Name="Diagram1" ZoomLevel="68">
+        <EntityTypeShape EntityType="MelorModel.ACTIVITY" Width="1.5" PointX="12.625" PointY="7.75" />
+        <EntityTypeShape EntityType="MelorModel.ASSIGMENT" Width="1.5" PointX="6.75" PointY="63.25" />
+        <EntityTypeShape EntityType="MelorModel.BRAND_OF_AGGREGATE" Width="1.5" PointX="9.75" PointY="63.75" />
+        <EntityTypeShape EntityType="MelorModel.CHANNEL_TYPES" Width="1.5" PointX="6.75" PointY="66.5" />
+        <EntityTypeShape EntityType="MelorModel.COVER_TYPES" Width="1.5" PointX="6.75" PointY="60.5" />
+        <EntityTypeShape EntityType="MelorModel.ENGINE_BRAND" Width="1.5" PointX="9.75" PointY="68.5" />
+        <EntityTypeShape EntityType="MelorModel.ENGINE_KIND" Width="1.5" PointX="9.75" PointY="66.125" />
+        <EntityTypeShape EntityType="MelorModel.KIND" Width="1.5" PointX="0.625" PointY="7.375" />
+        <EntityTypeShape EntityType="MelorModel.PIPELINE_MATERIAL" Width="1.5" PointX="9.75" PointY="70.75" />
+        <EntityTypeShape EntityType="MelorModel.PLACED_SOURCE" Width="1.5" PointX="18.375" PointY="22" />
+        <EntityTypeShape EntityType="MelorModel.PROPERTY" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MelorModel.PROPERTY_TYPE" Width="1.5" PointX="6.75" PointY="69.125" />
+        <EntityTypeShape EntityType="MelorModel.PUMP_KIND" Width="1.5" PointX="9.75" PointY="61.375" />
+        <EntityTypeShape EntityType="MelorModel.PUMP_TYPE" Width="1.5" PointX="14.875" PointY="21.625" />
+        <EntityTypeShape EntityType="MelorModel.PUMPSTATION_BRAND" Width="1.5" PointX="6.75" PointY="73.625" />
+        <EntityTypeShape EntityType="MelorModel.REGION_TYPE" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="MelorModel.REGION" Width="1.5" PointX="0.5" PointY="11.375" />
+        <EntityTypeShape EntityType="MelorModel.TECHNICAL_TYPE" Width="1.5" PointX="5.625" PointY="3.5" />
+        <EntityTypeShape EntityType="MelorModel.WELL_TYPE" Width="1.5" PointX="3.25" PointY="18.5" />
+        <EntityTypeShape EntityType="MelorModel.SIB" Width="1.5" PointX="20.625" PointY="27.25" />
+        <EntityTypeShape EntityType="MelorModel.USER" Width="1.5" PointX="3" PointY="3.375" />
+        <AssociationConnector Association="MelorModel.FK_SIBS_PROPERTY" />
+        <AssociationConnector Association="MelorModel.FK_USERS_SIBS" />
+        <EntityTypeShape EntityType="MelorModel.ARTEZIAN_WELL" Width="1.5" PointX="28.875" PointY="34.625" />
+        <EntityTypeShape EntityType="MelorModel.CHANNEL" Width="1.5" PointX="25.875" PointY="31.25" />
+        <EntityTypeShape EntityType="MelorModel.DEPARTMENT" Width="1.5" PointX="2.75" PointY="85.375" />
+        <EntityTypeShape EntityType="MelorModel.DRENAJ" Width="1.5" PointX="17.875" PointY="37.5" />
+        <EntityTypeShape EntityType="MelorModel.EXPLOITATION_ROAD" Width="1.5" PointX="12" PointY="34.5" />
+        <EntityTypeShape EntityType="MelorModel.RIVERBAND" Width="1.5" PointX="23.625" PointY="25.625" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_PROPERTY" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_PUMPSTATION_BRAND" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_ARTEZIAN_WELL_WELL_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_CHANNEL_TYPES" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_CHANNEL_TYPES" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_CHANNELS" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_COVER_TYPES" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_KIND" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_Property" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_REGIONS2" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_SIBS1" />
+        <AssociationConnector Association="MelorModel.FK_CHANNELS_TECHNICAL_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_EXPLOITATION_ROAD_COVER_TYPES" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_COVER_TYPES" />
+        <AssociationConnector Association="MelorModel.FK_DEPARTMENTS_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_DEPARTMENTS_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_DRENAJ" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_KIND" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_DRENAJ_TECHNICAL_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_EXPLOITATION_ROAD_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_EXPLOITATION_ROAD_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_EXPLOITATION_ROAD_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_EXPLOITATION_ROAD_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_PLACED_SOURCE" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_RIVERBAND_TECHNICAL_TYPE" />
+        <EntityTypeShape EntityType="MelorModel.SECURITY_TYPE" Width="1.5" PointX="5.5" PointY="0.875" />
+        <EntityTypeShape EntityType="MelorModel.NETWORK_TYPE" Width="1.5" PointX="12.625" PointY="31.75" />
+        <EntityTypeShape EntityType="MelorModel.BUILDING" Width="1.5" PointX="17.875" PointY="30.75" />
+        <EntityTypeShape EntityType="MelorModel.PUMPSTATION" Width="1.5" PointX="20.625" PointY="32.25" />
+        <EntityTypeShape EntityType="MelorModel.WELL" Width="1.5" PointX="22.875" PointY="33.125" />
+        <EntityTypeShape EntityType="MelorModel.WINTERPASTURE" Width="1.5" PointX="9" PointY="34.625" />
+        <AssociationConnector Association="MelorModel.FK_BUILDINGS_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_WELL_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_WELL_ASSIGMENT" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_BRAND_OF_AGGREGATE" />
+        <AssociationConnector Association="MelorModel.FK_BUILDINGS_PROPERTY" />
+        <AssociationConnector Association="MelorModel.FK_BUILDINGS_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_BUILDINGS_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_BUILDINGS_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_ENGINE_BRAND" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_ENGINE_KIND" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_PIPELINE_MATERIAL" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_PLACED_SOURCE" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_WELL_SIBS1" />
+        <AssociationConnector Association="MelorModel.FK_WINTERPASTURES_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_WELL_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_WINTERPASTURES_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_PUMP_KIND" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_PUMP_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_PUMPSTATION_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_WELL_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_WELL_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_WINTERPASTURES_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_WINTERPASTURES_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_WELL_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_WELL_TECHNICAL_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_WELL_WELL" />
+        <EntityTypeShape EntityType="MelorModel.DEVICE" Width="1.5" PointX="14.875" PointY="33.5" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_ACTIVITY" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_NETWORK_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_PROPERTY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_REGIONS" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_REGIONS1" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_SECURITY_TYPE" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_SIBS" />
+        <AssociationConnector Association="MelorModel.FK_DEVICE_TECHNICAL_TYPE" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

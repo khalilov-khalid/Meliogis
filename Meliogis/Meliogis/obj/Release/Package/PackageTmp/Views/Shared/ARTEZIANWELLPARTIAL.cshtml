@@ -1,0 +1,139 @@
+﻿@model IEnumerable<Meliogis.GetJsonModel.ATEZIANWELLMODEL>
+
+<table class="work-planning-table table bordered mb-50">
+    <tr>
+        <th>
+            Reper Nömrəsi
+            @*@Html.DisplayNameFor(model => model.REPER_NO)*@
+        </th>
+        <th>
+            Suvarılan ərazi
+            @* @Html.DisplayNameFor(model => model.IRRIGATED_AREA)*@
+        </th>
+        <th>
+            Dərinliyi
+            @*@Html.DisplayNameFor(model => model.DEPTH)*@
+        </th>
+        <th>
+            Su buraxma qabiliyyəti
+            @*@Html.DisplayNameFor(model => model.WATER_CAPABILITY)*@
+        </th>
+        <th>
+            Məhsuldarlığı
+            @* @Html.DisplayNameFor(model => model.PRODUCTIVITY)*@
+        </th>
+        <th>
+            Istismara verildiyi tarix
+            @*@Html.DisplayNameFor(model => model.EXPLONATION_DATE)*@
+        </th>
+        <th>
+            Aktivliyi
+            @*@Html.DisplayNameFor(model => model.ACTIVITY.NAME)*@
+        </th>
+        <th>
+            Təyinatı
+            @*@Html.DisplayNameFor(model => model.ASSIGMENT.NAME)*@
+        </th>
+        <th>
+            Tabe oldugu İdarə
+            @*@Html.DisplayNameFor(model => model.PROPERTY.NAME)*@
+        </th>
+        <th>
+            Mülkiyyətçi növü
+            @*@Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)*@
+        </th>
+        <th>
+            Brendin adı
+            @*@Html.DisplayNameFor(model => model.PUMPSTATION_BRAND.NAME)*@
+        </th>
+        <th>
+            Kəndin adı
+            @*@Html.DisplayNameFor(model => model.REGION.Adi)*@
+        </th>
+        <th>
+            Rayonun adı
+            @*@Html.DisplayNameFor(model => model.REGION1.Adi)*@
+        </th>
+        <th>
+            Quyunun Tipi
+            @*@Html.DisplayNameFor(model => model.WELL_TYPE.NAME)*@
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.REPER_NO)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IRRIGATED_AREA)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DEPTH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WATER_CAPABILITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PRODUCTIVITY)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ACTIVITY_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ASSIGMENT_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSI_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PROPERTY_TYPE_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PUMPSTATION_BRAND_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VILLAGE_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.REGIONS_NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WELL_TYPE_NAME)
+            </td>
+        </tr>
+
+    }
+</table>
+
+<div class="pag_con">
+    <div class="con">
+        <button class="_DetalsReport" data-skip="0" data-name="@Model.ToList().FirstOrDefault().DataName">İlk səhifə</button>
+        @if (ViewBag.CP + 5 <= 11)
+        {
+            for (int i = 1; i <= 11; i++)
+            {
+                <button class="_DetalsReport @(ViewBag.CP == i ? "active" : "")" data-skip="@(i-1)" data-name="@Model.ToList().FirstOrDefault().DataName">@i</button>
+            }
+        }
+        else if (ViewBag.CP + 5 > 11 && ViewBag.CP + 5 <= ViewBag.PC)
+        {
+            for (int i = ViewBag.CP - 5; i <= ViewBag.CP + 5; i++)
+            {
+                <button class="_DetalsReport @(ViewBag.CP == i ? "active" : "")" data-skip="@(i-1)" data-name="@Model.ToList().FirstOrDefault().DataName">@i</button>
+            }
+        }
+        else if (ViewBag.CP + 5 > ViewBag.PC)
+        {
+            for (int i = ViewBag.CP - (10 - ((int)ViewBag.PC - ViewBag.CP)); i <= ViewBag.PC; i++)
+            {
+                <button class="_DetalsReport @(ViewBag.CP == i ? "active" : "")" data-skip="@(i-1)" data-name="@Model.ToList().FirstOrDefault().DataName">@i</button>
+            }
+        }
+        <button class="_DetalsReport" data-skip="@(ViewBag.PC - 1)" data-name="@Model.ToList().FirstOrDefault().DataName">Son səhifə</button>
+    </div>
+</div>

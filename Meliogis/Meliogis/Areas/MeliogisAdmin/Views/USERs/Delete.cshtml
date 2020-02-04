@@ -1,0 +1,38 @@
+﻿@model Meliogis.Models.USER
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mb-3 d-flex justify-content-between">
+            <h3>Seçilmiş istifadəçini silmək istədiyinizə əminsinizmi?</h3>
+            <a href="@Url.Action("Index","USERs")" class="m_btn go_b_btn">Geri qayıt</a>
+        </div>
+
+
+        <div class="col-md-4 mb-5">
+            <p class="p_data">Giriş adı</p>            
+            @Html.DisplayFor(model => model.USERNAME)
+        </div>
+
+        <div class="col-md-4 mb-5">
+            <p class="p_data"> Mülkiyyətçi</p>           
+            @Html.DisplayFor(model => model.PROPERTY.NAME)
+        </div>
+
+        <div class="col-md-4 offset-md-4">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div>
+                    <input type="submit" value="Delete" class="m_btn del_btn w_100" />
+                </div>
+            }
+        </div>
+    </div>
+</div>

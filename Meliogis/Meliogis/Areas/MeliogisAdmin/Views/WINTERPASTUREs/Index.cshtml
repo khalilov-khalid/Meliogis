@@ -1,0 +1,91 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.WINTERPASTURE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <tr>
+            <th>
+                Adı
+                @*@Html.DisplayNameFor(model => model.NAME)*@
+            </th>
+            <th>
+                Xidmət etdiyi sahə
+                @*@Html.DisplayNameFor(model => model.SERVED_AREA)*@
+            </th>
+            <th>
+                Üzərindəki qurğuların sayı
+                @*@Html.DisplayNameFor(model => model.DEVICE_SUM)*@
+            </th>
+            <th>
+                Su kəmərləri
+                @*@Html.DisplayNameFor(model => model.WATER_PIPE)*@
+            </th>
+            <th>
+                SİB
+                @*@Html.DisplayNameFor(model => model.SIBS_ID)*@
+            </th>
+            <th>
+                Mülkiyyətçisi
+                @*@Html.DisplayNameFor(model => model.PROPERTY.NAME)*@
+            </th>
+            <th>
+                Mülkiyyət növü
+                @*@Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)*@
+            </th>
+            <th>
+                Kəndin adı
+                @*@Html.DisplayNameFor(model => model.REGION.Adi)*@
+            </th>
+            <th>
+                Rayonun adı
+                @*@Html.DisplayNameFor(model => model.REGION1.Adi)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SERVED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEVICE_SUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATER_PIPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VILLAGE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "WINTERPASTUREs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

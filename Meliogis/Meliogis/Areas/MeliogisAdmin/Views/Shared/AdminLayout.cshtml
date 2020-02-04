@@ -1,0 +1,283 @@
+﻿@{
+    Layout = null;
+}
+
+@using Meliogis.Models
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Meliogis Admin Panel</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Custom styles for this template-->
+    <link href="~/Areas/MeliogisAdmin/AdminPublic/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="~/Areas/MeliogisAdmin/AdminPublic/css/sb-admin-2.css" rel="stylesheet">
+
+    <style>
+        .pagination {
+            display: inline-block;
+            padding-left: 0;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        .pagination > li {
+            display: inline;
+            margin-right: 4px;
+            padding: 2px 8px;
+            border-radius: 4px;
+            border: 1px solid #c6c1c1;
+        }
+
+        .pagination >.active {
+            background: #2e6da4;
+            color: white;
+        }
+    </style>
+</head>
+
+<body id="page-top">
+
+  <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <li>
+                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="@Url.Action("Index","Admin")">
+                    <div class="sidebar-brand-text mx-3">Meliogis</div>
+                    <div class="sidebar-brand-text-min mx-3">M</div>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <li>
+                <hr class="sidebar-divider my-0">
+            </li>
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item active">
+                <a class="nav-link collapsed" href="@Url.Action("Index","Admin")">
+                    <i class="fas fa-home"></i>
+                    <span>Ana Səhifə</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <li>
+                <hr class="sidebar-divider">
+            </li>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","USERs")"><span>Yeni İstifadəçi</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Açıq suvarma şəbəkəsi</span>
+                </a>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner">
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="M"} )">Magistral kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="I"} )">I dərəcəli kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="II"} )">II dərəcəli kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="III"} )">III dərəcəli kanallar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Qapalı suvarma şəbəkəsi</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner">
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="QM"} )">Magistral kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="QI"} )">I dərəcəli kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="QII"} )">II dərəcəli kanallar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","OpenChannel", new { type="QIII"} )">III dərəcəli kanallar</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true" aria-controls="collapseTwo">
+                    <span>Kollektor-drenaj şəbəkəsi</span>
+                </a>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="py-2 collapse-inner">
+                        <a class="collapse-item" href="@Url.Action("Index","DRENAJs", new { type="M"} )">Magistral kollektorlar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","DRENAJs", new { type="I"} )">I dərəcəli kollektorlar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","DRENAJs", new { type="II"} )">II dərəcəli kollektorlar</a>
+                        <a class="collapse-item" href="@Url.Action("Index","DRENAJs", new { type="III"} )">İlkin drenlər</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","DEVICEs")"><span>Hidrotexniki qurğular</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","ARTEZIAN_WELL")"><span>Artezian Quyular</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","WELLs")"><span>Quyular</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","PUMPSTATIONs")"><span>Nasos stansiyaları</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","WINTERPASTUREs")"><span>Qış otlaqlarının su təminatı sistemləri</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","RIVERBANDs")"><span>Mühafizə bəndləri</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","BUILDINGs")"><span>Binalar və tikililər</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="@Url.Action("Index","EXPLOITATION_ROAD")"><span>İstismar yolları</span></a>
+            </li>
+            <!-- Divider -->
+            <li>
+                <hr class="sidebar-divider d-none d-md-block">
+            </li>
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <li class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </li>
+
+        </ul>
+
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle collapsed" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+                               aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @{ 
+                                        USER currentuser = Session["LoginedUser"] as USER;
+                                    }
+                                    @currentuser.USERNAME
+                                </span>
+                                <span><i class="fas fa-user-circle"></i></span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Çixiş
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+                    @RenderBody()
+                </div>
+                <!-- End of Main Content -->
+                
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Çıxış etməyə əminsiz?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Çıxış düymesine basdıqda sistemi terk edeceksiz!!!</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Geri qayıt</button>
+                        <a class="btn btn-primary" href="@Url.Action("Logout","LoginAdmin")">Çıxış</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.min.js"></script>
+    <script src="~/Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/Areas/MeliogisAdmin/AdminPublic/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/Areas/MeliogisAdmin/AdminPublic/js/sb-admin-2.min.js"></script>
+
+    <script>
+        $("._regionChange").on("change", function () {
+            var _id = $(this).val()
+            $("._villageContent option").remove();
+            $("._villageContent").append("<option value='' hidden >Sec</option>");
+            $.ajax({
+                url: "/Admin/GetVillageForEdit",
+                data: { id: _id },
+                method: "post",
+                type: "JSON",
+                success: function (response) {
+                    for (var i = 0; i < response.length; i++) {
+                        $("._villageContent").append("<option value='" + response[i].OBJECTID + "'>" + response[i].NAME + "</option>");
+                    }
+                }
+            })
+        })
+    </script>
+
+</body>
+
+</html>

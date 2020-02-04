@@ -1,0 +1,145 @@
+﻿@model Meliogis.Models.RIVERBAND
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="edit_con">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.OBJECTID)
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.TYPE, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.TYPE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.TYPE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.HEIGHT, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.HEIGHT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.HEIGHT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.LENGTH, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.LENGTH, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.LENGTH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.NOTE, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.NOTE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NOTE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.SECURITY_TYPE, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.SECURITY_TYPE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SECURITY_TYPE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.VILLAGE_ID, "VILLAGE_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("VILLAGE_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VILLAGE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.COVER_TYPE_ID, "COVER_TYPE_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("COVER_TYPE_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.COVER_TYPE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.TECHNICAL_TYPE_ID, "TECHNICAL_TYPE_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("TECHNICAL_TYPE_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.TECHNICAL_TYPE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.PROPERTY_TYPE_ID, "PROPERTY_TYPE_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("PROPERTY_TYPE_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PROPERTY_TYPE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.ASSIGMENT_ID, "ASSIGMENT_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("ASSIGMENT_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ASSIGMENT_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.PLACED_SOURCE_ID, "PLACED_SOURCE_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("PLACED_SOURCE_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PLACED_SOURCE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.REGIONS_ID, "REGIONS_ID", htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.DropDownList("REGIONS_ID", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.REGIONS_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.SIBS_ID, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.SIBS_ID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SIBS_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    @Html.LabelFor(model => model.EXPLONATION_DATE, htmlAttributes: new { @class = "control-label " })
+                    <div class="inp">
+                        @Html.EditorFor(model => model.EXPLONATION_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EXPLONATION_DATE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 offset-md-4 mb-4">
+                    <div class="inp">
+                        <input type="submit" value="Save" class="m_btn sbm_btn w_100" style="outline:none;"/>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>

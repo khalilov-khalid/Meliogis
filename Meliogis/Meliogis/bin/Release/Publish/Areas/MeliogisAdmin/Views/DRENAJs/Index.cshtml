@@ -1,0 +1,184 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.DRENAJ>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-bordered table-hover th_fixed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.WATERPROOF_WIDTH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SERVED_AREA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PASSING_AREAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DEVICE_SUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WATER_CAPABILITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FACTICAL_LENGTH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WATER_CONSUPTION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GISLENGTH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOCATED_REGION)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.USER_ADMIN_ID)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.SHAPE)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.SIBS_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TYPE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EXPLONATION_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACTIVITY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ASSIGMENT.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CHANNEL_TYPES.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DRENAJ2.PASSING_AREAS)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.KIND.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION1.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TECHNICAL_TYPE.NAME)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATERPROOF_WIDTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SERVED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PASSING_AREAS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEVICE_SUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATER_CAPABILITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FACTICAL_LENGTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATER_CONSUPTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GISLENGTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOTE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOCATED_REGION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USER_ADMIN_ID)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SHAPE)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TYPE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIVITY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGMENT.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CHANNEL_TYPES.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DRENAJ2.PASSING_AREAS)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KIND.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TECHNICAL_TYPE.NAME)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "DRENAJs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, type = ViewBag.Type }))
+</div>

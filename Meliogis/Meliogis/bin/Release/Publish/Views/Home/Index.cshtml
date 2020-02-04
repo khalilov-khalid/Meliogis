@@ -1,0 +1,2708 @@
+﻿@model Meliogis.ViewModels.IndexViewModel
+@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<!-- Header -->
+<header class="header clear w-100p">
+
+    <a href="@Url.Action("Index","Home")" title="Meliogis" class="logo float-left" lang="en">
+        <strong>
+            Meliogis
+        </strong>
+    </a>
+
+    <div class="search-form relative bg-white float-left tr-3s">
+
+        <div class="input-group">
+
+            <input type="search" id="search-input" class="input no-border" placeholder="Axtar">
+
+            <span class="input-group-btn">
+
+                <button type="button" id="_testSearch" class="btn bg-white no-border" aria-label="Axtar" hidden>
+                    <i aria-hidden="true" class="icon-search"></i>
+                </button>
+
+                <button type="button" class="search-toggle btn bg-white no-border hide-lg hide-md hide-sm" aria-label="Bağla">
+                    <i aria-hidden="true" class="icon-close"></i>
+                </button>
+
+            </span>
+        </div>
+
+        <div id="_searchContect" class="search-filter animated fadeInUp mt-5 bg-white shadow w-100p light scroll" role="dialog" hidden>
+
+            <div class="filter-list" role="group" aria-hidden="true" hidden>
+                <ul class="type-none m-0 p-0" role="listbox" aria-hidden="true">
+                    <li role="listitem" class="pt-7 pb-7 pl-15 pr-15 pointer">
+                        <span class="line-camp line-1">
+                            <i aria-hidden="true" class="icon-map-pin mr-10"></i>
+                            <span>Search result</span>
+                        </span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="empty-result text-center text-gray pt-40 pb-40 border-top" role="presentation" aria-hidden="true" hidden>
+                <p class="h1"><i aria-hidden="true" class="fa fa-search"></i></p>
+                <span>Uyğun nəticə tapılmadı</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button style="display:none" type="button" class="search-toggle btn bg-white no-border float-left ml-5 hide-lg hide-md hide-sm" aria-label="Bağla">
+        <i aria-hidden="true" class="icon-search"></i>
+    </button>
+
+    <button style="display:none" class="full-screen btn bg-white no-border float-left ml-5" title="İstifadə qaydaları" data-target-modal="terms-of-use">
+        <i aria-hidden="true" class="icon-info-circle-thin"></i>
+    </button>
+
+</header>
+
+<!-- Sidebar menu -->
+<aside class="main-sidebar bg-white shadow tr-3s" aria-labelledby="side-menu">
+
+    <span role="button"
+          aria-hidden="true"
+          aria-label="Side toggle"
+          class="side-toggle btn bg-white no-border float-right"
+          aria-haspopup="true"
+          aria-expanded="false" id="side-menu">
+        <i aria-hidden="true" class="v-icon icon-menu-nav"></i>
+        <i aria-hidden="true" class="h-icon icon-close"></i>
+    </span>
+
+    @*<div class="border-bottom">
+        <ul class="tab-nav scrolling-menu float-center mw-100p" role="tablist">
+            <li role="presentation" class="active">
+                <span role="tab" class="menu-item p-20" data-target-tab="network">
+                    <i aria-hidden="true" class="icon-player-random mr-10"></i>
+                    Şəbəkələr
+                </span>
+            </li>
+            <li role="presentation">
+                <span role="tab" class="menu-item p-20" data-target-tab="layers">
+                    <i aria-hidden="true" class="icon-layout-carousel mr-10"></i>
+                    Laylar
+                </span>
+            </li>
+        </ul>
+    </div>*@
+
+    <div class="tab-content">
+
+        <div class="tab-panel scroll o-auto active" role="tabpanel" data-tab="network">
+
+            <div class="pt-20 pl-20 pr-20 bg-gray clear">
+                <div class="row as-5">
+                    <div class="col group mb-20">
+                        <label for="select-district-0">Rayonlar</label>
+                        <div class="drop district-menu w-100p">
+                            <span role="button" class="drop-toggle input caret" id="district-menu" aria-label="Rayonlar" aria-haspopup="true" aria-expanded="true">
+                                Seç
+                            </span>
+                            <div class="drop-menu static animated fadeInUp mt-5" aria-labelledby="district-menu">
+                                <ul class="menu-body">
+                                    <li class="menu-item">
+                                        <div class="ckbox">
+                                            <input type="checkbox" class="_regions" name="rayon" id="0">
+                                            <label for="0">Hamısı</label>
+                                        </div>
+                                    </li>
+                                    @foreach (var item in Model._regions)
+                                    {
+                                        <li class="menu-item">
+                                            <div class="ckbox">
+                                                <input type="checkbox" class="_regions" name="rayon" id="@item.OBJECTID">
+                                                <label for="@item.OBJECTID">@item.NAME</label>
+                                            </div>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col group mb-20">
+                        <label for="select-district-0">Kəndlər</label>
+                        <div class="drop district-menu w-100p">
+                            <span role="button" class="drop-toggle input caret" id="village-menu" aria-label="Kəndlər" aria-haspopup="true" aria-expanded="true">
+                                Seç
+                            </span>
+                            <div class="drop-menu right static animated fadeInUp mt-5" aria-labelledby="village-menu">
+                                <ul class="menu-body" id="_villiageContent">
+                                    <!-- scriptle yigilir bu hisse  -->
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- idareler ve sibler hissesi-->
+            <div class="pt-20 pl-20 pr-20 border-bottom clear" style="display:none">
+                <div class="row as-5">
+
+                    <div class="col group mb-20">
+                        <label for="select-institution">İdarələr</label>
+                        <div class="drop district-menu w-100p">
+                            <span role="button" class="drop-toggle input caret" id="institution-menu" aria-label="İdarələr" aria-haspopup="true" aria-expanded="true">
+                                Seç
+                            </span>
+                            <div class="drop-menu static animated fadeInUp mt-5" aria-labelledby="institution-menu">
+                                <ul class="menu-body">
+                                    <li class="menu-item">
+                                        <div class="ckbox">
+                                            <input type="checkbox" name="rayon" id="all-institution" checked>
+                                            <label for="all-institution">Hamısı</label>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item">
+                                        <div class="ckbox">
+                                            <input type="checkbox" name="rayon" id="institution-1">
+                                            <label for="institution-1">İdarə adı</label>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item">
+                                        <div class="ckbox">
+                                            <input type="checkbox" name="rayon" id="institution-2">
+                                            <label for="institution-2">İdarə adı</label>
+                                        </div>
+                                    </li>
+                                    <li class="menu-item">
+                                        <div class="ckbox">
+                                            <input type="checkbox" name="rayon" id="institution-3">
+                                            <label for="institution-3">İdarə adı</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col group mb-20">
+                        <label for="select-sib">Siblər</label>
+                        <div class="drop select sib-menu w-100p">
+
+                            <span role="button" class="drop-toggle input caret" id="sib-menu" aria-label="Siblər" aria-haspopup="true" aria-expanded="true">
+                                Seç
+                            </span>
+
+                            <div class="drop-menu right animated fadeInUp mt-5" aria-labelledby="sib-menu">
+                                <ul class="menu-body">
+                                    <li role="presentation">
+                                        <span role="menuitem" class="menu-item selected">
+                                            <span class="abbr">Menu Item</span>
+                                            Menu Item
+                                        </span>
+                                    </li>
+                                    <li role="presentation">
+                                        <span role="menuitem" class="menu-item">
+                                            <span class="abbr">Menu Item</span>
+                                            Menu Item
+                                        </span>
+                                    </li>
+                                    <li role="presentation">
+                                        <span role="menuitem" class="menu-item">
+                                            <span class="abbr">Menu Item</span>
+                                            Menu Item
+                                        </span>
+                                    </li>
+                                    <li role="presentation">
+                                        <span role="menuitem" class="menu-item">
+                                            <span class="abbr">Menu Item</span>
+                                            Menu Item
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <form action="/" method="post" id="_filtir">
+                <!-- Filtir hissesi-->
+                <div class="pt-20 pl-20 pr-20 clear">
+
+                    <!-- ########################### Açıq suvarma şəbəkəsi ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="CH">
+                                <label for="CH">
+                                    <span class="bold">Açıq suvarma şəbəkəsi</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-1"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-1">
+
+                            <!-- ****************** Magistral kanallar *****************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="CHM">
+                                        <label for="CHM">
+                                            <span class="bold">Magistral kanallar</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="main-attr-1-1"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-1-1">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_M_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_M_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_M_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_M_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_M_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_M_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <div class="input-group">
+                                                    <select class="input" name="CHANNEL_M_COVER_TYPE_ID">
+                                                        <option selected disabled value="">Sec</option>
+                                                        @foreach (var item in Model._covertypes)
+                                                        {
+                                                            <option value="@item.OBJECTID">@item.NAME</option>
+                                                        }
+                                                    </select>
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_M_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_M_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_M_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_M_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_M_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_M_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_M_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_M_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_M_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ***************** I dereceli kanallar ****************** -->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="CHI">
+                                        <label for="CHI"><span class="bold">I dərəcəli kanallar</span></label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="main-attr-1-2"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-1-2">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_I_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_I_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_I_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_I_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_I_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_I_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_I_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_I_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_I_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_I_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_I_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_I_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_I_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_I_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_I_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_I_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- *************** II dərəcəli kanallar *******************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="CHII">
+                                        <label for="CHII"><span class="bold">II dərəcəli kanallar</span></label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="main-attr-1-3"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-1-3">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_II_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_II_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_II_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_II_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_II_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_II_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_II_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_II_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_II_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_II_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_II_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_II_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_II_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_II_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_II_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_II_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!--*************** III dərəcəli kanallar *******************-->
+                            <div class="collapse group clear">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="CHIII">
+                                        <label for="CHIII"><span class="bold">III dərəcəli kanallar</span></label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="main-attr-1-4"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-1-4">
+                                    <div class="collapse group pt-15 border-bottom clear">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_III_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_III_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_III_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_III_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_III_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_III_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_III_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_III_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_III_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_III_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_III_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_III_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_III_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_III_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_III_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_III_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Qapalı suvarma şəbəkəsi ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="QCH">
+                                <label for="QCH">
+                                    <span class="bold">Qapalı suvarma şəbəkəsi</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-2"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-2">
+
+                            <!-- *************** Magistral şəbəkə ********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-2-1">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="QCHM">
+                                        <label for="QCHM">
+                                            <span class="bold">Magistral şəbəkə</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-2-1">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QM_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QM_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QM_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QM_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QM_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QM_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_QM_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QM_WATER_CAPABILITY_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QM_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QM_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QM_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_QM_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_QM_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_QM_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_QM_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_QM_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- *************** I dərəcəli şəbəkə ********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-2-2">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="QCHI">
+                                        <label for="QCHI">
+                                            <span class="bold">I dərəcəli şəbəkə</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-2-2">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QI_EXPLONATION_DATE_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QI_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QI_SERVED_AREA_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QI_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QI_FACTICAL_LENGTH_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QI_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_QI_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QI_WATER_CAPABILITY_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QI_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QI_WATERPROOF_WIDTH_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QI_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_QI_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_QI_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_QI_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_QI_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_QI_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- *************** II dərəcəli şəbəkə ********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-2-3">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="QCHII">
+                                        <label for="QCHII">
+                                            <span class="bold">II dərəcəli şəbəkə</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-2-3">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QII_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QII_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QII_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QII_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QII_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QII_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_QII_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QII_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QII_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QII_WATERPROOF_WIDTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QII_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_QII_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_QII_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_QII_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_QII_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_QII_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- *************** III dərəcəli şəbəkə ********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-2-4">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="QCHIII">
+                                        <label for="QCHIII">
+                                            <span class="bold">III dərəcəli şəbəkə</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-2-4">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QIII_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QIII_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QIII_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QIII_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QIII_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QIII_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Örtüyü</label>
+                                                <select class="input" name="CHANNEL_QIII_COVER_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._covertypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Suburaxma qabiliyyəti</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QIII_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QIII_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Su mühafizə zonasının eni</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="CHANNEL_QIII_WATERPROOF_WIDTH_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="CHANNEL_QIII_WATERPROOF_WIDTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="CHANNEL_QIII_TECHNICAL_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="CNANNEL_QIII_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="CHANNEL_QIII_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="CHANNEL_QIII_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" min="0" name="CHANNEL_QIII_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Kollektor-drenaj şəbəkəsi. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="DRENAJ">
+                                <label for="DRENAJ">
+                                    <span class="bold">Kollektor-drenaj şəbəkəsi</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-3"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-3">
+
+                            <!-- ************************ Magistral kollektorlar****************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-3-1">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="DRENAJ-M">
+                                        <label for="DRENAJ-M">
+                                            <span class="bold">Magistral kollektorlar</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-3-1">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_M_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_M_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi drenləşmiş sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_M_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_M_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_M_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_M_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="DRENAJ_M_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Təyinatı</label>
+                                                <select class="input" name="DRENAJ_M_KIND_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._kind)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="DRENAJ_M_TECHNICAL_CONDITION_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="DRENAJ_M_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="DRENAJ_M_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Kollektorun su sərfləri</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_M_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_M_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" name="DRENAJ_M_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ************************ I dərəcəli kollektorlar ****************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-3-2">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="DRENAJ-I">
+                                        <label for="DRENAJ-I">
+                                            <span class="bold">I dərəcəli kollektorlar</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-3-2">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_I_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_I_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi drenləşmiş sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_I_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_I_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_I_FACTICAL_LENGTH_MIN" value="" />
+
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_I_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="DRENAJ_I_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Təyinatı</label>
+                                                <select class="input" name="DRENAJ_I_KIND_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._kind)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="DRENAJ_I_TECHNICAL_CONDITION_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="DRENAJ_I_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="DRENAJ_I_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Kollektorun su sərfləri</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_I_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_I_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" name="DRENAJ_I_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ********************** II dərəcəli kollektorlar **********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-3-3">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="DRENAJ-II">
+                                        <label for="DRENAJ-II">
+                                            <span class="bold">II dərəcəli kollektorlar</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-3-3">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_II_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_II_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi drenləşmiş sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_II_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_II_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_II_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_II_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="DRENAJ_II_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Təyinatı</label>
+                                                <select class="input" name="DRENAJ_II_KIND_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._kind)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="DRENAJ_II_TECHNICAL_CONDITION_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="DRENAJ_II_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="DRENAJ_II_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Kollektorun su sərfləri</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_II_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_II_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" name="DRENAJ_II_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- ********************** İlkin drenlər **********************-->
+                            <div class="collapse group">
+
+                                <div class="d-block clear pt-10 pb-10 border-bottom pointer" data-target-collapse="main-attr-3-4">
+                                    <div class="ckbox float-left">
+                                        <input type="checkbox" id="DRENAJ-K">
+                                        <label for="DRENAJ-K">
+                                            <span class="bold"> İlkin drenlər</span>
+                                        </label>
+                                    </div>
+                                    <i aria-hidden="true" class="icon-arrow-down float-right"></i>
+                                </div>
+
+                                <div class="collapse-content" data-collapse="main-attr-3-4">
+                                    <div class="collapse group pt-15 border-bottom">
+                                        <div class="row as-7">
+
+                                            <div class="col as-6 mb-15">
+                                                <label>İstismara verildiyi tarix</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_K_EXPLONATION_DATE_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_K_EXPLONATION_DATE_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Xidmət etdiyi drenləşmiş sahə</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_K_SERVED_AREA_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_K_SERVED_AREA_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Uzunluğu (km)</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_K_FACTICAL_LENGTH_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_K_FACTICAL_LENGTH_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Fəaliyyətdə olub-olmaması</label>
+                                                <select class="input" name="DRENAJ_K_ACTIVITY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._activity)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Təyinatı</label>
+                                                <select class="input" name="DRENAJ_K_KIND_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._kind)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Texniki vəziyyəti</label>
+                                                <select class="input" name="DRENAJ_K_TECHNICAL_CONDITION_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._tehnicals)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyət növü</label>
+                                                <select class="input" name="DRENAJ_K_PROPERTY_TYPE_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._propertytypes)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Mülkiyyətçisi</label>
+                                                <select class="input" name="DRENAJ_K_PROPERTY_ID">
+                                                    <option selected disabled value="">Sec</option>
+                                                    @foreach (var item in Model._property)
+                                                    {
+                                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                                    }
+                                                </select>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Kollektorun su sərfləri</label>
+                                                <div class="input-group">
+                                                    <input class="input" min="0" placeholder="min" type="number" name="DRENAJ_K_WATER_CAPABILITY_MIN" value="" />
+                                                    <div class="input-group-addon">-</div>
+                                                    <input class="input" min="0" placeholder="max" type="number" name="DRENAJ_K_WATER_CAPABILITY_MAX" value="" />
+                                                </div>
+                                            </div>
+
+                                            <div class="col as-6 mb-15">
+                                                <label>Üzərindəki qurğuların sayı</label>
+                                                <input class="input" type="number" name="DRENAJ_K_DEVICE_SUM" value="" />
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Hidrotexniki qurğular. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="DEVICE">
+                                <label for="DEVICE">
+                                    <span class="bold">Hidrotexniki qurğular</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-6"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-6">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="DEVICE_EXDATA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="DEVICE_EXDATA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Xidmət etdiyi sahə</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="DEVICE_SEVAREA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="DEVICE_SEVAREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Şəbəkənin növü</label>
+                                        <select class="input" name="DEVICE_NETWORK_TYPE">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._networktype)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Su keçirmə qabiliyyəti</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="DEVICE_WTRCAPASTY_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="DEVICE_WTRCAPASTY_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Fəaliyyətdə olub-olmaması</label>
+                                        <select class="input" name="DEVICE_ACTIVITY_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._activity)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mühafizə növü</label>
+                                        <select class="input" name="DEVICE_SECURITY_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._security)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Texniki vəziyyəti</label>
+                                        <select class="input" name="DEVICE_TECHNICAL_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._tehnicals)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyət növü</label>
+                                        <select class="input" name="DEVICE_PROPERTY_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._propertytypes)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyətçisi</label>
+                                        <select class="input" name="DEVICE_SSI_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._property)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Artezian Quyular.. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="ARTEZIAN_WELL">
+                                <label for="ARTEZIAN_WELL">
+                                    <span class="bold">Artezian Quyular</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-7"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-7">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Quyunun növü</label>
+                                        <select class="input" name="ARTEZIAN_WELL_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._welltype)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Məhsuldarlığı (l/s)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="ARTEZIAN_PRODUCTIVITY_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="ARTEZIAN_PRODUCTIVITY_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Xidmət etdiyi SİB</label>
+                                        <select class="input" name="ARTEZIAN_SIBS_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._sibs)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="ARTEZIAN_EXPDATE_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="ARTEZIAN_EXPDATE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Fəaliyyətdə olub-olmaması</label>
+                                        <select class="input" name="ATREZIAN_ACTIVITY_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._activity)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Suvarılan sahə (ha)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="ARTEZIAN_IRRIGATED_AREA_MIN" value="" />
+
+                                            <input class="input" min="0" placeholder="max" type="number" name="ARTEZIAN_IRRIGATED_AREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyət növü</label>
+                                        <select class="input" name="ARTEZIAN_PROPERTY_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._propertytypes)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyətçisi</label>
+                                        <select class="input" name="ARTEZIAN_PROPERTY_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._property)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Dərinliyi</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="ARTEZIAN_Depth_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="ARTEZIAN_Depth_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Quyular.. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="WELL">
+                                <label for="WELL">
+                                    <span class="bold">Quyular</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-8"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-8">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Quyunun növü</label>
+                                        <select class="input" name="WELL_WELL_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._welltype)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Məhsuldarlığı (l/s)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WELL_PRODUCTIVITY_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WELL_PRODUCTIVITY_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Xidmət etdiyi SİB</label>
+                                        <select class="input" name="WELL_SIBS_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._sibs)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WELL_EXPDATE_MIN" value="" />
+
+                                            <input class="input" min="0" placeholder="max" type="number" name="WELL_EXPDATE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Fəaliyyətdə olub-olmaması</label>
+                                        <select class="input" name="WELL_ACTIVITY_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._activity)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Suvarılan sahə (ha)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WELL_IRRIGATED_AREA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WELL_IRRIGATED_AREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyət növü</label>
+                                        <select class="input" name="WELL_PROPERTY_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._propertytypes)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyətçisi</label>
+                                        <select class="input" name="WELL_PROPERTY_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._property)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Dərinliyi</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WELL_Depth_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WELL_Depth_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Nasos stansiyaları... ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="PUMPSTATION">
+                                <label for="PUMPSTATION">
+                                    <span class="bold">Nasos stansiyaları</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-9"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-9">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_EXPLONATION_DATE_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_EXPLONATION_DATE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Xidmət etdiyi sahə</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_SERVED_AREA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_SERVED_AREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Nasos stansiyasının növü</label>
+                                        <select class="input" name="PUMPSTATION_PUMP_KIND_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._pumkind)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Nasos stansiyasının tipi</label>
+                                        <select class="input" name="PUMPSTATION_PUMP_TYPE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._pumtype)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Aqreqatların markası</label>
+                                        <select class="input" name="PUMPSTATION_BRAND_OF_AGGREGATE_ID">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._brads)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Aqreqatlarin sayı</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_AGREGATE_SUM_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_AGREGATE_SUM_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Ümumi gücü (kvt.)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_POWER_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_POWER_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Məhsuldarlığı (m³/s)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_PRODUCTIVITY_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_PRODUCTIVITY_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Basqılı boru kəməri Diametri;</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_PIPELINE_DIAMETER_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_PIPELINE_DIAMETER_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Basqılı boru kəməri Materialı;</label>
+                                        <select class="input" name="PUMPSTATION_PIPELINE_MATERIAL">
+                                            <option selected disabled value="">Sec</option>
+                                            @foreach (var item in Model._materials)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Basqılı boru kəməri (km) Uzunluğu;</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="PUMPSTATION_PIPELINE_LENGTH_MIN" value="" />
+
+                                            <input class="input" min="0" placeholder="max" type="number" name="PUMPSTATION_PIPELINE_LENGTH_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Qış otlaqlarının su təminatı sistemləri.. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="WINTERPASTURES">
+                                <label for="WINTERPASTURES">
+                                    <span class="bold">Qış otlaqlarının su təminatı sistemləri</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-10"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-10">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Xidmət etdiyi sahə (ha)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WINTERPASTURES_SERVED_AREA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WINTERPASTURES_SERVED_AREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Qurğular (ədəd)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WINTERPASTURES_DEVICE_SUM_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WINTERPASTURES_DEVICE_SUM_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Su kəmərləri (km)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="WINTERPASTURES_WATER_PIPE_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="WINTERPASTURES_WATER_PIPE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Mühafizə bəndləri.. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="RIVERBAND">
+                                <label for="RIVERBAND">
+                                    <span class="bold">Mühafizə bəndləri</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-11"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-11">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="RIVERBAND_EXPLONATION_DATE_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="RIVERBAND_EXPLONATION_DATE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Texniki vəziyyəti</label>
+                                        <select class="input" name="RIVERBAND_TECHNICAL_TYPE_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._tehnicals)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Təyinatı</label>
+                                        <select class="input" name="RIVERBAND_ASSIGMENT">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._assigment)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Bəndin Uzunluğu (km)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="RIVERBAND_LENGTH_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="RIVERBAND_LENGTH_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Bəndin növü</label>
+                                        <select class="input" name="RIVERBAND_COVER_TYPE_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._assigment)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyət növü</label>
+                                        <select class="input" name="RIVERBAND_PROPERTY_TYPE_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._propertytypes)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyətçisi</label>
+                                        <select class="input" name="RIVERBAND_PROPERTY_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._property)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### Binalar və tikililər.. ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="BUILDINGS">
+                                <label for="BUILDINGS">
+                                    <span class="bold">Binalar və tikililər</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-12"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-12">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>İstismara verildiyi tarix</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="BUILDINGS_EXPLONATION_DATE_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="BUILDINGS_EXPLONATION_DATE_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Fəaliyyətdə olub-olmaması</label>
+                                        <select class="input" name="BUILDINGS_ACTIVITY_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._activity)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Təyinatı</label>
+                                        <select class="input" name="BUILDINGS_ASSIGMENT">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._activity)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="col as-6 mb-15">
+                                        <label>Ümumi sahəsi</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="BUILDINGS_TOTAL_AREA_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="BUILDINGS_TOTAL_AREA_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyət növü</label>
+                                        <select class="input" name="BUILDINGS_PROPERTY_TYPE_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._propertytypes)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Mülkiyyətçisi</label>
+                                        <select class="input" name="BUILDINGS_PROPERTY_ID">
+                                            <option selected disabled value="">text</option>
+                                            @foreach (var item in Model._property)
+                                            {
+                                                <option value="@item.OBJECTID">@item.NAME</option>
+                                            }
+                                        </select>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- ########################### İstismar yolları ########################-->
+                    <div class="collapse group clear">
+
+                        <div class="d-block clear pt-10 pb-10 border-bottom pointer">
+                            <div class="ckbox float-left">
+                                <input type="checkbox" id="EXPLONATION_ROAD">
+                                <label for="EXPLONATION_ROAD">
+                                    <span class="bold">İstismar yolları</span>
+                                </label>
+                            </div>
+                            <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-13"></i>
+                        </div>
+
+                        <div class="collapse-content pl-15 clear" data-collapse="attr-section-13">
+                            <div class="collapse group pt-15 border-bottom">
+                                <div class="row as-7">
+
+                                    <div class="col as-6 mb-15">
+                                        <label>Yollar (km)</label>
+                                        <div class="input-group">
+                                            <input class="input" min="0" placeholder="min" type="number" name="EXPLONATION_ROAD_MIN" value="" />
+                                            <div class="input-group-addon">-</div>
+                                            <input class="input" min="0" placeholder="max" type="number" name="EXPLONATION_ROAD_MAX" value="" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="row as-5 mt-15">
+                        <div class="col as-6">
+                            <button type="button" id="_ShowInMap" class="btn bg-blue w-100p">Xəritədə göstər</button>
+                        </div>
+                        <div class="col as-6">
+                            <button data-target-modal="Report-filter" type="button" id="_GetFilTER" class="btn bg-green w-100p">Hesabat ver</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+
+        </div>
+
+        <div class="tab-panel scroll o-auto p-20" role="tabpanel" data-tab="layers">
+
+            <div class="row as-7 xxs-5">
+
+                <div class="col as-6 mb-20">
+                    <label for="select-district">Rayonlar</label>
+                    <select name="" id="select-district" class="input">
+                        <option>Seç</option>
+                        <option value="district-name">Rayon adı</option>
+                    </select>
+                </div>
+
+                <div class="col as-6 mb-20">
+                    <label for="select-village">Kəndlər</label>
+                    <select name="" id="select-district" class="input" disabled>
+                        <option>Seç</option>
+                        <option value="village-name">Village name</option>
+                    </select>
+                </div>
+
+            </div>
+
+            <div class="channels-list scroll o-auto">
+
+                <strong class="d-block mb-10">Channel</strong>
+
+                <div class="pl-10">
+                    <div class="ckbox">
+                        <input type="radio" name="channels" id="channel-name-1">
+                        <label for="channel-name-1">Channel name</label>
+                    </div>
+
+                    <div class="ckbox">
+                        <input type="radio" name="channels" id="channel-name-2">
+                        <label for="channel-name-2">Channel name</label>
+                    </div>
+
+                    <div class="ckbox">
+                        <input type="radio" name="channels" id="channel-name-3">
+                        <label for="channel-name-3">Channel name</label>
+                    </div>
+
+                    <div class="ckbox">
+                        <input type="radio" name="channels" id="channel-name-4">
+                        <label for="channel-name-4">Channel name</label>
+                    </div>
+
+                    <div class="ckbox">
+                        <input type="radio" name="channels" id="channel-name-5">
+                        <label for="channel-name-5">Channel name</label>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="devices mt-20">
+
+                <strong class="d-block mb-10">Qurğular</strong>
+
+                <div class="pl-10">
+                    <div class="ckbox">
+                        <input type="radio" name="devices" id="duke">
+                        <label for="duke">Düker</label>
+                    </div>
+
+                    <div class="ckbox">
+                        <input type="radio" name="devices" id="bridge">
+                        <label for="bridge">Körpü</label>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- Map wrap-->
+<main class="map responsive w-100p tr-3s">
+    @*<iframe src="http://81.21.86.7:98/melogis/"></iframe>*@
+    <div id="mapDiv"></div>
+</main>
+
+<footer class="footer w-100p p-15 clear">
+
+    <div class="map-navigator responsive pb-100 bg-white shadow float-left hide-xs hide-xxs mr-15"></div>
+
+    <span class="float-left">
+        <img src="" alt="şərti işarələr" height="40">
+    </span>
+
+    <strong class="maus-position float-right hide-xs hide-xxs">55.854689 76.114988</strong>
+
+</footer>
+
+<div class="alert-modal modal lg"
+     data-modal="terms-of-use"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1"
+     aria-hidden="true">
+
+    <div class="modal-content panel">
+        <div class="panel-header">
+            <span class="panel-title">İstifadəçi hüquqları</span>
+        </div>
+
+        <div class="panel-body p-40">
+            <h5>Lorem ipsum dolor sit amet</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+            </p>
+            <h5>Lorem ipsum dolor sit amet</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+            </p>
+            <h5>Lorem ipsum dolor sit amet</h5>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam dignissimos doloribus, ipsum maiores reprehenderit vero. Ab aliquid, cupiditate dignissimos iure necessitatibus non obcaecati possimus quae quo vero. Amet, vel?
+            </p>
+        </div>
+
+        <div class="panel-footer text-center">
+            <button class="btn bg-white no-border" data-close="terms-of-use">Bağla</button>
+        </div>
+    </div>
+
+</div>
+
+
+<div class="modal tr-3s"
+     id="Report-filter"
+     data-modal="Report-filter"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header text-center">
+            <h4 class="panel-title">Sorğunun nəticəsi</h4>
+        </div>
+        <div class="panel-body">
+            <table id="_FilterResult" class="work-planning-table table bordered m-0">
+                <thead>
+                    <tr>
+                        <th scope="col">Adi</th>
+                        <th scope="col">Sayı</th>
+                        <th scope="col">Uzunlugu</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs" aria-label="Bağla" aria-hidden="true" data-close="Report-filter">Bağla</span>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,188 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.CHANNEL>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <thead>
+            <tr>                
+                <th>
+                    Adı
+                    @*@Html.DisplayNameFor(model => model.NAME)*@
+                </th>
+                <th>
+                    Su buraxma qabiliyyəti
+                    @*@Html.DisplayNameFor(model => model.WATER_CAPABILITY)*@
+                </th>
+                <th>
+                    Istismara verildiyi tarix
+                    @*@Html.DisplayNameFor(model => model.EXPLONATION_DATE)*@
+                </th>
+                <th>
+                    Su mühafizə zonasının eni
+                    @*@Html.DisplayNameFor(model => model.WATERPROOF_WIDTH)*@
+                </th>
+                <th>
+                    Üzərindəki qurğuların sayı
+                    @*@Html.DisplayNameFor(model => model.DEVICE_SUM)*@
+                </th>
+                <th>
+                    Uzunluğu
+                    @*@Html.DisplayNameFor(model => model.FACTICAL_LENGTH)*@
+                </th>
+                <th>
+                    Coğrafi uzunluğu
+                    @*@Html.DisplayNameFor(model => model.GIS_LENGTH)*@
+                </th>
+                <th>
+                    Qeyd
+                    @*@Html.DisplayNameFor(model => model.NOTE)*@
+                </th>
+                <th>
+                    Xidmet etdiyi sahe
+                    @*@Html.DisplayNameFor(model => model.SERVED_AREAHA)*@
+                </th>
+                <th>
+                    Xerite Uzunluğu
+                    @*@Html.DisplayNameFor(model => model.SHAPE_STLength__)*@
+                </th>
+                <th>
+                    Aktivlik
+                    @*@Html.DisplayNameFor(model => model.ACTIVITY.NAME)*@
+                </th>
+                <th>
+                    Təyinat
+                    @*@Html.DisplayNameFor(model => model.ASSIGMENT.NAME)*@
+                </th>
+                <th>
+                    Tipi
+                    @*@Html.DisplayNameFor(model => model.CHANNEL_TYPES.NAME)*@
+                </th>
+                <th>
+                    Menbe
+                    @*@Html.DisplayNameFor(model => model.CHANNEL1.NAME)*@
+                </th>
+                <th>
+                    Örtüyü
+                    @*@Html.DisplayNameFor(model => model.COVER_TYPES.NAME)*@
+                </th>
+                <th>
+                    Təyinatı
+                    @*@Html.DisplayNameFor(model => model.KIND.NAME)*@
+                </th>
+                <th>
+                    Mülkiyyətçi
+                    @*@Html.DisplayNameFor(model => model.PROPERTY.NAME)*@
+                </th>
+                <th>
+                    Mülkiyyət növü
+                    @*@Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)*@
+                </th>
+                <th>
+                    Rayonun adı
+                    @*@Html.DisplayNameFor(model => model.REGION.Adi)*@
+                </th>
+                <th>
+                    Kəndin adı
+                    @*@Html.DisplayNameFor(model => model.REGION1.Adi)*@
+                </th>
+                <th>
+                    Xidmet etdiyi region
+                    @*@Html.DisplayNameFor(model => model.REGION2.Adi)*@
+                </th>
+                <th>
+                    Texniki vəziyyəti
+                    @*@Html.DisplayNameFor(model => model.TECHNICAL_TYPE.NAME)*@
+                </th>
+                <th></th>
+            </tr>
+
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WATER_CAPABILITY)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.WATERPROOF_WIDTH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DEVICE_SUM)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FACTICAL_LENGTH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.GIS_LENGTH)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NOTE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SERVED_AREAHA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SHAPE_STLength__)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ACTIVITY.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ASSIGMENT.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CHANNEL_TYPES.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CHANNEL1.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.COVER_TYPES.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KIND.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.REGION.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.REGION2.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.TECHNICAL_TYPE.NAME)
+                    </td>
+                    <td>
+                        <a href="@Url.Action("Edit", "OpenChannel", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page, type = ViewBag.Type }))
+
+</div>

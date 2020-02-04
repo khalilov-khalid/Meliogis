@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Meliogis.Models.USER>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+<p>
+    <a href="USERs/Create" class="m_btn sbm_btn">Yeni istifadəçi əlavə et</a>
+</p>
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.USERNAME)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PROPERTY.NAME)
+                </th>
+                <th style="width:15%;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.USERNAME)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                    </td>
+                    <td class="icon_center">
+                        <a class="ico ico_edit" href="@Url.Action("Edit", "USERs", new { id=item.OBJECTID })"><i class="fas fa-pencil-alt"></i></a>
+                        <a class="ico ico_del" href="@Url.Action("Delete", "USERs", new { id=item.OBJECTID })"><i class="fas fa-trash-alt"></i></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

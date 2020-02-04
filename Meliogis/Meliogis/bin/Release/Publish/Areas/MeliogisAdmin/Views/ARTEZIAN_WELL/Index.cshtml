@@ -1,0 +1,148 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.ARTEZIAN_WELL>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con table-bordered table-hover th_fixed">
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FID_Artezian_Well_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REPER_NO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IRRIGATED_AREA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DEPTH)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NUMBER_)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.X)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Y)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WATER_CAPABILITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCTIVITY)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.SHAPE)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.EXPLONATION_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACTIVITY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ASSIGMENT.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PUMPSTATION_BRAND.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION1.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SIB.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WELL_TYPE.NAME)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FID_Artezian_Well_1)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REPER_NO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.IRRIGATED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DEPTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NUMBER_)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.X)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Y)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATER_CAPABILITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODUCTIVITY)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SHAPE)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIVITY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGMENT.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PUMPSTATION_BRAND.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIB.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WELL_TYPE.NAME)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "ARTEZIAN_WELL", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

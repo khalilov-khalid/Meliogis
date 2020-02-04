@@ -1,0 +1,1115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>ftp://vac.az</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAATIUce7jLNkmBxJjAnGbGjQAAAAACAAAAAAADZgAAwAAAABAAAABN1X2C/5CDhyQPT9CcDSD3AAAAAASAAACgAAAAEAAAAOSouDQi3XzDX+3bQ4WnG5MgAAAA23EiJ//vh5rVyDGu0UxAhUDmkV3vhesWMeFwuTtzF5YUAAAAbO/GNa2BfHKlutl/EgBM1GC8k4o=</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/css/sb-admin-2.css">
+      <publishTime>05/24/2019 14:50:24</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/css/sb-admin-2.min.css">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/img/undraw_posting_photo.svg">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/js/sb-admin-2.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/js/sb-admin-2.min.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/navs/_global.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/navs/_sidebar.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/navs/_topbar.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/sb-admin-2.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_animation.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_background.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_border.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_display.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_progress.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_rotate.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/utilities/_text.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_buttons.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_cards.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_charts.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_dropdowns.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_error.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_footer.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_global.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_login.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_mixins.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_navs.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_utilities.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/scss/_variables.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.bundle.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.bundle.js.map">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.bundle.min.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.bundle.min.js.map">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.js.map">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.min.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/js/bootstrap.min.js.map">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/bootstrap-grid.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/bootstrap-reboot.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/bootstrap.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_alert.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_background-variant.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_badge.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_border-radius.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_box-shadow.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_breakpoints.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_buttons.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_caret.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_clearfix.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_deprecate.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_float.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_forms.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_gradients.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_grid-framework.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_grid.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_hover.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_image.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_list-group.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_lists.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_nav-divider.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_pagination.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_reset-text.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_resize.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_screen-reader.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_size.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_table-row.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_text-emphasis.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_text-hide.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_text-truncate.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_transition.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/mixins/_visibility.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_align.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_background.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_borders.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_clearfix.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_display.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_embed.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_flex.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_float.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_overflow.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_position.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_screenreaders.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_shadows.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_sizing.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_spacing.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_stretched-link.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_text.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/utilities/_visibility.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/vendor/_rfs.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_alert.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_badge.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_breadcrumb.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_button-group.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_buttons.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_card.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_carousel.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_close.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_code.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_custom-forms.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_dropdown.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_forms.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_functions.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_grid.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_images.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_input-group.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_jumbotron.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_list-group.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_media.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_mixins.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_modal.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_nav.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_navbar.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_pagination.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_popover.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_print.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_progress.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_reboot.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_root.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_spinners.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_tables.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_toasts.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_tooltip.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_transitions.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_type.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_utilities.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/bootstrap/scss/_variables.scss">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/dataTables.bootstrap4.css">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/dataTables.bootstrap4.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/dataTables.bootstrap4.min.css">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/dataTables.bootstrap4.min.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/jquery.dataTables.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/datatables/jquery.dataTables.min.js">
+      <publishTime>05/08/2019 11:30:32</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery-easing/jquery.easing.compatibility.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery-easing/jquery.easing.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery-easing/jquery.easing.min.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.min.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.min.map">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.slim.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.slim.min.js">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/AdminPublic/vendor/jquery/jquery.slim.min.map">
+      <publishTime>05/08/2019 11:30:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Controllers/OpenChannelController.cs">
+      <publishTime>09/16/2019 09:38:28</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/Admin/Index.cshtml">
+      <publishTime>05/08/2019 11:35:04</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/Admin/NotFound.cshtml">
+      <publishTime>05/09/2019 17:04:26</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/ARTEZIAN_WELL/Edit.cshtml">
+      <publishTime>11/13/2019 17:17:20</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/ARTEZIAN_WELL/Index.cshtml">
+      <publishTime>09/02/2019 16:06:22</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/BUILDINGs/Edit.cshtml">
+      <publishTime>11/13/2019 17:03:04</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/BUILDINGs/Index.cshtml">
+      <publishTime>09/02/2019 16:24:00</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/DEVICEs/Edit.cshtml">
+      <publishTime>11/13/2019 16:47:52</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/DEVICEs/Index.cshtml">
+      <publishTime>11/13/2019 16:49:22</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/DRENAJs/Edit.cshtml">
+      <publishTime>11/13/2019 17:32:38</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/DRENAJs/Index.cshtml">
+      <publishTime>09/16/2019 09:44:46</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/EXPLOITATION_ROAD/Edit.cshtml">
+      <publishTime>11/13/2019 16:19:36</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/EXPLOITATION_ROAD/Index.cshtml">
+      <publishTime>11/13/2019 16:09:16</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/Login/Index.cshtml">
+      <publishTime>08/05/2019 13:29:58</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/LoginAdmin/Index.cshtml">
+      <publishTime>07/18/2019 11:51:56</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/OpenChannel/Edit.cshtml">
+      <publishTime>11/13/2019 17:24:10</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/OpenChannel/Index.cshtml">
+      <publishTime>09/02/2019 15:40:24</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/PUMPSTATIONs/Edit.cshtml">
+      <publishTime>11/13/2019 16:00:20</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/PUMPSTATIONs/Index.cshtml">
+      <publishTime>12/18/2019 14:06:05</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/RIVERBANDs/Edit.cshtml">
+      <publishTime>11/12/2019 18:26:00</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/RIVERBANDs/Index.cshtml">
+      <publishTime>12/18/2019 14:05:25</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml">
+      <publishTime>11/08/2019 18:00:36</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/USERs/Create.cshtml">
+      <publishTime>06/02/2019 17:45:04</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/USERs/Delete.cshtml">
+      <publishTime>06/02/2019 17:47:58</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/USERs/Edit.cshtml">
+      <publishTime>06/02/2019 17:43:04</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/USERs/Index.cshtml">
+      <publishTime>06/02/2019 17:42:00</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/web.config">
+      <publishTime>05/08/2019 11:12:58</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/WELLs/Edit.cshtml">
+      <publishTime>09/02/2019 17:46:54</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/WELLs/Index.cshtml">
+      <publishTime>12/18/2019 14:06:54</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/WINTERPASTUREs/Edit.cshtml">
+      <publishTime>11/13/2019 15:32:48</publishTime>
+    </File>
+    <File Include="Areas/MeliogisAdmin/Views/WINTERPASTUREs/Index.cshtml">
+      <publishTime>12/18/2019 14:04:42</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.pdb">
+      <publishTime>09/10/2013 17:29:20</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>06/07/2018 11:03:48</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>06/07/2018 11:03:48</publishTime>
+    </File>
+    <File Include="bin/Meliogis.dll">
+      <publishTime>12/27/2019 19:55:37</publishTime>
+    </File>
+    <File Include="bin/Meliogis.pdb">
+      <publishTime>12/27/2019 19:55:37</publishTime>
+    </File>
+    <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/Microsoft.SqlServer.Types.dll">
+      <publishTime>09/27/2018 09:33:46</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>07/25/2012 12:48:56</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>02/18/2018 09:44:54</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csc.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.exe.config">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/csi.rsp">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Build.Tasks.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:22</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.CSharp.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.Scripting.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CodeAnalysis.VisualBasic.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.CSharp.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.amd64.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.DiaSymReader.Native.x86.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.Managed.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/Microsoft.VisualBasic.Core.targets">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.AppContext.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Collections.Immutable.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Console.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.FileVersionInfo.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Diagnostics.StackTrace.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Compression.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.FileSystem.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.IO.Pipes.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Reflection.Metadata.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.AccessControl.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Claims.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Algorithms.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Encoding.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.Primitives.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Cryptography.X509Certificates.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Security.Principal.Windows.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Text.Encoding.CodePages.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.ValueTuple.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.ReaderWriter.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XmlDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/System.Xml.XPath.XDocument.dll">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/vbc.rsp">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/roslyn/VBCSCompiler.exe.config">
+      <publishTime>05/24/2018 13:38:24</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x64/msvcr120.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x64/SqlServerSpatial140.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x86/msvcr120.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="bin/SqlServerTypes/x86/SqlServerSpatial140.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>05/10/2018 22:42:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>05/10/2018 22:38:08</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>02/11/2014 15:26:04</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>05/10/2018 22:38:32</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>05/10/2018 22:42:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>05/10/2018 22:42:40</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>05/10/2018 22:42:40</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>01/23/2014 13:57:34</publishTime>
+    </File>
+    <File Include="bin/X.PagedList.dll">
+      <publishTime>09/26/2018 21:47:58</publishTime>
+    </File>
+    <File Include="bin/X.PagedList.Mvc.dll">
+      <publishTime>09/26/2018 21:53:00</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.css.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap-theme.min.css.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff2">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="Models/Meliogis.edmx.diagram">
+      <publishTime>11/13/2019 16:40:46</publishTime>
+    </File>
+    <File Include="Public/assets/css/main.css">
+      <publishTime>11/28/2019 18:30:36</publishTime>
+    </File>
+    <File Include="Public/assets/css/pi.css">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Black.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Black.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Black.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Black.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Black.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BlackItalic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BlackItalic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BlackItalic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BlackItalic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BlackItalic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Bold.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Bold.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Bold.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Bold.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Bold.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BoldItalic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BoldItalic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BoldItalic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BoldItalic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-BoldItalic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Italic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Italic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Italic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Italic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Italic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Light.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Light.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Light.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Light.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Light.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-LightItalic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-LightItalic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-LightItalic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-LightItalic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-LightItalic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Medium.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Medium.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Medium.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Medium.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Medium.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-MediumItalic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-MediumItalic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-MediumItalic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-MediumItalic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-MediumItalic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Regular.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Regular.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Regular.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Regular.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Regular.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Thin.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Thin.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Thin.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Thin.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-Thin.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-ThinItalic.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-ThinItalic.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-ThinItalic.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-ThinItalic.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/fonts/Roboto-ThinItalic.woff2">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/demo.html">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/fonts/icomoon.eot">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/fonts/icomoon.svg">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/fonts/icomoon.ttf">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/fonts/icomoon.woff">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/icons/style.css">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/images/login-bg.png">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/images/Spin-1s-200px.gif">
+      <publishTime>09/12/2019 15:56:26</publishTime>
+    </File>
+    <File Include="Public/assets/js/jquery.min.js">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/js/Map.js">
+      <publishTime>12/27/2019 19:53:00</publishTime>
+    </File>
+    <File Include="Public/assets/js/pi.js">
+      <publishTime>04/15/2019 17:48:10</publishTime>
+    </File>
+    <File Include="Public/assets/js/script.js">
+      <publishTime>11/18/2019 16:01:14</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.min.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.js">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery-3.3.1.slim.min.map">
+      <publishTime>04/15/2019 15:02:56</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>04/15/2019 15:02:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>04/15/2019 15:02:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.js">
+      <publishTime>04/15/2019 15:02:58</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.unobtrusive.min.js">
+      <publishTime>04/15/2019 15:02:58</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.8.3.js">
+      <publishTime>04/15/2019 15:02:58</publishTime>
+    </File>
+    <File Include="SqlServerTypes/readme.htm">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x64/msvcr120.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x64/SqlServerSpatial140.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x86/msvcr120.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="SqlServerTypes/x86/SqlServerSpatial140.dll">
+      <publishTime>05/27/2019 13:55:24</publishTime>
+    </File>
+    <File Include="Views/Home/Index.cshtml">
+      <publishTime>12/27/2019 19:47:18</publishTime>
+    </File>
+    <File Include="Views/Login/Index.cshtml">
+      <publishTime>07/18/2019 11:49:14</publishTime>
+    </File>
+    <File Include="Views/Shared/ARTEZIANWELLPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:08:06</publishTime>
+    </File>
+    <File Include="Views/Shared/BUILDINGPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:08:22</publishTime>
+    </File>
+    <File Include="Views/Shared/CHANNELPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:08:34</publishTime>
+    </File>
+    <File Include="Views/Shared/DEVICEPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:08:50</publishTime>
+    </File>
+    <File Include="Views/Shared/DRENAJPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:00</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="Views/Shared/EXPLOITATIONROADPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:10</publishTime>
+    </File>
+    <File Include="Views/Shared/PUMSTATIONPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:24</publishTime>
+    </File>
+    <File Include="Views/Shared/RIVERBANDPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:34</publishTime>
+    </File>
+    <File Include="Views/Shared/WELLPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:48</publishTime>
+    </File>
+    <File Include="Views/Shared/WINTERPASTUREPARTIAL.cshtml">
+      <publishTime>09/12/2019 17:09:58</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>10/28/2019 13:50:34</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>04/15/2019 15:02:52</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>12/15/2019 19:18:16</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

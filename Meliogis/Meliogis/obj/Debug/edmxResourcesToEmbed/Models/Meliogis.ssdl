@@ -1,0 +1,1923 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MelorModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ACTIVITY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ARTEZIAN_WELL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="REPER_NO" Type="nvarchar" MaxLength="50" />
+    <Property Name="IRRIGATED_AREA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="DEPTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NUMBER_" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="X" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="Y" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="WATER_CAPABILITY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="PRODUCTIVITY" Type="int" />
+    <Property Name="WELL_TYPE_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="PUMPSTATION_BRAND_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+    <Property Name="SIB_ID" Type="int" />
+    <Property Name="POINT_X" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="POINT_Y" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="POINT_Z" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="POINT_M" Type="numeric" Precision="38" Scale="8" />
+  </EntityType>
+  <EntityType Name="ASSIGMENT">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="BRAND_OF_AGGREGATE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="BUILDINGS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="PROTECTING" Type="nvarchar" MaxLength="50" />
+    <Property Name="TOTAL_AREA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="USING_MODE" Type="nvarchar" MaxLength="50" />
+    <Property Name="SERVICE_AR" Type="nvarchar" MaxLength="200" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="EXPLONATION" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="SERVED_AREA" Type="numeric" Precision="38" Scale="8" />
+  </EntityType>
+  <EntityType Name="CHANNEL_SIBS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="CHANNEL_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="CHANNEL_TYPES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="CHANNELS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="WATER_CAPABILITY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="WATERPROOF_WIDTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="DEVICE_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="FACTICAL_LENGTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="GIS_LENGTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="SERVED_AREAHA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="SHAPE_STLength__" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="TYPE_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="TECHNICAL_ID" Type="int" />
+    <Property Name="SERVED_REGION_ID" Type="int" />
+    <Property Name="KIND_ID" Type="int" />
+    <Property Name="COVER_TYPE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="Shape" Type="geometry" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SOURCE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+  </EntityType>
+  <EntityType Name="COVER_TYPES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DEVICE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="TECHNICAL_TYPE_ID" Type="int" />
+    <Property Name="SECURITY_TYPE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+    <Property Name="NETWORK_TYPE_ID" Type="int" />
+    <Property Name="WATER_CAPABILITY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="SERVED_AREA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="CHANNEL_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="DRENAJ">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="WATERPROOF_WIDTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="SERVED_AREA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="DEVICE_SUM" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="WATER_CAPABILITY" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="FACTICAL_LENGTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="WATER_CONSUPTION" Type="nvarchar" MaxLength="50" />
+    <Property Name="GISLENGTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="KIND_ID" Type="int" />
+    <Property Name="CHANNEL_TYPE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="TECHNICAL_CONDINITION_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="RECIVER_ID" Type="int" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+  </EntityType>
+  <EntityType Name="DRENAJ_SIBS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="DRENAJ_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="ENGINE_BRAND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ENGINE_KIND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="EXPLOITATION_ROAD">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="LENGHT" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="COVER_TYPE_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="KIND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="NETWORK_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PIPELINE_MATERIAL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PLACED_SOURCE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PROPERTY">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="REGION_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="PROPERTY_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="250" />
+  </EntityType>
+  <EntityType Name="PUMP_KIND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PUMP_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="PUMPSTATION">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="POWER" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="PRODUCTIVITY" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="PURPOSEFUL" Type="nvarchar" MaxLength="50" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PIPELINE" Type="nvarchar" MaxLength="50" />
+    <Property Name="PIPELINE_LENGHT" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="ENGINE_INSTALL_DATE" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="PLACED_SOURCE_ID" Type="int" />
+    <Property Name="PUMP_KIND_ID" Type="int" />
+    <Property Name="PUMP_TYPE_ID" Type="int" />
+    <Property Name="BRAND_OF_AGGREGATE_ID" Type="int" />
+    <Property Name="PIPELINE_DIAMETER_ID" Type="int" />
+    <Property Name="PIPELINE_MATERIAL_ID" Type="int" />
+    <Property Name="ENGINE_BRAND_ID" Type="int" />
+    <Property Name="ENGINE_KIND_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+    <Property Name="SERVED_AREA" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="AGREGAT_SUM" Type="int" />
+  </EntityType>
+  <EntityType Name="PUMPSTATION_BRAND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="REGION_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="REGIONS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="Adi" Type="nvarchar" MaxLength="100" />
+    <Property Name="REL_ID" Type="int" />
+    <Property Name="REGION_TYPE_ID" Type="int" />
+    <Property Name="Shape" Type="geometry" />
+  </EntityType>
+  <EntityType Name="RIVERBAND">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="HEIGHT" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="LENGTH" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="COVER_TYPE_ID" Type="int" />
+    <Property Name="TECHNICAL_TYPE_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="PLACED_SOURCE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+    <Property Name="SECURITY_TYPE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="SECURITY_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="SIBS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="SSI_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="TECHNICAL_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="PASSWORD" Type="nvarchar" MaxLength="50" />
+    <Property Name="REL_SIB_ID" Type="int" />
+    <Property Name="ROLE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="USERSMAINPAGES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="PASSWORD" Type="nvarchar(max)" Nullable="false" />
+  </EntityType>
+  <EntityType Name="VILLAGE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="100" />
+    <Property Name="REL_ID" Type="int" />
+    <Property Name="REGION_TYPE_ID" Type="int" />
+    <Property Name="Shape" Type="geometry" />
+  </EntityType>
+  <EntityType Name="WELL">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="255" />
+    <Property Name="NUMBER_" Type="nvarchar" MaxLength="50" />
+    <Property Name="PRODUCTIVITY" Type="nvarchar" MaxLength="50" />
+    <Property Name="NOTE" Type="nvarchar" MaxLength="120" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="WELL_TYPE_ID" Type="int" />
+    <Property Name="ASSIGMENT_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="ACTIVITY_ID" Type="int" />
+    <Property Name="TECHNICAL_TYPE_ID" Type="int" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="EXPLONATION_DATE" Type="int" />
+    <Property Name="DEPTH" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="IRRIGATED_AREA" Type="numeric" Precision="38" Scale="2" />
+    <Property Name="SECURITY_TYPE_ID" Type="int" />
+  </EntityType>
+  <EntityType Name="WELL_TYPE">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="WINTERPASTURES">
+    <Key>
+      <PropertyRef Name="OBJECTID" />
+    </Key>
+    <Property Name="OBJECTID" Type="int" Nullable="false" />
+    <Property Name="NAME" Type="nvarchar" MaxLength="50" />
+    <Property Name="DEVICE_SUM" Type="nvarchar" MaxLength="50" />
+    <Property Name="WATER_PIPE" Type="nvarchar" MaxLength="50" />
+    <Property Name="VILLAGE_ID" Type="int" />
+    <Property Name="SHAPE" Type="geometry" />
+    <Property Name="SSI_ID" Type="int" />
+    <Property Name="PROPERTY_TYPE_ID" Type="int" />
+    <Property Name="REGIONS_ID" Type="int" />
+    <Property Name="SIBS_ID" Type="int" />
+    <Property Name="SERVED_AREA" Type="numeric" Precision="38" Scale="8" />
+    <Property Name="DEVICE_SUMM" Type="numeric" Precision="38" Scale="8" />
+  </EntityType>
+  <Association Name="FK_ARTEZIAN_WELL_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_PROPERTY">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_PUMPSTATION_BRAND">
+    <End Role="PUMPSTATION_BRAND" Type="Self.PUMPSTATION_BRAND" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUMPSTATION_BRAND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="PUMPSTATION_BRAND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_SIBS">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="SIB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ARTEZIAN_WELL_WELL_TYPE">
+    <End Role="WELL_TYPE" Type="Self.WELL_TYPE" Multiplicity="0..1" />
+    <End Role="ARTEZIAN_WELL" Type="Self.ARTEZIAN_WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WELL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="ARTEZIAN_WELL">
+        <PropertyRef Name="WELL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_PROPERTY">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_BUILDINGS_SIBS">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="BUILDINGS" Type="Self.BUILDINGS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="BUILDINGS">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNEL_SIBS_CHANNELS">
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="0..1" />
+    <End Role="CHANNEL_SIBS" Type="Self.CHANNEL_SIBS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHANNELS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNEL_SIBS">
+        <PropertyRef Name="CHANNEL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNEL_SIBS_SIBS">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="CHANNEL_SIBS" Type="Self.CHANNEL_SIBS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNEL_SIBS">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_CHANNEL_TYPES">
+    <End Role="CHANNEL_TYPES" Type="Self.CHANNEL_TYPES" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHANNEL_TYPES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_CHANNELS">
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="0..1" />
+    <End Role="CHANNELS1" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHANNELS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS1">
+        <PropertyRef Name="SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_COVER_TYPES">
+    <End Role="COVER_TYPES" Type="Self.COVER_TYPES" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COVER_TYPES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="COVER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_KIND">
+    <End Role="KIND" Type="Self.KIND" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KIND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="KIND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_Property">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_REGIONS2">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="SERVED_REGION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CHANNELS_TECHNICAL_TYPE">
+    <End Role="TECHNICAL_TYPE" Type="Self.TECHNICAL_TYPE" Multiplicity="0..1" />
+    <End Role="CHANNELS" Type="Self.CHANNELS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNICAL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="CHANNELS">
+        <PropertyRef Name="TECHNICAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_NETWORK_TYPE">
+    <End Role="NETWORK_TYPE" Type="Self.NETWORK_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NETWORK_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="NETWORK_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_REGIONS1">
+    <End Role="VILLAGE" Type="Self.VILLAGE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLAGE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_SECURITY_TYPE">
+    <End Role="SECURITY_TYPE" Type="Self.SECURITY_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SECURITY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="SECURITY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DEVICE_TECHNICAL_TYPE">
+    <End Role="TECHNICAL_TYPE" Type="Self.TECHNICAL_TYPE" Multiplicity="0..1" />
+    <End Role="DEVICE" Type="Self.DEVICE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNICAL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DEVICE">
+        <PropertyRef Name="TECHNICAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_CHANNEL_TYPES">
+    <End Role="CHANNEL_TYPES" Type="Self.CHANNEL_TYPES" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CHANNEL_TYPES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="CHANNEL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_DRENAJ">
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="0..1" />
+    <End Role="DRENAJ1" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DRENAJ">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ1">
+        <PropertyRef Name="RECIVER_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_KIND">
+    <End Role="KIND" Type="Self.KIND" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KIND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="KIND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_SIBS_DRENAJ">
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="0..1" />
+    <End Role="DRENAJ_SIBS" Type="Self.DRENAJ_SIBS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DRENAJ">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ_SIBS">
+        <PropertyRef Name="DRENAJ_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_SIBS_SIBS">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="DRENAJ_SIBS" Type="Self.DRENAJ_SIBS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ_SIBS">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DRENAJ_TECHNICAL_TYPE">
+    <End Role="TECHNICAL_TYPE" Type="Self.TECHNICAL_TYPE" Multiplicity="0..1" />
+    <End Role="DRENAJ" Type="Self.DRENAJ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNICAL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="DRENAJ">
+        <PropertyRef Name="TECHNICAL_CONDINITION_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPLOITATION_ROAD_COVER_TYPES">
+    <End Role="COVER_TYPES" Type="Self.COVER_TYPES" Multiplicity="0..1" />
+    <End Role="EXPLOITATION_ROAD" Type="Self.EXPLOITATION_ROAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COVER_TYPES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="EXPLOITATION_ROAD">
+        <PropertyRef Name="COVER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPLOITATION_ROAD_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="EXPLOITATION_ROAD" Type="Self.EXPLOITATION_ROAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="EXPLOITATION_ROAD">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPLOITATION_ROAD_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="EXPLOITATION_ROAD" Type="Self.EXPLOITATION_ROAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="EXPLOITATION_ROAD">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPLOITATION_ROAD_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="EXPLOITATION_ROAD" Type="Self.EXPLOITATION_ROAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="EXPLOITATION_ROAD">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_EXPLOITATION_ROAD_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="EXPLOITATION_ROAD" Type="Self.EXPLOITATION_ROAD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="EXPLOITATION_ROAD">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_BRAND_OF_AGGREGATE">
+    <End Role="BRAND_OF_AGGREGATE" Type="Self.BRAND_OF_AGGREGATE" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="BRAND_OF_AGGREGATE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="BRAND_OF_AGGREGATE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_ENGINE_BRAND">
+    <End Role="ENGINE_BRAND" Type="Self.ENGINE_BRAND" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENGINE_BRAND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="ENGINE_BRAND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_ENGINE_KIND">
+    <End Role="ENGINE_KIND" Type="Self.ENGINE_KIND" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ENGINE_KIND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="ENGINE_KIND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_PIPELINE_MATERIAL">
+    <End Role="PIPELINE_MATERIAL" Type="Self.PIPELINE_MATERIAL" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PIPELINE_MATERIAL">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="PIPELINE_MATERIAL_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_PLACED_SOURCE">
+    <End Role="PLACED_SOURCE" Type="Self.PLACED_SOURCE" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLACED_SOURCE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="PLACED_SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_PUMP_KIND">
+    <End Role="PUMP_KIND" Type="Self.PUMP_KIND" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUMP_KIND">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="PUMP_KIND_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_PUMP_TYPE">
+    <End Role="PUMP_TYPE" Type="Self.PUMP_TYPE" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUMP_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="PUMP_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_REGIONS">
+    <End Role="VILLAGE" Type="Self.VILLAGE" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLAGE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUMPSTATION_SIBS1">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="PUMPSTATION" Type="Self.PUMPSTATION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="PUMPSTATION">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_COVER_TYPES">
+    <End Role="COVER_TYPES" Type="Self.COVER_TYPES" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COVER_TYPES">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="COVER_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_PLACED_SOURCE">
+    <End Role="PLACED_SOURCE" Type="Self.PLACED_SOURCE" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PLACED_SOURCE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="PLACED_SOURCE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_REGIONS">
+    <End Role="VILLAGE" Type="Self.VILLAGE" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLAGE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_SIBS1">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RIVERBAND_TECHNICAL_TYPE">
+    <End Role="TECHNICAL_TYPE" Type="Self.TECHNICAL_TYPE" Multiplicity="0..1" />
+    <End Role="RIVERBAND" Type="Self.RIVERBAND" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNICAL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="RIVERBAND">
+        <PropertyRef Name="TECHNICAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_USERS_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="USERS" Type="Self.USERS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="USERS">
+        <PropertyRef Name="REL_SIB_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_ACTIVITY">
+    <End Role="ACTIVITY" Type="Self.ACTIVITY" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ACTIVITY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="ACTIVITY_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_ASSIGMENT">
+    <End Role="ASSIGMENT" Type="Self.ASSIGMENT" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ASSIGMENT">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="ASSIGMENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_REGIONS">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_SIBS1">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_TECHNICAL_TYPE">
+    <End Role="TECHNICAL_TYPE" Type="Self.TECHNICAL_TYPE" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TECHNICAL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="TECHNICAL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WELL_WELL">
+    <End Role="WELL_TYPE" Type="Self.WELL_TYPE" Multiplicity="0..1" />
+    <End Role="WELL" Type="Self.WELL" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="WELL_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WELL">
+        <PropertyRef Name="WELL_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WINTERPASTURES_PROPERTY_TYPE">
+    <End Role="PROPERTY_TYPE" Type="Self.PROPERTY_TYPE" Multiplicity="0..1" />
+    <End Role="WINTERPASTURES" Type="Self.WINTERPASTURES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY_TYPE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WINTERPASTURES">
+        <PropertyRef Name="PROPERTY_TYPE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WINTERPASTURES_REGIONS">
+    <End Role="VILLAGE" Type="Self.VILLAGE" Multiplicity="0..1" />
+    <End Role="WINTERPASTURES" Type="Self.WINTERPASTURES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="VILLAGE">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WINTERPASTURES">
+        <PropertyRef Name="VILLAGE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WINTERPASTURES_REGIONS1">
+    <End Role="REGIONS" Type="Self.REGIONS" Multiplicity="0..1" />
+    <End Role="WINTERPASTURES" Type="Self.WINTERPASTURES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGIONS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WINTERPASTURES">
+        <PropertyRef Name="REGIONS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WINTERPASTURES_SIBS">
+    <End Role="PROPERTY" Type="Self.PROPERTY" Multiplicity="0..1" />
+    <End Role="WINTERPASTURES" Type="Self.WINTERPASTURES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROPERTY">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WINTERPASTURES">
+        <PropertyRef Name="SSI_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_WINTERPASTURES_SIBS1">
+    <End Role="SIBS" Type="Self.SIBS" Multiplicity="0..1" />
+    <End Role="WINTERPASTURES" Type="Self.WINTERPASTURES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="SIBS">
+        <PropertyRef Name="OBJECTID" />
+      </Principal>
+      <Dependent Role="WINTERPASTURES">
+        <PropertyRef Name="SIBS_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MelorModelStoreContainer">
+    <EntitySet Name="ACTIVITY" EntityType="Self.ACTIVITY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ARTEZIAN_WELL" EntityType="Self.ARTEZIAN_WELL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ASSIGMENT" EntityType="Self.ASSIGMENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BRAND_OF_AGGREGATE" EntityType="Self.BRAND_OF_AGGREGATE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="BUILDINGS" EntityType="Self.BUILDINGS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHANNEL_SIBS" EntityType="Self.CHANNEL_SIBS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHANNEL_TYPES" EntityType="Self.CHANNEL_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CHANNELS" EntityType="Self.CHANNELS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COVER_TYPES" EntityType="Self.COVER_TYPES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVICE" EntityType="Self.DEVICE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DRENAJ" EntityType="Self.DRENAJ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DRENAJ_SIBS" EntityType="Self.DRENAJ_SIBS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENGINE_BRAND" EntityType="Self.ENGINE_BRAND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ENGINE_KIND" EntityType="Self.ENGINE_KIND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EXPLOITATION_ROAD" EntityType="Self.EXPLOITATION_ROAD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KIND" EntityType="Self.KIND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NETWORK_TYPE" EntityType="Self.NETWORK_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PIPELINE_MATERIAL" EntityType="Self.PIPELINE_MATERIAL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PLACED_SOURCE" EntityType="Self.PLACED_SOURCE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROPERTY" EntityType="Self.PROPERTY" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PROPERTY_TYPE" EntityType="Self.PROPERTY_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUMP_KIND" EntityType="Self.PUMP_KIND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUMP_TYPE" EntityType="Self.PUMP_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUMPSTATION" EntityType="Self.PUMPSTATION" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PUMPSTATION_BRAND" EntityType="Self.PUMPSTATION_BRAND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGION_TYPE" EntityType="Self.REGION_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="REGIONS" EntityType="Self.REGIONS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RIVERBAND" EntityType="Self.RIVERBAND" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SECURITY_TYPE" EntityType="Self.SECURITY_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SIBS" EntityType="Self.SIBS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TECHNICAL_TYPE" EntityType="Self.TECHNICAL_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERSMAINPAGES" EntityType="Self.USERSMAINPAGES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VILLAGE" EntityType="Self.VILLAGE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WELL" EntityType="Self.WELL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WELL_TYPE" EntityType="Self.WELL_TYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="WINTERPASTURES" EntityType="Self.WINTERPASTURES" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ARTEZIAN_WELL_ACTIVITY" Association="Self.FK_ARTEZIAN_WELL_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_ASSIGMENT" Association="Self.FK_ARTEZIAN_WELL_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_PROPERTY" Association="Self.FK_ARTEZIAN_WELL_PROPERTY">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_PROPERTY_TYPE" Association="Self.FK_ARTEZIAN_WELL_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_PUMPSTATION_BRAND" Association="Self.FK_ARTEZIAN_WELL_PUMPSTATION_BRAND">
+      <End Role="PUMPSTATION_BRAND" EntitySet="PUMPSTATION_BRAND" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_REGIONS" Association="Self.FK_ARTEZIAN_WELL_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_REGIONS1" Association="Self.FK_ARTEZIAN_WELL_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_SIBS" Association="Self.FK_ARTEZIAN_WELL_SIBS">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ARTEZIAN_WELL_WELL_TYPE" Association="Self.FK_ARTEZIAN_WELL_WELL_TYPE">
+      <End Role="WELL_TYPE" EntitySet="WELL_TYPE" />
+      <End Role="ARTEZIAN_WELL" EntitySet="ARTEZIAN_WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_ACTIVITY" Association="Self.FK_BUILDINGS_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_PROPERTY" Association="Self.FK_BUILDINGS_PROPERTY">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_PROPERTY_TYPE" Association="Self.FK_BUILDINGS_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_REGIONS" Association="Self.FK_BUILDINGS_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_REGIONS1" Association="Self.FK_BUILDINGS_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_BUILDINGS_SIBS" Association="Self.FK_BUILDINGS_SIBS">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="BUILDINGS" EntitySet="BUILDINGS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNEL_SIBS_CHANNELS" Association="Self.FK_CHANNEL_SIBS_CHANNELS">
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+      <End Role="CHANNEL_SIBS" EntitySet="CHANNEL_SIBS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNEL_SIBS_SIBS" Association="Self.FK_CHANNEL_SIBS_SIBS">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="CHANNEL_SIBS" EntitySet="CHANNEL_SIBS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_ACTIVITY" Association="Self.FK_CHANNELS_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_ASSIGMENT" Association="Self.FK_CHANNELS_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_CHANNEL_TYPES" Association="Self.FK_CHANNELS_CHANNEL_TYPES">
+      <End Role="CHANNEL_TYPES" EntitySet="CHANNEL_TYPES" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_CHANNELS" Association="Self.FK_CHANNELS_CHANNELS">
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+      <End Role="CHANNELS1" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_COVER_TYPES" Association="Self.FK_CHANNELS_COVER_TYPES">
+      <End Role="COVER_TYPES" EntitySet="COVER_TYPES" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_KIND" Association="Self.FK_CHANNELS_KIND">
+      <End Role="KIND" EntitySet="KIND" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_Property" Association="Self.FK_CHANNELS_Property">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_PROPERTY_TYPE" Association="Self.FK_CHANNELS_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_REGIONS" Association="Self.FK_CHANNELS_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_REGIONS1" Association="Self.FK_CHANNELS_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_REGIONS2" Association="Self.FK_CHANNELS_REGIONS2">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CHANNELS_TECHNICAL_TYPE" Association="Self.FK_CHANNELS_TECHNICAL_TYPE">
+      <End Role="TECHNICAL_TYPE" EntitySet="TECHNICAL_TYPE" />
+      <End Role="CHANNELS" EntitySet="CHANNELS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_ACTIVITY" Association="Self.FK_DEVICE_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_NETWORK_TYPE" Association="Self.FK_DEVICE_NETWORK_TYPE">
+      <End Role="NETWORK_TYPE" EntitySet="NETWORK_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_PROPERTY_TYPE" Association="Self.FK_DEVICE_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_REGIONS" Association="Self.FK_DEVICE_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_REGIONS1" Association="Self.FK_DEVICE_REGIONS1">
+      <End Role="VILLAGE" EntitySet="VILLAGE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_SECURITY_TYPE" Association="Self.FK_DEVICE_SECURITY_TYPE">
+      <End Role="SECURITY_TYPE" EntitySet="SECURITY_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_SIBS" Association="Self.FK_DEVICE_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DEVICE_TECHNICAL_TYPE" Association="Self.FK_DEVICE_TECHNICAL_TYPE">
+      <End Role="TECHNICAL_TYPE" EntitySet="TECHNICAL_TYPE" />
+      <End Role="DEVICE" EntitySet="DEVICE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_ACTIVITY" Association="Self.FK_DRENAJ_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_ASSIGMENT" Association="Self.FK_DRENAJ_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_CHANNEL_TYPES" Association="Self.FK_DRENAJ_CHANNEL_TYPES">
+      <End Role="CHANNEL_TYPES" EntitySet="CHANNEL_TYPES" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_DRENAJ" Association="Self.FK_DRENAJ_DRENAJ">
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+      <End Role="DRENAJ1" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_KIND" Association="Self.FK_DRENAJ_KIND">
+      <End Role="KIND" EntitySet="KIND" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_PROPERTY_TYPE" Association="Self.FK_DRENAJ_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_REGIONS" Association="Self.FK_DRENAJ_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_REGIONS1" Association="Self.FK_DRENAJ_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_SIBS" Association="Self.FK_DRENAJ_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_SIBS_DRENAJ" Association="Self.FK_DRENAJ_SIBS_DRENAJ">
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+      <End Role="DRENAJ_SIBS" EntitySet="DRENAJ_SIBS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_SIBS_SIBS" Association="Self.FK_DRENAJ_SIBS_SIBS">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="DRENAJ_SIBS" EntitySet="DRENAJ_SIBS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DRENAJ_TECHNICAL_TYPE" Association="Self.FK_DRENAJ_TECHNICAL_TYPE">
+      <End Role="TECHNICAL_TYPE" EntitySet="TECHNICAL_TYPE" />
+      <End Role="DRENAJ" EntitySet="DRENAJ" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPLOITATION_ROAD_COVER_TYPES" Association="Self.FK_EXPLOITATION_ROAD_COVER_TYPES">
+      <End Role="COVER_TYPES" EntitySet="COVER_TYPES" />
+      <End Role="EXPLOITATION_ROAD" EntitySet="EXPLOITATION_ROAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPLOITATION_ROAD_PROPERTY_TYPE" Association="Self.FK_EXPLOITATION_ROAD_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="EXPLOITATION_ROAD" EntitySet="EXPLOITATION_ROAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPLOITATION_ROAD_REGIONS" Association="Self.FK_EXPLOITATION_ROAD_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="EXPLOITATION_ROAD" EntitySet="EXPLOITATION_ROAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPLOITATION_ROAD_REGIONS1" Association="Self.FK_EXPLOITATION_ROAD_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="EXPLOITATION_ROAD" EntitySet="EXPLOITATION_ROAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_EXPLOITATION_ROAD_SIBS" Association="Self.FK_EXPLOITATION_ROAD_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="EXPLOITATION_ROAD" EntitySet="EXPLOITATION_ROAD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_ASSIGMENT" Association="Self.FK_PUMPSTATION_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_BRAND_OF_AGGREGATE" Association="Self.FK_PUMPSTATION_BRAND_OF_AGGREGATE">
+      <End Role="BRAND_OF_AGGREGATE" EntitySet="BRAND_OF_AGGREGATE" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_ENGINE_BRAND" Association="Self.FK_PUMPSTATION_ENGINE_BRAND">
+      <End Role="ENGINE_BRAND" EntitySet="ENGINE_BRAND" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_ENGINE_KIND" Association="Self.FK_PUMPSTATION_ENGINE_KIND">
+      <End Role="ENGINE_KIND" EntitySet="ENGINE_KIND" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_PIPELINE_MATERIAL" Association="Self.FK_PUMPSTATION_PIPELINE_MATERIAL">
+      <End Role="PIPELINE_MATERIAL" EntitySet="PIPELINE_MATERIAL" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_PLACED_SOURCE" Association="Self.FK_PUMPSTATION_PLACED_SOURCE">
+      <End Role="PLACED_SOURCE" EntitySet="PLACED_SOURCE" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_PROPERTY_TYPE" Association="Self.FK_PUMPSTATION_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_PUMP_KIND" Association="Self.FK_PUMPSTATION_PUMP_KIND">
+      <End Role="PUMP_KIND" EntitySet="PUMP_KIND" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_PUMP_TYPE" Association="Self.FK_PUMPSTATION_PUMP_TYPE">
+      <End Role="PUMP_TYPE" EntitySet="PUMP_TYPE" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_REGIONS" Association="Self.FK_PUMPSTATION_REGIONS">
+      <End Role="VILLAGE" EntitySet="VILLAGE" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_REGIONS1" Association="Self.FK_PUMPSTATION_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_SIBS" Association="Self.FK_PUMPSTATION_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUMPSTATION_SIBS1" Association="Self.FK_PUMPSTATION_SIBS1">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="PUMPSTATION" EntitySet="PUMPSTATION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_ASSIGMENT" Association="Self.FK_RIVERBAND_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_COVER_TYPES" Association="Self.FK_RIVERBAND_COVER_TYPES">
+      <End Role="COVER_TYPES" EntitySet="COVER_TYPES" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_PLACED_SOURCE" Association="Self.FK_RIVERBAND_PLACED_SOURCE">
+      <End Role="PLACED_SOURCE" EntitySet="PLACED_SOURCE" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_PROPERTY_TYPE" Association="Self.FK_RIVERBAND_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_REGIONS" Association="Self.FK_RIVERBAND_REGIONS">
+      <End Role="VILLAGE" EntitySet="VILLAGE" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_REGIONS1" Association="Self.FK_RIVERBAND_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_SIBS" Association="Self.FK_RIVERBAND_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_SIBS1" Association="Self.FK_RIVERBAND_SIBS1">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RIVERBAND_TECHNICAL_TYPE" Association="Self.FK_RIVERBAND_TECHNICAL_TYPE">
+      <End Role="TECHNICAL_TYPE" EntitySet="TECHNICAL_TYPE" />
+      <End Role="RIVERBAND" EntitySet="RIVERBAND" />
+    </AssociationSet>
+    <AssociationSet Name="FK_USERS_SIBS" Association="Self.FK_USERS_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="USERS" EntitySet="USERS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_ACTIVITY" Association="Self.FK_WELL_ACTIVITY">
+      <End Role="ACTIVITY" EntitySet="ACTIVITY" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_ASSIGMENT" Association="Self.FK_WELL_ASSIGMENT">
+      <End Role="ASSIGMENT" EntitySet="ASSIGMENT" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_PROPERTY_TYPE" Association="Self.FK_WELL_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_REGIONS" Association="Self.FK_WELL_REGIONS">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_REGIONS1" Association="Self.FK_WELL_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_SIBS1" Association="Self.FK_WELL_SIBS1">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_TECHNICAL_TYPE" Association="Self.FK_WELL_TECHNICAL_TYPE">
+      <End Role="TECHNICAL_TYPE" EntitySet="TECHNICAL_TYPE" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WELL_WELL" Association="Self.FK_WELL_WELL">
+      <End Role="WELL_TYPE" EntitySet="WELL_TYPE" />
+      <End Role="WELL" EntitySet="WELL" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WINTERPASTURES_PROPERTY_TYPE" Association="Self.FK_WINTERPASTURES_PROPERTY_TYPE">
+      <End Role="PROPERTY_TYPE" EntitySet="PROPERTY_TYPE" />
+      <End Role="WINTERPASTURES" EntitySet="WINTERPASTURES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WINTERPASTURES_REGIONS" Association="Self.FK_WINTERPASTURES_REGIONS">
+      <End Role="VILLAGE" EntitySet="VILLAGE" />
+      <End Role="WINTERPASTURES" EntitySet="WINTERPASTURES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WINTERPASTURES_REGIONS1" Association="Self.FK_WINTERPASTURES_REGIONS1">
+      <End Role="REGIONS" EntitySet="REGIONS" />
+      <End Role="WINTERPASTURES" EntitySet="WINTERPASTURES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WINTERPASTURES_SIBS" Association="Self.FK_WINTERPASTURES_SIBS">
+      <End Role="PROPERTY" EntitySet="PROPERTY" />
+      <End Role="WINTERPASTURES" EntitySet="WINTERPASTURES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_WINTERPASTURES_SIBS1" Association="Self.FK_WINTERPASTURES_SIBS1">
+      <End Role="SIBS" EntitySet="SIBS" />
+      <End Role="WINTERPASTURES" EntitySet="WINTERPASTURES" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

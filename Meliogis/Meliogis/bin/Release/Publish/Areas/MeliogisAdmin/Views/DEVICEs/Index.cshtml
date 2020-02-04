@@ -1,0 +1,124 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.DEVICE>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ID_CHANNEL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LOCATED_NETWORK)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.WATER_CAPABILITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SERVED_AREA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOTE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SIBS_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EXPLONATION_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ACTIVITY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NETWORK_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION1.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SECURITY_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TECHNICAL_TYPE.NAME)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID_CHANNEL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LOCATED_NETWORK)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.WATER_CAPABILITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SERVED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOTE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIVITY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NETWORK_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SECURITY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TECHNICAL_TYPE.NAME)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "DEVICEs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

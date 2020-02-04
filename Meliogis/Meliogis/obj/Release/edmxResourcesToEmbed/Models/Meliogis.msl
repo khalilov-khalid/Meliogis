@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MelorModelStoreContainer" CdmEntityContainer="MelorEntities">
+    <EntitySetMapping Name="ACTIVITies">
+      <EntityTypeMapping TypeName="MelorModel.ACTIVITY">
+        <MappingFragment StoreEntitySet="ACTIVITY">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ARTEZIAN_WELL">
+      <EntityTypeMapping TypeName="MelorModel.ARTEZIAN_WELL">
+        <MappingFragment StoreEntitySet="ARTEZIAN_WELL">
+          <ScalarProperty Name="POINT_M" ColumnName="POINT_M" />
+          <ScalarProperty Name="POINT_Z" ColumnName="POINT_Z" />
+          <ScalarProperty Name="POINT_Y" ColumnName="POINT_Y" />
+          <ScalarProperty Name="POINT_X" ColumnName="POINT_X" />
+          <ScalarProperty Name="SIB_ID" ColumnName="SIB_ID" />
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="PUMPSTATION_BRAND_ID" ColumnName="PUMPSTATION_BRAND_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="WELL_TYPE_ID" ColumnName="WELL_TYPE_ID" />
+          <ScalarProperty Name="PRODUCTIVITY" ColumnName="PRODUCTIVITY" />
+          <ScalarProperty Name="WATER_CAPABILITY" ColumnName="WATER_CAPABILITY" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="NUMBER_" ColumnName="NUMBER_" />
+          <ScalarProperty Name="DEPTH" ColumnName="DEPTH" />
+          <ScalarProperty Name="IRRIGATED_AREA" ColumnName="IRRIGATED_AREA" />
+          <ScalarProperty Name="REPER_NO" ColumnName="REPER_NO" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ASSIGMENTs">
+      <EntityTypeMapping TypeName="MelorModel.ASSIGMENT">
+        <MappingFragment StoreEntitySet="ASSIGMENT">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BRAND_OF_AGGREGATE">
+      <EntityTypeMapping TypeName="MelorModel.BRAND_OF_AGGREGATE">
+        <MappingFragment StoreEntitySet="BRAND_OF_AGGREGATE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="BUILDINGS">
+      <EntityTypeMapping TypeName="MelorModel.BUILDING">
+        <MappingFragment StoreEntitySet="BUILDINGS">
+          <ScalarProperty Name="SERVED_AREA" ColumnName="SERVED_AREA" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="EXPLONATION" ColumnName="EXPLONATION" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="SERVICE_AR" ColumnName="SERVICE_AR" />
+          <ScalarProperty Name="USING_MODE" ColumnName="USING_MODE" />
+          <ScalarProperty Name="TOTAL_AREA" ColumnName="TOTAL_AREA" />
+          <ScalarProperty Name="PROTECTING" ColumnName="PROTECTING" />
+          <ScalarProperty Name="ACTION" ColumnName="ACTION" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHANNEL_SIBS">
+      <EntityTypeMapping TypeName="MelorModel.CHANNEL_SIBS">
+        <MappingFragment StoreEntitySet="CHANNEL_SIBS">
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="CHANNEL_ID" ColumnName="CHANNEL_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHANNEL_TYPES">
+      <EntityTypeMapping TypeName="MelorModel.CHANNEL_TYPES">
+        <MappingFragment StoreEntitySet="CHANNEL_TYPES">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CHANNELS">
+      <EntityTypeMapping TypeName="MelorModel.CHANNEL">
+        <MappingFragment StoreEntitySet="CHANNELS">
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="SOURCE_ID" ColumnName="SOURCE_ID" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="Shape" ColumnName="Shape" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="COVER_TYPE_ID" ColumnName="COVER_TYPE_ID" />
+          <ScalarProperty Name="KIND_ID" ColumnName="KIND_ID" />
+          <ScalarProperty Name="SERVED_REGION_ID" ColumnName="SERVED_REGION_ID" />
+          <ScalarProperty Name="TECHNICAL_ID" ColumnName="TECHNICAL_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="TYPE_ID" ColumnName="TYPE_ID" />
+          <ScalarProperty Name="SHAPE_STLength__" ColumnName="SHAPE_STLength__" />
+          <ScalarProperty Name="SERVED_AREAHA" ColumnName="SERVED_AREAHA" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="GIS_LENGTH" ColumnName="GIS_LENGTH" />
+          <ScalarProperty Name="FACTICAL_LENGTH" ColumnName="FACTICAL_LENGTH" />
+          <ScalarProperty Name="DEVICE_SUM" ColumnName="DEVICE_SUM" />
+          <ScalarProperty Name="WATERPROOF_WIDTH" ColumnName="WATERPROOF_WIDTH" />
+          <ScalarProperty Name="WATER_CAPABILITY" ColumnName="WATER_CAPABILITY" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="COVER_TYPES">
+      <EntityTypeMapping TypeName="MelorModel.COVER_TYPES">
+        <MappingFragment StoreEntitySet="COVER_TYPES">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVICEs">
+      <EntityTypeMapping TypeName="MelorModel.DEVICE">
+        <MappingFragment StoreEntitySet="DEVICE">
+          <ScalarProperty Name="CHANNEL_ID" ColumnName="CHANNEL_ID" />
+          <ScalarProperty Name="SERVED_AREA" ColumnName="SERVED_AREA" />
+          <ScalarProperty Name="WATER_CAPABILITY" ColumnName="WATER_CAPABILITY" />
+          <ScalarProperty Name="NETWORK_TYPE_ID" ColumnName="NETWORK_TYPE_ID" />
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="SECURITY_TYPE_ID" ColumnName="SECURITY_TYPE_ID" />
+          <ScalarProperty Name="TECHNICAL_TYPE_ID" ColumnName="TECHNICAL_TYPE_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRENAJs">
+      <EntityTypeMapping TypeName="MelorModel.DRENAJ">
+        <MappingFragment StoreEntitySet="DRENAJ">
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="RECIVER_ID" ColumnName="RECIVER_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="TECHNICAL_CONDINITION_ID" ColumnName="TECHNICAL_CONDINITION_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="CHANNEL_TYPE_ID" ColumnName="CHANNEL_TYPE_ID" />
+          <ScalarProperty Name="KIND_ID" ColumnName="KIND_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="GISLENGTH" ColumnName="GISLENGTH" />
+          <ScalarProperty Name="WATER_CONSUPTION" ColumnName="WATER_CONSUPTION" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="FACTICAL_LENGTH" ColumnName="FACTICAL_LENGTH" />
+          <ScalarProperty Name="WATER_CAPABILITY" ColumnName="WATER_CAPABILITY" />
+          <ScalarProperty Name="DEVICE_SUM" ColumnName="DEVICE_SUM" />
+          <ScalarProperty Name="SERVED_AREA" ColumnName="SERVED_AREA" />
+          <ScalarProperty Name="WATERPROOF_WIDTH" ColumnName="WATERPROOF_WIDTH" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DRENAJ_SIBS">
+      <EntityTypeMapping TypeName="MelorModel.DRENAJ_SIBS">
+        <MappingFragment StoreEntitySet="DRENAJ_SIBS">
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="DRENAJ_ID" ColumnName="DRENAJ_ID" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENGINE_BRAND">
+      <EntityTypeMapping TypeName="MelorModel.ENGINE_BRAND">
+        <MappingFragment StoreEntitySet="ENGINE_BRAND">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ENGINE_KIND">
+      <EntityTypeMapping TypeName="MelorModel.ENGINE_KIND">
+        <MappingFragment StoreEntitySet="ENGINE_KIND">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EXPLOITATION_ROAD">
+      <EntityTypeMapping TypeName="MelorModel.EXPLOITATION_ROAD">
+        <MappingFragment StoreEntitySet="EXPLOITATION_ROAD">
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="COVER_TYPE_ID" ColumnName="COVER_TYPE_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="LENGHT" ColumnName="LENGHT" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KINDs">
+      <EntityTypeMapping TypeName="MelorModel.KIND">
+        <MappingFragment StoreEntitySet="KIND">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NETWORK_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.NETWORK_TYPE">
+        <MappingFragment StoreEntitySet="NETWORK_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PIPELINE_MATERIAL">
+      <EntityTypeMapping TypeName="MelorModel.PIPELINE_MATERIAL">
+        <MappingFragment StoreEntitySet="PIPELINE_MATERIAL">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PLACED_SOURCE">
+      <EntityTypeMapping TypeName="MelorModel.PLACED_SOURCE">
+        <MappingFragment StoreEntitySet="PLACED_SOURCE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROPERTies">
+      <EntityTypeMapping TypeName="MelorModel.PROPERTY">
+        <MappingFragment StoreEntitySet="PROPERTY">
+          <ScalarProperty Name="REGION_ID" ColumnName="REGION_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROPERTY_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.PROPERTY_TYPE">
+        <MappingFragment StoreEntitySet="PROPERTY_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUMP_KIND">
+      <EntityTypeMapping TypeName="MelorModel.PUMP_KIND">
+        <MappingFragment StoreEntitySet="PUMP_KIND">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUMP_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.PUMP_TYPE">
+        <MappingFragment StoreEntitySet="PUMP_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUMPSTATIONs">
+      <EntityTypeMapping TypeName="MelorModel.PUMPSTATION">
+        <MappingFragment StoreEntitySet="PUMPSTATION">
+          <ScalarProperty Name="AGREGAT_SUM" ColumnName="AGREGAT_SUM" />
+          <ScalarProperty Name="SERVED_AREA" ColumnName="SERVED_AREA" />
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="ENGINE_KIND_ID" ColumnName="ENGINE_KIND_ID" />
+          <ScalarProperty Name="ENGINE_BRAND_ID" ColumnName="ENGINE_BRAND_ID" />
+          <ScalarProperty Name="PIPELINE_MATERIAL_ID" ColumnName="PIPELINE_MATERIAL_ID" />
+          <ScalarProperty Name="PIPELINE_DIAMETER_ID" ColumnName="PIPELINE_DIAMETER_ID" />
+          <ScalarProperty Name="BRAND_OF_AGGREGATE_ID" ColumnName="BRAND_OF_AGGREGATE_ID" />
+          <ScalarProperty Name="PUMP_TYPE_ID" ColumnName="PUMP_TYPE_ID" />
+          <ScalarProperty Name="PUMP_KIND_ID" ColumnName="PUMP_KIND_ID" />
+          <ScalarProperty Name="PLACED_SOURCE_ID" ColumnName="PLACED_SOURCE_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="ENGINE_INSTALL_DATE" ColumnName="ENGINE_INSTALL_DATE" />
+          <ScalarProperty Name="PIPELINE_LENGHT" ColumnName="PIPELINE_LENGHT" />
+          <ScalarProperty Name="PIPELINE" ColumnName="PIPELINE" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="PURPOSEFUL" ColumnName="PURPOSEFUL" />
+          <ScalarProperty Name="PRODUCTIVITY" ColumnName="PRODUCTIVITY" />
+          <ScalarProperty Name="POWER" ColumnName="POWER" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUMPSTATION_BRAND">
+      <EntityTypeMapping TypeName="MelorModel.PUMPSTATION_BRAND">
+        <MappingFragment StoreEntitySet="PUMPSTATION_BRAND">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.REGION_TYPE">
+        <MappingFragment StoreEntitySet="REGION_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGIONS">
+      <EntityTypeMapping TypeName="MelorModel.REGION">
+        <MappingFragment StoreEntitySet="REGIONS">
+          <ScalarProperty Name="Shape" ColumnName="Shape" />
+          <ScalarProperty Name="REGION_TYPE_ID" ColumnName="REGION_TYPE_ID" />
+          <ScalarProperty Name="REL_ID" ColumnName="REL_ID" />
+          <ScalarProperty Name="Adi" ColumnName="Adi" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RIVERBANDs">
+      <EntityTypeMapping TypeName="MelorModel.RIVERBAND">
+        <MappingFragment StoreEntitySet="RIVERBAND">
+          <ScalarProperty Name="SECURITY_TYPE_ID" ColumnName="SECURITY_TYPE_ID" />
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="PLACED_SOURCE_ID" ColumnName="PLACED_SOURCE_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="TECHNICAL_TYPE_ID" ColumnName="TECHNICAL_TYPE_ID" />
+          <ScalarProperty Name="COVER_TYPE_ID" ColumnName="COVER_TYPE_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="LENGTH" ColumnName="LENGTH" />
+          <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SIBS">
+      <EntityTypeMapping TypeName="MelorModel.SIB">
+        <MappingFragment StoreEntitySet="SIBS">
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TECHNICAL_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.TECHNICAL_TYPE">
+        <MappingFragment StoreEntitySet="TECHNICAL_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERS">
+      <EntityTypeMapping TypeName="MelorModel.USER">
+        <MappingFragment StoreEntitySet="USERS">
+          <ScalarProperty Name="ROLE_ID" ColumnName="ROLE_ID" />
+          <ScalarProperty Name="REL_SIB_ID" ColumnName="REL_SIB_ID" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERSMAINPAGES">
+      <EntityTypeMapping TypeName="MelorModel.USERSMAINPAGE">
+        <MappingFragment StoreEntitySet="USERSMAINPAGES">
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VILLAGEs">
+      <EntityTypeMapping TypeName="MelorModel.VILLAGE">
+        <MappingFragment StoreEntitySet="VILLAGE">
+          <ScalarProperty Name="Shape" ColumnName="Shape" />
+          <ScalarProperty Name="REGION_TYPE_ID" ColumnName="REGION_TYPE_ID" />
+          <ScalarProperty Name="REL_ID" ColumnName="REL_ID" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WELLs">
+      <EntityTypeMapping TypeName="MelorModel.WELL">
+        <MappingFragment StoreEntitySet="WELL">
+          <ScalarProperty Name="SECURITY_TYPE_ID" ColumnName="SECURITY_TYPE_ID" />
+          <ScalarProperty Name="IRRIGATED_AREA" ColumnName="IRRIGATED_AREA" />
+          <ScalarProperty Name="DEPTH" ColumnName="DEPTH" />
+          <ScalarProperty Name="EXPLONATION_DATE" ColumnName="EXPLONATION_DATE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="TECHNICAL_TYPE_ID" ColumnName="TECHNICAL_TYPE_ID" />
+          <ScalarProperty Name="ACTIVITY_ID" ColumnName="ACTIVITY_ID" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="ASSIGMENT_ID" ColumnName="ASSIGMENT_ID" />
+          <ScalarProperty Name="WELL_TYPE_ID" ColumnName="WELL_TYPE_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="NOTE" ColumnName="NOTE" />
+          <ScalarProperty Name="PRODUCTIVITY" ColumnName="PRODUCTIVITY" />
+          <ScalarProperty Name="NUMBER_" ColumnName="NUMBER_" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WELL_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.WELL_TYPE">
+        <MappingFragment StoreEntitySet="WELL_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="WINTERPASTURES">
+      <EntityTypeMapping TypeName="MelorModel.WINTERPASTURE">
+        <MappingFragment StoreEntitySet="WINTERPASTURES">
+          <ScalarProperty Name="DEVICE_SUMM" ColumnName="DEVICE_SUMM" />
+          <ScalarProperty Name="SERVED_AREA" ColumnName="SERVED_AREA" />
+          <ScalarProperty Name="SIBS_ID" ColumnName="SIBS_ID" />
+          <ScalarProperty Name="REGIONS_ID" ColumnName="REGIONS_ID" />
+          <ScalarProperty Name="PROPERTY_TYPE_ID" ColumnName="PROPERTY_TYPE_ID" />
+          <ScalarProperty Name="SSI_ID" ColumnName="SSI_ID" />
+          <ScalarProperty Name="SHAPE" ColumnName="SHAPE" />
+          <ScalarProperty Name="VILLAGE_ID" ColumnName="VILLAGE_ID" />
+          <ScalarProperty Name="WATER_PIPE" ColumnName="WATER_PIPE" />
+          <ScalarProperty Name="DEVICE_SUM" ColumnName="DEVICE_SUM" />
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SECURITY_TYPE">
+      <EntityTypeMapping TypeName="MelorModel.SECURITY_TYPE">
+        <MappingFragment StoreEntitySet="SECURITY_TYPE">
+          <ScalarProperty Name="NAME" ColumnName="NAME" />
+          <ScalarProperty Name="OBJECTID" ColumnName="OBJECTID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

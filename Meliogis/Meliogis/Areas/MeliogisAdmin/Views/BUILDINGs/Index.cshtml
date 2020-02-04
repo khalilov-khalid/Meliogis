@@ -1,0 +1,125 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.BUILDING>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <tr>
+            <th>
+                Adı
+                @*@Html.DisplayNameFor(model => model.NAME)*@
+            </th>
+            <th>
+                Aktivlik
+                @*@Html.DisplayNameFor(model => model.ACTION)*@
+            </th>
+            <th>
+                Tətinat
+                @Html.DisplayNameFor(model => model.ASSIGMENT_ID)
+            </th>
+            <th>
+                Mühafizə növü
+                @*@Html.DisplayNameFor(model => model.PROTECTING)*@
+            </th>
+            <th>
+                Ümumi sahəsi
+                @*@Html.DisplayNameFor(model => model.TOTAL_AREA)*@
+            </th>
+            <th>
+                İstifadə rejimi
+                @*@Html.DisplayNameFor(model => model.USING_MODE)*@
+            </th>
+            <th>
+                Xidmət sahəsi
+                @*@Html.DisplaykNameFor(model => model.SERVICE_AR)*@
+            </th>
+            <th>
+                SİB
+                @*@Html.DisplayNameFor(model => model.SIBS_ID)*@
+            </th>
+            <th>
+                Istismara verildiyi tarix
+                @*@Html.DisplayNameFor(model => model.EXPLONATIO)*@
+            </th>
+            <th>
+                Activlik
+                @*@Html.DisplayNameFor(model => model.ACTIVITY.NAME)*@
+            </th>
+            <th>
+                Mülkiyyətçi
+                @*@Html.DisplayNameFor(model => model.PROPERTY.NAME)*@
+            </th>
+            <th>
+                Mülkiyyət növü
+                @*@Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)*@
+            </th>
+            <th>
+                Kendin Adı
+                @*@Html.DisplayNameFor(model => model.REGION.Adi)*@
+            </th>
+            <th>
+                Rayonun Adı
+                @*@Html.DisplayNameFor(model => model.REGION1.Adi)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGMENT_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROTECTING)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TOTAL_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.USING_MODE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SERVICE_AR)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ACTIVITY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "BUILDINGs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

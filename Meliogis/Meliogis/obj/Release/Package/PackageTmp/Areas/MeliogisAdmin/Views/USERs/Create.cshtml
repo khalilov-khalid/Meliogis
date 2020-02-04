@@ -1,0 +1,69 @@
+﻿@model Meliogis.Models.USER
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+    <div class="row">
+        <div class="col-md-12 mb-3 d-flex justify-content-between">
+            <h2>Yeni istifadəçi əlavə et</h2>
+            <a href="@Url.Action("Index","USERs")" class="m_btn go_b_btn">Geri qayıt</a>
+        </div>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                <label class="control-label col-md-2"> Giriş adı</label>
+                @*@Html.LabelFor(model => model.USERNAME, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div>
+                    @Html.EditorFor(model => model.USERNAME, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.USERNAME, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="form-group">
+                <label class="control-label col-md-2">Şifrə</label>
+                @*@Html.LabelFor(model => model.PASSWORD, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div>
+                    @Html.EditorFor(model => model.PASSWORD, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.PASSWORD, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-12 mb-3">
+            <div class="form-group">
+                <label class="control-label col-md-2">Mülkiyyətçi</label>
+                @*@Html.LabelFor(model => model.REL_SIB_ID, "REL_SIB_ID", htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div>
+                    @Html.DropDownList("REL_SIB_ID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.REL_SIB_ID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 offset-md-4">
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Əlavə et" class="m_btn sbm_btn w_100" />
+                </div>
+            </div>
+        </div>
+    </div>
+    }
+</div>
+
+<div>
+</div>

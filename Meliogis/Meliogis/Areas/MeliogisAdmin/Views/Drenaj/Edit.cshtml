@@ -1,0 +1,306 @@
+﻿@model Meliogis.Areas.MeliogisAdmin.AdminViewClass.EditViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="edit_con">
+    <div class="container-fluid">
+        <form action="@Url.Action("Edit","Drenaj")" method="post">
+            <div style="display:none">
+                <input class="form-control" type="text" name="OBJECTID" value="@Model._editedDrenaj.OBJECTID" />
+            </div>
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.WATERPROOF_WIDTH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="WATERPROOF_WIDTH" value="@Model._editedDrenaj.WATERPROOF_WIDTH" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.SERVED_AREA, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="SERVED_AREA" value="@Model._editedDrenaj.SERVED_AREA" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.PASSING_AREAS, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="PASSING_AREAS" value="@Model._editedDrenaj.PASSING_AREAS" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.DEVICE_SUM, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="DEVICE_SUM" value="@Model._editedDrenaj.DEVICE_SUM" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.WATER_CAPABILITY, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="WATER_CAPABILITY" value="@Model._editedDrenaj.WATER_CAPABILITY" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.FACTICAL_LENGTH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="FACTICAL_LENGTH" value="@Model._editedDrenaj.FACTICAL_LENGTH" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.WATER_CONSUPTION, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="WATER_CONSUPTION" value="@Model._editedDrenaj.WATER_CONSUPTION" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.GISLENGTH, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="GISLENGTH" value="@Model._editedDrenaj.GISLENGTH" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.NOTE, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="NOTE" value="@Model._editedDrenaj.NOTE" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.EXPLONATION_DATE, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="EXPLONATION_DATE" value="@Model._editedDrenaj.EXPLONATION_DATE" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.PASSING_AREAS, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="PASSING_AREAS" value="@Model._editedDrenaj.PASSING_AREAS" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.LOCATED_REGION, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <input class="form-control" type="text" name="LOCATED_REGION" value="@Model._editedDrenaj.LOCATED_REGION" />
+                        </div>
+                    </div>
+                </div>
+
+                @* ------------------------------------------------------------------------------------------------------------------------ *@
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.CHANNEL_TYPE_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="CHANNEL_TYPE_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._types)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.CHANNEL_TYPE_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.KIND_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="KIND_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._kind)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.KIND_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.REGIONS_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="REGIONS_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._regions)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.REGIONS_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.Adi</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.Adi</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.TECHNICAL_CONDINITION_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="TECHNICAL_CONDINITION_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._technical)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.TECHNICAL_CONDINITION_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.PROPERTY_TYPE_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="PROPERTY_TYPE_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._propery_type)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.PROPERTY_TYPE_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.ACTIVITY_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="ACTIVITY_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._activity)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.ACTIVITY_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.ASSIGMENT_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="ASSIGMENT_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._assigment)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.ASSIGMENT_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <div class="form-group">
+                        @Html.LabelFor(model => model._editedDrenaj.SIBS_ID, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div>
+                            <select class="form-control" name="SIBS_ID">
+                                <option disabled value="">Sec</option>
+                                @foreach (var item in Model._sibs)
+                                {
+                                    if (item.OBJECTID == Model._editedDrenaj.SIBS_ID)
+                                    {
+                                        <option selected value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@item.OBJECTID">@item.NAME</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-3 pt-4">
+                    <button type="submit" class="m_btn sbm_btn w_100" style="outline:none;"> Yadda saxla</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,190 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.PUMPSTATION>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PLACED_AREA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.POWER)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PRODUCTIVITY)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PURPOSEFUL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PIPELINE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AGREGAT_SUM)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PIPELINE_LENGHT)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENGINE_INSTALL_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SERVED_AREA)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NOTE)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.SHAPE)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.PIPELINE_DIAMETER_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SIBS_ID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EXPLONATION_DATE)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ASSIGMENT.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BRAND_OF_AGGREGATE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENGINE_BRAND.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ENGINE_KIND.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PIPELINE_MATERIAL.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PLACED_SOURCE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PUMP_KIND.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PUMP_TYPE.NAME)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION.Adi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.REGION1.Adi)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PLACED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.POWER)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PRODUCTIVITY)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PURPOSEFUL)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PIPELINE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AGREGAT_SUM)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PIPELINE_LENGHT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENGINE_INSTALL_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SERVED_AREA)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOTE)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SHAPE)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.PIPELINE_DIAMETER_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGMENT.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BRAND_OF_AGGREGATE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENGINE_BRAND.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ENGINE_KIND.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PIPELINE_MATERIAL.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PLACED_SOURCE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PUMP_KIND.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PUMP_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION1.Adi)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "PUMPSTATIONs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

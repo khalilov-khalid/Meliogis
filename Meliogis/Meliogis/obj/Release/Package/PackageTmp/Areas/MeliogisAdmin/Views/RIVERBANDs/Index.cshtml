@@ -1,0 +1,134 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@model IEnumerable<Meliogis.Models.RIVERBAND>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+<div class="table_con">
+    <table class="table table-hover table-bordered th_fixed">
+        <tr>           
+            <th>
+                Adı
+                @*@Html.DisplayNameFor(model => model.NAME)*@
+            </th>
+            <th>
+                Hündürlük
+                @*@Html.DisplayNameFor(model => model.HEIGHT)*@
+            </th>
+            <th>
+                Uzunluğu
+                @*@Html.DisplayNameFor(model => model.LENGTH)*@
+            </th>
+            <th>
+                Qeyd
+                @*@Html.DisplayNameFor(model => model.NOTE)*@
+            </th>
+            <th>
+                Təhlükəsizlik növü
+                @*@Html.DisplayNameFor(model => model.SECURITY_TYPE)*@
+            </th>
+            <th>
+                SİB
+                @*@Html.DisplayNameFor(model => model.SIBS_ID)*@
+            </th>
+            <th>
+                Istismara verildiyi tarix
+                @*@Html.DisplayNameFor(model => model.EXPLONATION_DATE)*@
+            </th>
+            <th>
+                Təyinat
+                @*@Html.DisplayNameFor(model => model.ASSIGMENT.NAME)*@
+            </th>
+            <th>
+                Örtük növü
+                @*@Html.DisplayNameFor(model => model.COVER_TYPES.NAME)*@
+            </th>
+            <th>
+                Yerləşdiyi mənbə
+                @*@Html.DisplayNameFor(model => model.PLACED_SOURCE.NAME)*@
+            </th>
+            <th>
+                Mülkiyyətçi
+                @*@Html.DisplayNameFor(model => model.PROPERTY.NAME)*@
+            </th>
+            <th>
+                Mülkiyyət növü
+                @*@Html.DisplayNameFor(model => model.PROPERTY_TYPE.NAME)*@
+            </th>
+            <th>
+                Kəndin adı
+                @*@Html.DisplayNameFor(model => model.REGION.Adi)*@
+            </th>
+            <th>
+                Rayonun adı
+                @*@Html.DisplayNameFor(model => model.REGION1.Adi)*@
+            </th>
+            <th>
+                Texniki vəziyyəti
+                @*@Html.DisplayNameFor(model => model.TECHNICAL_TYPE.NAME)*@
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                <td>
+                    @Html.DisplayFor(modelItem => item.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.HEIGHT)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LENGTH)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NOTE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SECURITY_TYPE_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SIBS_ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EXPLONATION_DATE)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ASSIGMENT.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.COVER_TYPES.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PLACED_SOURCE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PROPERTY_TYPE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.VILLAGE.NAME)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.REGION.Adi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TECHNICAL_TYPE.NAME)
+                </td>
+                <td>
+                    <a href="@Url.Action("Edit", "RIVERBANDs", new { id = item.OBJECTID })" class="ico ico_edit"><i class="fas fa-pencil-alt"></i></a>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+</div>

@@ -1,0 +1,85 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link href="~/Public/assets/css/main.css" rel="stylesheet" />
+    <link href="~/Public/assets/css/pi.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Public/assets/icons/style.css" />
+    <style>
+        .glass:after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+
+
+        .login-container {
+            min-height: 100vh;
+            background-image: url("../../../../Public/assets/images/login-bg.png");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .login-wrap {
+            width: 400px !important;
+            max-width: 100%;
+        }
+
+        .m-style .input-group-addon {
+            border: 0;
+            padding: 0 10px 0 0 !important;
+            font-size: 20px;
+            width: 40px;
+            height: 38px;
+            line-height: 44px;
+            text-align: center;
+            display: block;
+        }
+
+        .m-style .input {
+            border: 0;
+            border-bottom: 1px solid #ddd;
+            padding-left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container d-flex-center pl-10 pr-10 relative glass">
+        <div class="login-wrap bg-white shadow-big p-40 float-center relative z-index-1">
+            <h1 class="login-logo h3 bold text-center text-uppercase text-blue mb-40" lang="en">Meliogis Admin</h1>
+            <form action="@Url.Action("LoginMainPage","Login")" class="login-form">
+                <div class="clear mb-20">
+                    <label for="user-name" class="mb-7">İstifadəçi adı</label>
+                    <div class="input-group m-style">
+                        <span class="input-group-addon">
+                            <i aria-hidden="true" class="icon-user"></i>
+                        </span>
+                        <input type="text" name="username" id="user-name" class="input" placeholder="İstifadəçi adınızı qeyd edin">
+                    </div>
+                </div>
+                <div class="clear mb-20">
+                    <label for="password" class="mb-7">Şifrə</label>
+                    <div class="input-group m-style">
+                        <span class="input-group-addon">
+                            <i aria-hidden="true" class="icon-user-key"></i>
+                        </span>
+                        <input type="password" name="password" id="password" class="input" placeholder="Şifrənizi qeyd edin">
+                    </div>
+                </div>
+                <button type="submit" class="btn bg-blue dark w-100p radius-20 text-uppercase">Daxil ol</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

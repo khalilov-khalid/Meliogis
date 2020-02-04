@@ -1,0 +1,398 @@
+﻿@model Meliogis.Models.PUMPSTATION
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/MeliogisAdmin/Views/Shared/AdminLayout.cshtml";
+}
+
+    <div class="edit_con">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="row">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.OBJECTID)
+
+                
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Gücü</label>
+                    @*@Html.LabelFor(model => model.POWER, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.POWER, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.POWER, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Məhsuldarlığı</label>
+                    @*@Html.LabelFor(model => model.PRODUCTIVITY, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.PRODUCTIVITY, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PRODUCTIVITY, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Məqsədi</label>
+                    @*@Html.LabelFor(model => model.PURPOSEFUL, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.PURPOSEFUL, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PURPOSEFUL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Adı</label>
+                    @*@Html.LabelFor(model => model.NAME, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NAME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Basqılı boru kəməri</label>
+                    @*@Html.LabelFor(model => model.PIPELINE, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.PIPELINE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PIPELINE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Aqreqatların sayı</label>
+                    @*@Html.LabelFor(model => model.AGREGAT_SUM, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.AGREGAT_SUM, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.AGREGAT_SUM, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Basqılı boru kəməri uzunluğu</label>
+                    @*@Html.LabelFor(model => model.PIPELINE_LENGHT, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.PIPELINE_LENGHT, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PIPELINE_LENGHT, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Mühərrikin istismara verildiyi tarix</label>
+                    @*@Html.LabelFor(model => model.ENGINE_INSTALL_DATE, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.ENGINE_INSTALL_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.ENGINE_INSTALL_DATE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Xidmət etdiyi sahə</label>
+                    @*@Html.LabelFor(model => model.SERVED_AREA, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.SERVED_AREA, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.SERVED_AREA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Qeyd</label>
+                    @*@Html.LabelFor(model => model.NOTE, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.NOTE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.NOTE, "", new { @class = "text-danger" })
+                    </div>
+                </div>                
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Yerləşdiyi mənbə</label>
+                    @*@Html.LabelFor(model => model.PLACED_SOURCE_ID, "PLACED_SOURCE_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="PLACED_SOURCE_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.PLACED_SOURCE_ID)
+                            {
+                                if (item.OBJECTID == Model.PLACED_SOURCE_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PLACED_SOURCE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Nasos stansiyasının növü</label>
+                    @*@Html.LabelFor(model => model.PUMP_KIND_ID, "PUMP_KIND_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="PUMP_KIND_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.PUMP_KIND_ID)
+                            {
+                                if (item.OBJECTID == Model.PUMP_KIND_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PUMP_KIND_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Nasos stansiyasının tipi</label>
+                    @*@Html.LabelFor(model => model.PUMP_TYPE_ID, "PUMP_TYPE_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="PUMP_TYPE_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.PUMP_TYPE_ID)
+                            {
+                                if (item.OBJECTID == Model.PUMP_TYPE_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PUMP_TYPE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Aqreqatların markası</label>
+                    @*@Html.LabelFor(model => model.BRAND_OF_AGGREGATE_ID, "BRAND_OF_AGGREGATE_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="BRAND_OF_AGGREGATE_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.BRAND_OF_AGGREGATE_ID)
+                            {
+                                if (item.OBJECTID == Model.BRAND_OF_AGGREGATE_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.BRAND_OF_AGGREGATE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Basqılı boru kəməri diametri</label>
+                    @*@Html.LabelFor(model => model.PIPELINE_DIAMETER_ID, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.PIPELINE_DIAMETER_ID, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.PIPELINE_DIAMETER_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Basqılı boru kəmərin materialı</label>
+                    @*@Html.LabelFor(model => model.PIPELINE_MATERIAL_ID, "PIPELINE_MATERIAL_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="PIPELINE_MATERIAL_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.PIPELINE_MATERIAL_ID)
+                            {
+                                if (item.OBJECTID == Model.PIPELINE_MATERIAL_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PIPELINE_MATERIAL_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Mühərrik markası</label>
+                    @*@Html.LabelFor(model => model.ENGINE_BRAND_ID, "ENGINE_BRAND_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="ENGINE_BRAND_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.ENGINE_BRAND_ID)
+                            {
+                                if (item.OBJECTID == Model.ENGINE_BRAND_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.ENGINE_BRAND_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Təyinatı</label>
+                    @*@Html.LabelFor(model => model.ENGINE_KIND_ID, "ENGINE_KIND_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="ENGINE_KIND_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.ENGINE_KIND_ID)
+                            {
+                                if (item.OBJECTID == Model.ENGINE_KIND_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.ENGINE_KIND_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+               
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Mülkiyyət növü</label>
+                   @* @Html.LabelFor(model => model.PROPERTY_TYPE_ID, "PROPERTY_TYPE_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="PROPERTY_TYPE_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.PROPERTY_TYPE_ID)
+                            {
+                                if (item.OBJECTID == Model.PROPERTY_TYPE_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.PROPERTY_TYPE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Təyinat</label>
+                    @*@Html.LabelFor(model => model.ASSIGMENT_ID, "ASSIGMENT_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="ASSIGMENT_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.ASSIGMENT_ID)
+                            {
+                                if (item.OBJECTID == Model.ASSIGMENT_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.ASSIGMENT_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Rayon adı</label>
+                    @*@Html.LabelFor(model => model.REGIONS_ID, "REGIONS_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control _regionChange" required name="REGIONS_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.REGIONS_ID)
+                            {
+                                if (item.OBJECTID == Model.REGIONS_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.Adi</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.Adi</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.REGIONS_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Kəndin adı</label>
+                    @*@Html.LabelFor(model => model.VILLAGE_ID, "VILLAGE_ID", htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control _villageContent" name="VILLAGE_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.VILLAGE_ID)
+                            {
+                                if (item.OBJECTID == Model.VILLAGE_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.VILLAGE_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">SİB</label>
+                    @*@Html.LabelFor(model => model.SIBS_ID, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        <select class="form-control" name="SIBS_ID">
+                            <option value="" hidden>Sec</option>
+                            @foreach (var item in ViewBag.SIBS_ID)
+                            {
+                                if (item.OBJECTID == Model.SIBS_ID)
+                                {
+                                    <option selected value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                                else
+                                {
+                                    <option value="@item.OBJECTID"> @item.NAME</option>
+                                }
+                            }
+                        </select>
+                        @Html.ValidationMessageFor(model => model.SIBS_ID, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <label class="control-label">Istismara verildiyi tarix</label>
+                    @*@Html.LabelFor(model => model.EXPLONATION_DATE, htmlAttributes: new { @class = "control-label " })*@
+                    <div class="inp">
+                        @Html.EditorFor(model => model.EXPLONATION_DATE, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.EXPLONATION_DATE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4 offset-md-4">
+                    <div class="inp">
+                        <input type="submit" value="Save" class="m_btn sbm_btn w_100" style="outline:none;" />
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
