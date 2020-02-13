@@ -2122,29 +2122,29 @@ function MapFunction() {
                 else {//db gore filterleme bolmesi
                     //////console.log(regionalquery)
                     var Filter = {
-                        OCH: regionalquery,
-                        OCHM: magistralChannel,
-                        OCHI: ICHANNEL,
-                        OCHII: IICHANNEL,
-                        OCHIII: IIICHANNEL,
-                        QCH: regionalquery,
-                        QCHM: QmagistralChannel,
-                        QCHI: QICHANNEL,
-                        QCHII: QIICHANNEL,
-                        QCHIII: QIIICHANNEL,
-                        DRENAJ: regionalquery,
-                        DRENAJM: DRENAJM,
-                        DRENAJI: DRENAJI,
-                        DRENAJII: DRENAJII,
-                        DRENAJK: DRENAJK,
-                        DEVICE: device,
-                        ARTEZIANWELL: artezianWell,
-                        WELL: well,
-                        PUMPSTATION: Pums,
-                        WINTERPASTURES: winterpasture,
-                        RIVERBAND: riverbands,
-                        BUILDINGS: build,
-                        EXPLONATION_ROAD: EXPROAD
+                        OCH: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        OCHM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//magistralChannel,
+                        OCHI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//ICHANNEL,
+                        OCHII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//IICHANNEL,
+                        OCHIII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//IIICHANNEL,
+                        QCH: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        QCHM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QmagistralChannel,
+                        QCHI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QICHANNEL,
+                        QCHII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QIICHANNEL,
+                        QCHIII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QIIICHANNEL,
+                        DRENAJ: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        DRENAJM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJM,
+                        DRENAJI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJI,
+                        DRENAJII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJII,
+                        DRENAJK: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJK,
+                        DEVICE: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//device,
+                        ARTEZIANWELL: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,// artezianWell,
+                        WELL: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,// well,
+                        PUMPSTATION: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, // Pums,
+                        WINTERPASTURES: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //winterpasture,
+                        RIVERBAND: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //riverbands,
+                        BUILDINGS: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //build,
+                        EXPLONATION_ROAD: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery //EXPROAD
                     }
 
                     //Clear Filer modal
@@ -2261,8 +2261,12 @@ function MapFunction() {
 
 
 //Filter result append function
+//function FilterAppent(count, lenght, area, capability, devsum, witdh, name, attrname) {
+//    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + witdh + "</td> <td>" + area + "</td> <td>" + capability + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
+//}
+
 function FilterAppent(count, lenght, area, capability, devsum, witdh, name, attrname) {
-    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + witdh + "</td> <td>" + area + "</td> <td>" + capability + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
+    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + area + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
 }
 
 function CreateLocalStorage(key, value) {
