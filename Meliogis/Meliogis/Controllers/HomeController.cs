@@ -404,6 +404,8 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountCH0 from STATISTIC WHERE " + FILTER.OCHM;
                     string querylengnt = "select SUM(STATISTIC.CHANNEL0) from STATISTIC WHERE " + FILTER.OCHM;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHM;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHM;
+
 
 
 
@@ -411,7 +413,7 @@ namespace Meliogis.Controllers
                     vm.CHM_Lenght = (db.Database.SqlQuery<decimal?>(querylengnt).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylengnt).First()), 2);
                     vm.CHM_WATERCAPABILITY = 0; //(db.Database.SqlQuery<decimal?>(querycapability).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.CHM_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CHM_DEVICESUM = 0;//(db.Database.SqlQuery<decimal?>(querydevicesum).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CHM_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.CHM_WITDH = 0; //(db.Database.SqlQuery<decimal?>(querywitdh).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CHM_CHECK = true;
                     vm.CHM_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -430,12 +432,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountCH1 from STATISTIC WHERE " + FILTER.OCHI;
                     string querylenght = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCHI;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHI;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHI;
 
                     vm.CHI_Count = db.Database.SqlQuery<int>(querycount).First(); ;
                     vm.CHI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.CHI_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.CHI_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CHI_DEVICESUM = 0; //(db.Database.SqlQuery<decimal?>(querydevicesum).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CHI_DEVICESUM =(db.Database.SqlQuery<decimal?>(querydevicesum).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.CHI_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CHI_CHECK = true;
                     vm.CHI_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -454,12 +457,14 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountCH2 from STATISTIC WHERE " + FILTER.OCHII;
                     string querylenght = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCHII;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHII;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHII;
+
 
                     vm.CHII_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.CHII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 :  (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.CHII_WATERCAPABILITY = 0; //(db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.CHII_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CHII_DEVICESUM = 0; //(db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CHII_DEVICESUM =(db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.CHII_WITDH = 0; //(db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CHII_CHECK = true;
                     vm.CHII_ID = db.Database.SqlQuery<int>(queryids).ToList();
@@ -478,12 +483,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountCH3 from STATISTIC WHERE " + FILTER.OCHIII;
                     string querylenght = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCHIII;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHIII;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHIII;
 
                     vm.CHIII_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.CHIII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.CHIII_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.CHIII_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CHIII_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CHIII_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.CHIII_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CHIII_CHECK = true;
                     vm.CHIII_ID = db.Database.SqlQuery<int>(queryids).ToList();
@@ -510,6 +516,9 @@ namespace Meliogis.Controllers
                     string querylenght3 = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCH;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCH;
 
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCH;
+
+
                     int chcount0 =db.Database.SqlQuery<int>(querycount0).First();
                     int chcount1 =db.Database.SqlQuery<int>(querycount1).First();
                     int chcount2 =db.Database.SqlQuery<int>(querycount2).First();
@@ -524,7 +533,7 @@ namespace Meliogis.Controllers
                     vm.CH_Lenght = ch0 + ch1 + ch2 + ch3; //(db.Database.SqlQuery<decimal?>(queryLenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryLenght).First()), 2);
                     vm.CH_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.CH_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CH_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CH_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.CH_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CH_CHECK = true;
                     vm.CH_ID= db.Database.SqlQuery<int>(queryids).ToList();
@@ -547,12 +556,13 @@ namespace Meliogis.Controllers
 
                     string querylenght = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCHM;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHM;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHM;
 
                     vm.QCHM_Count = 0;//db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHM_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.QCHM_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.QCHM_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.QCHM_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.QCHM_DEVICESUM =(db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.QCHM_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.QCHM_CHECK = true;
                     vm.QCHM_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -570,12 +580,13 @@ namespace Meliogis.Controllers
 
                     string querylenght = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCHI;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHI;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHI;
 
                     vm.QCHI_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.QCHI_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.QCHI_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.QCHI_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.QCHI_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.QCHI_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.QCHI_CHECK = true;
                     vm.QCHI_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -593,12 +604,13 @@ namespace Meliogis.Controllers
 
                     string querylenght = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCHII;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHII;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHII;
 
                     vm.QCHII_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.QCHII_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.QCHII_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.QCHII_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.QCHII_DEVICESUM =  (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.QCHII_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.QCHII_CHECK = true;
                     vm.QCHII_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -616,13 +628,14 @@ namespace Meliogis.Controllers
 
                     string querylenght = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCHIII;
                     string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHIII;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHIII;
 
 
                     vm.QCHIII_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHIII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.QCHIII_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.QCHIII_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.QCHIII_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.QCHIII_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.QCHIII_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.QCHIII_CHECK = true;
                     vm.QCHIII_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -638,24 +651,24 @@ namespace Meliogis.Controllers
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
                     string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
 
-                    string querylenght0 = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght1 = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght2 = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght3 = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.OCH;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCH;
+                    string querylenght0 = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCH;
+                    string querylenght1 = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCH;
+                    string querylenght2 = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCH;
+                    string querylenght3 = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCH;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCH;
 
                     decimal ch0 = (db.Database.SqlQuery<decimal?>(querylenght0).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght0).First()), 2);
                     decimal ch1 = (db.Database.SqlQuery<decimal?>(querylenght1).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght1).First()), 2);
                     decimal ch2 = (db.Database.SqlQuery<decimal?>(querylenght2).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght2).First()), 2);
                     decimal ch3 = (db.Database.SqlQuery<decimal?>(querylenght3).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght3).First()), 2);
 
-
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCH;
 
                     vm.QCH_Count = 0;// db.Database.SqlQuery<int>(queryCount).First();
                     vm.QCH_Lenght = ch0 + ch1 + ch2 + ch3; //(db.Database.SqlQuery<decimal?>(queryLenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryLenght).First()), 2);
                     vm.QCH_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.QCH_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.QCH_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.QCH_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.QCH_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.QCH_CHECK = true;
                     vm.QCH_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -681,12 +694,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountDREN0 from STATISTIC WHERE " + FILTER.DRENAJM;
                     string querylenght = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJM;
                     string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJM;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJM;
 
                     vm.DRENAJM_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJM_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 :(decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.DRENAJM_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.DRENAJM_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.DRENAJM_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.DRENAJM_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.DRENAJM_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.DRENAJM_CHECK = true;
                     vm.DRENAJM_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -706,12 +720,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountDREN1 from STATISTIC WHERE " + FILTER.DRENAJI;
                     string querylenght = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJI;
                     string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJI;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJI;
 
                     vm.DRENAJI_Count =  db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.DRENAJI_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.DRENAJI_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.DRENAJI_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.DRENAJI_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.DRENAJI_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.DRENAJI_CHECK = true;
                     vm.DRENAJI_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -731,12 +746,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountDREN2 from STATISTIC WHERE " + FILTER.DRENAJII;
                     string querylenght = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJII;
                     string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJII;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJII;
 
                     vm.DRENAJII_Count =  db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.DRENAJII_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.DRENAJII_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.DRENAJII_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.DRENAJII_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.DRENAJII_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.DRENAJII_CHECK = true;
                     vm.DRENAJII_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -755,12 +771,13 @@ namespace Meliogis.Controllers
                     string querycount = "select STATISTIC.CountDREN3 from STATISTIC WHERE " + FILTER.DRENAJK;
                     string querylenght = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJK;
                     string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJK;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJK;
 
                     vm.DRENAJK_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJK_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 :(decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
                     vm.DRENAJK_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.DRENAJK_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.DRENAJK_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.DRENAJK_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.DRENAJK_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.DRENAJK_CHECK = true;
                     vm.DRENAJK_ID = db.Database.SqlQuery<int>(queryid).ToList();
@@ -787,6 +804,8 @@ namespace Meliogis.Controllers
                     string querycount2 = "select SUM(STATISTIC.CountDREN2) from STATISTIC WHERE " + FILTER.DRENAJ;
                     string querycount3 = "select SUM(STATISTIC.CountDREN3) from STATISTIC WHERE " + FILTER.DRENAJ;
 
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJ;
+
                     int chcount0 = db.Database.SqlQuery<int>(querycount0).First();
                     int chcount1 = db.Database.SqlQuery<int>(querycount1).First();
                     int chcount2 = db.Database.SqlQuery<int>(querycount2).First();
@@ -802,7 +821,7 @@ namespace Meliogis.Controllers
                     vm.DRENAJ_Lenght = dr0 + dr1 + dr2 + dr3;// (db.Database.SqlQuery<decimal?>(querylengnt).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylengnt).First()), 2);
                     vm.DRENAJ_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
                     vm.DRENAJ_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.DRENAJ_DEVICESUM = 0;// (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.DRENAJ_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
                     vm.DRENAJ_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.DRENAJ_CHECK = true;
                     vm.DRENAJ_ID = db.Database.SqlQuery<int>(queryid).ToList();

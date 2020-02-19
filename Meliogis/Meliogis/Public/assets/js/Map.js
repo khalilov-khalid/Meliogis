@@ -2266,7 +2266,7 @@ function MapFunction() {
 //}
 
 function FilterAppent(count, lenght, area, capability, devsum, witdh, name, attrname) {
-    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + area + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
+    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + area + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
 }
 
 function CreateLocalStorage(key, value) {
