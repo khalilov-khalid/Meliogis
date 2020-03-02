@@ -398,14 +398,21 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =4 and " + FILTER.OCHM;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =4 and " + FILTER.OCHM;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =4 and " + FILTER.OCHM;
-                    string queryid= "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =4 and " + FILTER.OCHM;
+                    //string queryid= "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =4 and " + FILTER.OCHM;
 
 
-                    string querycount = "select STATISTIC.CountCH0 from STATISTIC WHERE " + FILTER.OCHM;
-                    string querylengnt = "select SUM(STATISTIC.CHANNEL0) from STATISTIC WHERE " + FILTER.OCHM;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHM;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHM;
+                    string RegionQuery = "";
+                    if (!FILTER.OCHM.Contains("REGION_ID") && !FILTER.OCHM.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
 
+                    string querycount = "select SUM(STATISTIC.CountCH0) from STATISTIC WHERE " + FILTER.OCHM + RegionQuery;
+                    string querylengnt = "select SUM(STATISTIC.CHANNEL0) from STATISTIC WHERE " + FILTER.OCHM + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHM + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHM + RegionQuery; 
+
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHM;
 
 
 
@@ -427,12 +434,21 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
 
-                    string querycount = "select STATISTIC.CountCH1 from STATISTIC WHERE " + FILTER.OCHI;
-                    string querylenght = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCHI;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHI;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHI;
+                    string RegionQuery = "";
+                    if (!FILTER.OCHI.Contains("REGION_ID") && !FILTER.OCHI.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+
+                    string querycount = "select SUM(STATISTIC.CountCH1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHI;
+
 
                     vm.CHI_Count = db.Database.SqlQuery<int>(querycount).First(); ;
                     vm.CHI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -452,12 +468,19 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =2 and " + FILTER.OCHII;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =2 and " + FILTER.OCHII;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =2 and " + FILTER.OCHII;
-                    string queryids = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID = 2 and " + FILTER.OCHII;
+                    //string queryids = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID = 2 and " + FILTER.OCHII;
 
-                    string querycount = "select STATISTIC.CountCH2 from STATISTIC WHERE " + FILTER.OCHII;
-                    string querylenght = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCHII;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHII;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHII;
+                    string RegionQuery = "";
+                    if (!FILTER.OCHII.Contains("REGION_ID") && !FILTER.OCHII.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select SUM(STATISTIC.CountCH2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHII;
+
 
 
                     vm.CHII_Count = db.Database.SqlQuery<int>(querycount).First();
@@ -478,12 +501,20 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =3 and " + FILTER.OCHIII;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =3 and " + FILTER.OCHIII;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =3 and " + FILTER.OCHIII;
-                    string queryids= "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =3 and " + FILTER.OCHIII;
+                    //string queryids= "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =3 and " + FILTER.OCHIII;
 
-                    string querycount = "select STATISTIC.CountCH3 from STATISTIC WHERE " + FILTER.OCHIII;
-                    string querylenght = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCHIII;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHIII;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHIII;
+
+                    string RegionQuery = "";
+                    if (!FILTER.OCHIII.Contains("REGION_ID") && !FILTER.OCHIII.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select SUM(STATISTIC.CountCH3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHIII;
+
 
                     vm.CHIII_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.CHIII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -503,20 +534,30 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=1 and " + FILTER.OCH;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=1 and " + FILTER.OCH;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=1 and " + FILTER.OCH;
-                    string queryids = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and " + FILTER.OCH;
+                    //string queryids = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and " + FILTER.OCH;
 
-                    string querycount0 = "select STATISTIC.CountCH0 from STATISTIC WHERE " + FILTER.OCH;
-                    string querycount1 = "select STATISTIC.CountCH1 from STATISTIC WHERE " + FILTER.OCH;
-                    string querycount2 = "select STATISTIC.CountCH2 from STATISTIC WHERE " + FILTER.OCH;
-                    string querycount3 = "select STATISTIC.CountCH3 from STATISTIC WHERE " + FILTER.OCH;
 
-                    string querylenght0 = "select SUM(STATISTIC.CHANNEL0) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght1 = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght2 = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCH;
-                    string querylenght3 = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCH;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCH;
+                    string RegionQuery = "";
+                    if (!FILTER.OCH.Contains("REGION_ID") && !FILTER.OCH.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
 
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCH;
+                    string querycount0 = "select SUM(STATISTIC.CountCH0) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querycount1 = "select SUM(STATISTIC.CountCH1) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querycount2 = "select SUM(STATISTIC.CountCH2) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querycount3 = "select SUM(STATISTIC.CountCH3) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+
+                    string querylenght0 = "select SUM(STATISTIC.CHANNEL0) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querylenght1 = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querylenght2 = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querylenght3 = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+
+                    string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCH;
+
 
 
                     int chcount0 =db.Database.SqlQuery<int>(querycount0).First();
@@ -552,11 +593,18 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
 
-                    string querylenght = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCHM;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHM;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHM;
+                    string RegionQuery = "";
+                    if (!FILTER.QCHM.Contains("REGION_ID") && !FILTER.QCHM.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
+
 
                     vm.QCHM_Count = 0;//db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHM_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -576,11 +624,18 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
 
-                    string querylenght = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCHI;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHI;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHI;
+                    string RegionQuery = "";
+                    if (!FILTER.QCHI.Contains("REGION_ID") && !FILTER.QCHI.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
+
 
                     vm.QCHI_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -600,11 +655,18 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
 
-                    string querylenght = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCHII;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHII;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHII;
+                    string RegionQuery = "";
+                    if (!FILTER.QCHII.Contains("REGION_ID") && !FILTER.QCHII.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
+
 
                     vm.QCHII_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
                     vm.QCHII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -624,11 +686,18 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
 
-                    string querylenght = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCHIII;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHIII;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHIII;
+                    string RegionQuery = "";
+                    if (!FILTER.QCHIII.Contains("REGION_ID") && !FILTER.QCHIII.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
+
 
 
                     vm.QCHIII_Count = 0;// db.Database.SqlQuery<int>(querycount).First();
@@ -649,13 +718,18 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(CHANNELS.SERVED_AREAHA) from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
                     //string querydevicesum = "select SUM(CHANNELS.DEVICE_SUM) from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
                     //string querywitdh = "select SUM(CHANNELS.FACTICAL_LENGTH) from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
-                    string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
+                    //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
 
-                    string querylenght0 = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCH;
-                    string querylenght1 = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCH;
-                    string querylenght2 = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCH;
-                    string querylenght3 = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCH;
-                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCH;
+                    string RegionQuery = "";
+                    if (!FILTER.QCH.Contains("REGION_ID") && !FILTER.QCH.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght0 = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
+                    string querylenght1 = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
+                    string querylenght2 = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
+                    string querylenght3 = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
 
                     decimal ch0 = (db.Database.SqlQuery<decimal?>(querylenght0).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght0).First()), 2);
                     decimal ch1 = (db.Database.SqlQuery<decimal?>(querylenght1).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght1).First()), 2);
@@ -663,6 +737,8 @@ namespace Meliogis.Controllers
                     decimal ch3 = (db.Database.SqlQuery<decimal?>(querylenght3).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght3).First()), 2);
 
                     string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.QCH;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.QCH;
+
 
                     vm.QCH_Count = 0;// db.Database.SqlQuery<int>(queryCount).First();
                     vm.QCH_Lenght = ch0 + ch1 + ch2 + ch3; //(db.Database.SqlQuery<decimal?>(queryLenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryLenght).First()), 2);
@@ -689,12 +765,19 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(SERVED_AREA) from DRENAJ where  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
                     //string querydevicesum = "select SUM(DEVICE_SUM) from DRENAJ where  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
                     //string querywitdh = "select SUM(FACTICAL_LENGTH) from DRENAJ where  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
-                    string queryid = "select DRENAJ.OBJECTID from DRENAJ WHERE  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
+                    //string queryid = "select DRENAJ.OBJECTID from DRENAJ WHERE  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
 
-                    string querycount = "select STATISTIC.CountDREN0 from STATISTIC WHERE " + FILTER.DRENAJM;
-                    string querylenght = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJM;
-                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJM;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJM;
+                    string RegionQuery = "";
+                    if (!FILTER.DRENAJM.Contains("REGION_ID") && !FILTER.DRENAJM.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select STATISTIC.CountDREN0 from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
+
 
                     vm.DRENAJM_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJM_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 :(decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -715,12 +798,19 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(SERVED_AREA) from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
                     //string querydevicesum = "select SUM(DEVICE_SUM) from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
                     //string querywitdh = "select SUM(FACTICAL_LENGTH) from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
-                    string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
+                    //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
 
-                    string querycount = "select STATISTIC.CountDREN1 from STATISTIC WHERE " + FILTER.DRENAJI;
-                    string querylenght = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJI;
-                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJI;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJI;
+                    string RegionQuery = "";
+                    if (!FILTER.DRENAJI.Contains("REGION_ID") && !FILTER.DRENAJI.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select STATISTIC.CountDREN1 from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
+
 
                     vm.DRENAJI_Count =  db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJI_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -741,12 +831,19 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(SERVED_AREA) from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
                     //string querydevicesum = "select SUM(DEVICE_SUM) from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
                     //string querywitdh = "select SUM(FACTICAL_LENGTH) from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
-                    string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
+                    //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
 
-                    string querycount = "select STATISTIC.CountDREN2 from STATISTIC WHERE " + FILTER.DRENAJII;
-                    string querylenght = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJII;
-                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJII;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJII;
+                    string RegionQuery = "";
+                    if (!FILTER.DRENAJII.Contains("REGION_ID") && !FILTER.DRENAJII.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select STATISTIC.CountDREN2 from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
+
 
                     vm.DRENAJII_Count =  db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJII_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -766,12 +863,19 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(SERVED_AREA) from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
                     //string querydevicesum = "select SUM(DEVICE_SUM) from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
                     //string querywitdh = "select SUM(FACTICAL_LENGTH) from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
-                    string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
+                    //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
 
-                    string querycount = "select STATISTIC.CountDREN3 from STATISTIC WHERE " + FILTER.DRENAJK;
-                    string querylenght = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJK;
-                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJK;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJK;
+                    string RegionQuery = "";
+                    if (!FILTER.DRENAJK.Contains("REGION_ID") && !FILTER.DRENAJK.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querycount = "select STATISTIC.CountDREN3 from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
+                    string querylenght = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
+
 
                     vm.DRENAJK_Count = db.Database.SqlQuery<int>(querycount).First();
                     vm.DRENAJK_Lenght = (db.Database.SqlQuery<decimal?>(querylenght).First()==null)? 0 :(decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght).First()), 2);
@@ -791,20 +895,27 @@ namespace Meliogis.Controllers
                     //string queryservedarea = "select SUM(SERVED_AREA) from DRENAJ where " + FILTER.DRENAJ;
                     //string querydevicesum = "select SUM(DEVICE_SUM) from DRENAJ where " + FILTER.DRENAJ;
                     //string querywitdh = "select SUM(FACTICAL_LENGTH) from DRENAJ where " + FILTER.DRENAJ;
-                    string queryid = "select DRENAJ.OBJECTID from DRENAJ where " + FILTER.DRENAJ;
+                    //string queryid = "select DRENAJ.OBJECTID from DRENAJ where " + FILTER.DRENAJ;
 
-                    string querylenght0 = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querylenght1 = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querylenght2 = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querylenght3 = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJ;
+                    string RegionQuery = "";
+                    if (!FILTER.DRENAJ.Contains("REGION_ID") && !FILTER.DRENAJ.Contains("SSI_ID"))
+                    {
+                        RegionQuery = " and REGION_ID > 0 ";
+                    }
+                    string querylenght0 = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querylenght1 = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querylenght2 = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querylenght3 = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.DREANAREA) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
 
-                    string querycount0 = "select SUM(STATISTIC.CountDREN0) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querycount1 = "select SUM(STATISTIC.CountDREN1) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querycount2 = "select SUM(STATISTIC.CountDREN2) from STATISTIC WHERE " + FILTER.DRENAJ;
-                    string querycount3 = "select SUM(STATISTIC.CountDREN3) from STATISTIC WHERE " + FILTER.DRENAJ;
+                    string querycount0 = "select SUM(STATISTIC.CountDREN0) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querycount1 = "select SUM(STATISTIC.CountDREN1) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querycount2 = "select SUM(STATISTIC.CountDREN2) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string querycount3 = "select SUM(STATISTIC.CountDREN3) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
 
-                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJ;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+                    string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
+
 
                     int chcount0 = db.Database.SqlQuery<int>(querycount0).First();
                     int chcount1 = db.Database.SqlQuery<int>(querycount1).First();
@@ -839,12 +950,25 @@ namespace Meliogis.Controllers
                 //string querycount = "select Count(*) from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
                 //string queryservedarea = "select SUM(DEVICE.SERVED_AREA) from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
                 //string querycapability = "select SUM(DEVICE.WATER_CAPABILITY) from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
-                string queryid = "select DEVICE.OBJECTID from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
+                //string queryid = "select DEVICE.OBJECTID from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
 
-               
-                string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.DEVICE;
+                string RegionQuery = "";
+                if (!FILTER.DEVICE.Contains("REGION_ID") && !FILTER.DEVICE.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string devicech = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
+                string devicedr = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
 
-                vm.DEVICE_count = 0;// db.Database.SqlQuery<int>(querycount).First();
+                int devch = (db.Database.SqlQuery<decimal?>(devicech).First() == null) ? 0 : Convert.ToInt32(Convert.ToDouble(db.Database.SqlQuery<decimal?>(devicech).First()));
+                int devdr = (db.Database.SqlQuery<decimal?>(devicedr).First() == null) ? 0 : Convert.ToInt32(Convert.ToDouble(db.Database.SqlQuery<decimal?>(devicedr).First()));
+
+
+                string queryservedarea = "select SUM(STATISTIC.AREA) from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
+
+
+                vm.DEVICE_count = devch+ devdr;// db.Database.SqlQuery<int>(querycount).First();
                 vm.DEVICE_lenght = 0;
                 vm.DEVICE_ServedArea= (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
                 vm.DEVICE_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
@@ -860,9 +984,16 @@ namespace Meliogis.Controllers
             {
                 //string querycount = "select Count(*) from ARTEZIAN_WELL WHERE " + FILTER.ARTEZIANWELL;
                 //string querycapability = "select SUM(WATER_CAPABILITY) from ARTEZIAN_WELL WHERE " + FILTER.ARTEZIANWELL;
-                string queryid = "select ARTEZIAN_WELL.OBJECTID from ARTEZIAN_WELL WHERE " + FILTER.ARTEZIANWELL;
+                //string queryid = "select ARTEZIAN_WELL.OBJECTID from ARTEZIAN_WELL WHERE " + FILTER.ARTEZIANWELL;
 
-                string querycount = "select SUM(STATISTIC.ARTESIAN) from STATISTIC WHERE " + FILTER.ARTEZIANWELL;
+                string RegionQuery = "";
+                if (!FILTER.ARTEZIANWELL.Contains("REGION_ID") && !FILTER.ARTEZIANWELL.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querycount = "select SUM(STATISTIC.ARTESIAN) from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
+
 
                 int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()),0);
 
@@ -881,9 +1012,16 @@ namespace Meliogis.Controllers
             if (FILCHECK.WELL)
             {
                 //string querycount = "select Count(*) from WELL WHERE " + FILTER.WELL;
-                string queryid = "select WELL.OBJECTID from WELL WHERE " + FILTER.WELL;
+                //string queryid = "select WELL.OBJECTID from WELL WHERE " + FILTER.WELL;
 
-                string querycount = "select SUM(STATISTIC.WELL) from STATISTIC WHERE " + FILTER.WELL;
+                string RegionQuery = "";
+                if (!FILTER.WELL.Contains("REGION_ID") && !FILTER.WELL.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querycount = "select SUM(STATISTIC.WELL) from STATISTIC WHERE " + FILTER.WELL + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.WELL + RegionQuery;
+
 
                 int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()), 0);
 
@@ -903,9 +1041,16 @@ namespace Meliogis.Controllers
                 //string querycount = "select Count(*) from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
                 //string queryservedarea = "select  SUM(SERVED_AREA) from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
                 //string querycapability = "select  SUM(PRODUCTIVITY) from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
-                string queryid = "select PUMPSTATION.OBJECTID from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
+                //string queryid = "select PUMPSTATION.OBJECTID from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
 
-                string querycount = "select SUM(STATISTIC.PUMPSTATIONCH) from STATISTIC WHERE " + FILTER.PUMPSTATION;
+                string RegionQuery = "";
+                if (!FILTER.PUMPSTATION.Contains("REGION_ID") && !FILTER.PUMPSTATION.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querycount = "select SUM(STATISTIC.PUMPSTATIONCH) from STATISTIC WHERE " + FILTER.PUMPSTATION + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.PUMPSTATION + RegionQuery;
+
                 int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()), 0);
 
 
@@ -925,9 +1070,16 @@ namespace Meliogis.Controllers
                 //string querycount = "select Count(*) from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
                 //string queryservedarea = "select SUM(SERVED_AREA) from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
                 //string querydevicesum = "select SUM(DEVICE_SUMM) from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
-                string queryid = "select WINTERPASTURES.OBJECTID from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
+                //string queryid = "select WINTERPASTURES.OBJECTID from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
 
-                string querycount = "select SUM(STATISTIC.PASTURES) from STATISTIC WHERE " + FILTER.WINTERPASTURES;
+                string RegionQuery = "";
+                if (!FILTER.WINTERPASTURES.Contains("REGION_ID") && !FILTER.WINTERPASTURES.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querycount = "select SUM(STATISTIC.PASTURES) from STATISTIC WHERE " + FILTER.WINTERPASTURES + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.WINTERPASTURES + RegionQuery;
+
                 int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()), 0);
 
 
@@ -945,9 +1097,16 @@ namespace Meliogis.Controllers
             {
                 //string querycount = "select Count(*) from RIVERBAND WHERE " + FILTER.RIVERBAND;
                 //string querylengnt = "select SUM(RIVERBAND.LENGTH) from RIVERBAND WHERE " + FILTER.RIVERBAND;
-                string queryid = "select RIVERBAND.OBJECTID from RIVERBAND WHERE " + FILTER.RIVERBAND;
+                //string queryid = "select RIVERBAND.OBJECTID from RIVERBAND WHERE " + FILTER.RIVERBAND;
 
-                string querylengnt = "select SUM(STATISTIC.RIVERBAND) from STATISTIC WHERE " + FILTER.RIVERBAND;
+                string RegionQuery = "";
+                if (!FILTER.RIVERBAND.Contains("REGION_ID") && !FILTER.RIVERBAND.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querylengnt = "select SUM(STATISTIC.RIVERBAND) from STATISTIC WHERE " + FILTER.RIVERBAND + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.RIVERBAND + RegionQuery;
+
 
 
                 vm.RIVERBAND_count = 0;// db.Database.SqlQuery<int>(querycount).First();
@@ -964,10 +1123,17 @@ namespace Meliogis.Controllers
             {
                 //string querycount = "select Count(*) from BUILDINGS WHERE " + FILTER.BUILDINGS;
                 //string queryservedarea = "select SUM(SERVED_AREA) from BUILDINGS WHERE " + FILTER.BUILDINGS;
-                string queryid = "select BUILDINGS.OBJECTID from BUILDINGS WHERE " + FILTER.BUILDINGS;
+                //string queryid = "select BUILDINGS.OBJECTID from BUILDINGS WHERE " + FILTER.BUILDINGS;
 
-                string querycount = "select SUM(STATISTIC.BUILDING) from STATISTIC WHERE " + FILTER.BUILDINGS;
-                int count = (db.Database.SqlQuery<int?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<int?>(querycount).First()), 0);
+                string RegionQuery = "";
+                if (!FILTER.BUILDINGS.Contains("REGION_ID") && !FILTER.BUILDINGS.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querycount = "select SUM(STATISTIC.BUILDING) from STATISTIC WHERE " + FILTER.BUILDINGS + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.BUILDINGS + RegionQuery;
+
+                int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()), 0);
 
 
                 vm.BUILDINGS_count = count;// db.Database.SqlQuery<int>(querycount).First();
@@ -984,9 +1150,16 @@ namespace Meliogis.Controllers
             {
                 //string querycount = "select Count(*) from EXPLOITATION_ROAD WHERE " + FILTER.EXPLONATION_ROAD;
                 //string querylengnt = "select SUM(LENGHT) from EXPLOITATION_ROAD WHERE " + FILTER.EXPLONATION_ROAD;
-                string queryid = "select EXPLOITATION_ROAD.OBJECTID from EXPLOITATION_ROAD WHERE " + FILTER.EXPLONATION_ROAD;
+                //string queryid = "select EXPLOITATION_ROAD.OBJECTID from EXPLOITATION_ROAD WHERE " + FILTER.EXPLONATION_ROAD;
 
-                string querylengnt = "select SUM(STATISTIC.ROADS) from STATISTIC WHERE " + FILTER.EXPLONATION_ROAD;
+                string RegionQuery = "";
+                if (!FILTER.EXPLONATION_ROAD.Contains("REGION_ID") && !FILTER.EXPLONATION_ROAD.Contains("SSI_ID"))
+                {
+                    RegionQuery = " and REGION_ID > 0 ";
+                }
+                string querylengnt = "select SUM(STATISTIC.ROADS) from STATISTIC WHERE " + FILTER.EXPLONATION_ROAD + RegionQuery;
+                string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.EXPLONATION_ROAD + RegionQuery;
+
 
                 vm.EXPLONATION_ROAD_count = 0;// db.Database.SqlQuery<int>(querycount).First();
                 vm.EXPLONATION_ROAD_lenght = (db.Database.SqlQuery<decimal?>(querylengnt).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylengnt).First()), 2);

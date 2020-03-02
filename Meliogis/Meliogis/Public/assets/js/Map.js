@@ -1089,7 +1089,7 @@ function MapFunction() {
                     regionalquery += " and VILLAGE_ID in (" + villiageList + ") ";
                 }
                 if (villiageList.length == 0 && regionlist.length != 0) {
-                    regionalquery += " and REGIONS_ID in (" + regionlist + ") ";
+                    regionalquery += " and REGION_ID in (" + regionlist + ") ";
                 }
 
                 //idareler ve sibler
