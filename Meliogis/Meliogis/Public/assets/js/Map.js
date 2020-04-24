@@ -739,21 +739,21 @@ function MapFunction() {
                 ]
             });
 
-            layerRegion = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/11",
+            layerRegion = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/11",
                 {
                     "imageParameters": imageParameters,
                     mode: FeatureLayer.MODE_ONDEMAND,
                     visible: true
                 });
 
-            layerVillage = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/10",
+            layerVillage = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/10",
                 {
                     "imageParameters": imageParameters,
                     mode: FeatureLayer.MODE_ONDEMAND,
                     visible: false
                 });
 
-            layerChannel = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/4",
+            layerChannel = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/4",
                 {
                     "imageParameters": imageParameters,
                     infoTemplate: popupTemplateChannel,
@@ -762,7 +762,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerDrenaj = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/5",
+            layerDrenaj = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/5",
                 {
                     "imageParameters": imageParameters,
 
@@ -771,7 +771,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerRiverBand = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/7",
+            layerRiverBand = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/7",
                 {
                     "imageParameters": imageParameters,
 
@@ -780,7 +780,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerArtesian = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/0",
+            layerArtesian = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/0",
                 {
                     "imageParameters": imageParameters,
 
@@ -789,7 +789,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerWell = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/3",
+            layerWell = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/3",
                 {
                     "imageParameters": imageParameters,
 
@@ -798,7 +798,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerDevice = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/1",
+            layerDevice = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/1",
                 {
                     "imageParameters": imageParameters,
 
@@ -807,7 +807,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerPump = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/2",
+            layerPump = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/2",
                 {
                     "imageParameters": imageParameters,
 
@@ -816,7 +816,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerBuilding = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/9",
+            layerBuilding = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/9",
                 {
                     "imageParameters": imageParameters,
 
@@ -825,7 +825,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerRoad = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/6",
+            layerRoad = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/6",
                 {
                     "imageParameters": imageParameters,
 
@@ -834,7 +834,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerRivers = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/12",
+            layerRivers = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/12",
                 {
                     "imageParameters": imageParameters,
 
@@ -843,7 +843,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerReservior = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/13",
+            layerReservior = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/13",
                 {
                     "imageParameters": imageParameters,
 
@@ -852,7 +852,7 @@ function MapFunction() {
                     visible: false
                 });
 
-            layerPastures = new FeatureLayer("http://213.154.5.139:8021/arcgis/rest/services/Melo_0610/MapServer/8",
+            layerPastures = new FeatureLayer("http://10.10.1.253:8021/arcgis/rest/services/Melo_0610/MapServer/8",
                 {
                     "imageParameters": imageParameters,
 
@@ -1089,7 +1089,7 @@ function MapFunction() {
                     regionalquery += " and VILLAGE_ID in (" + villiageList + ") ";
                 }
                 if (villiageList.length == 0 && regionlist.length != 0) {
-                    regionalquery += " and REGION_ID in (" + regionlist + ") ";
+                    regionalquery += " and REGIONS_ID in (" + regionlist + ") ";
                 }
 
                 //idareler ve sibler
@@ -2353,6 +2353,42 @@ $(document).on("click", "._searchdata", function () {
     $("#_testSearch").click();
 })
 
+
+$(document).on("click", "#_GetCamera", function () {
+    $.ajax({
+        url: "/Home/ArtRealData",
+        method: "post",
+        type: "JSON",
+        success: function (response) {
+            console.log(response);
+            if (response != null) {
+                $("#_ArtezianResult tbody").append("<tr> <td>" + response.light[0] + "</td> <td>" + response.water[0] + "</td> </tr>")
+            }
+
+
+            //var stringUrl = "https://wcs5-eu.flashphoner.com:8888/embed_player?urlServer=wss://wcs5-eu.flashphoner.com:8443&streamName=rtsp://admin:Recog-567423@5.191.38.134:554/unicast/c1/s2/live&mediaProviders=WebRTC,Flash,MSE,WSPlayer?autoplay=1"
+
+            //var videoIframe = $("#fp_embed_player");
+            //videoIframe.attr("src", stringUrl);
+
+            var stringUrl ="rtsp://admin:Recog-567423@5.191.38.134:554/live/video2"
+            
+        }
+    })
+})
+
+$("._closeArtezianCamera").on("click", function () {
+    $("#_ArtezianResult tbody tr").remove();
+})
+
+
+$(document).on("click", 'image', function () {
+
+    let btn = $('<button data-target-modal="Camera-arezian" type="button" id="_GetCamera" class="btn xs bg-green">Ətraflı bax</button>')
+    $('.actionList').find('.btn').remove();
+
+    $('.actionList').append(btn)
+})
 
 
 

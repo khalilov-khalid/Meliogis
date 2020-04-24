@@ -69,119 +69,56 @@ $(document).ready(function () {
     // Modal
     /*================================================================================================================*/
 
-    $('[data-target-modal]').each(function () {
+
+    $(document).on('click', '[data-target-modal]', function () {
+
 
         const $this = $(this);
         const $target_modal = $this.data('target-modal');
         const $modal = $('[data-modal="' + $target_modal + '"]');
-        const $resize_modal = $('[data-resize="' + $target_modal + '"]');
-        const $resize = $resize_modal.data('resize');
 
-        const $video_url = $this.data('video-url');
-        const $map_url = $this.data('map-url');
-        var $iframe;
+        if ($modal.data('open-animation')) {
 
-        $this.on('click', function () {
+            const $open_animation = $modal.data('open-animation');
 
-            if ($video_url) {
+            $('[data-modal="' + $target_modal + '"] > .modal-content').addClass('animated ' + $open_animation)
+        }
 
-                const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
-                const match = $video_url.match(regExp);
+        $modal.addClass('open');
 
-                if (match && match[2].length == 11) {
-                    const $id = match[2];
+        body_overflow_hidden();
 
-                    $iframe = $(
-                        '<div class="responsive pb-in-56">' +
-                        '<iframe src="https://www.youtube.com/embed/' + $id + '?autoplay=1"></iframe>' +
-                        '</div>'
-                    );
-                    $modal.find('.modal-content').prepend($iframe);
-                }
-            }
-
-            if ($map_url) {
-
-                $iframe = $(
-                    '<div class="responsive pb-in-40">' +
-                    '<iframe src="' + $map_url + '"></iframe>' +
-                    '</div>'
-                );
-                $modal.find('.modal-content').append($iframe);
-            }
-
-            if($modal.data('placement') === 'bottom'){
-
-                const $modal_overlay = $('<div class="modal-overlay" data-close="'+ $target_modal +'"></div>');
-
-                $modal.append($modal_overlay).addClass('bottom');
-
-            }
-
-            if($modal.data('open-animation')){
-
-                const $open_animation = $modal.data('open-animation');
-
-                $('[data-modal="' + $target_modal + '"] > .modal-content').addClass('animated ' + $open_animation)
-            }
-
-            $modal.addClass('open');
-
-            body_overflow_hidden();
-
-            return false;
-
-        });
-
-        $resize_modal.on('click', function () {
-
-            const $resized_modal = $('[data-modal="' + $resize + '"]');
-
-            $resized_modal.toggleClass('resized');
-
-            if(!$resized_modal.hasClass('resized')){
-                body_overflow_hidden();
-            }else {
-                body_overflow_auto();
-            }
-
-        });
-
-        $(document).on('click', '[data-close]', function () {
-
-            const $close = $(this).data('close');
-
-            const $closed_modal = $('[data-modal="' + $close + '"]');
-
-            const $close_animation = $closed_modal.attr('data-close-animation');
-            const $open_animation = $closed_modal.data('open-animation');
-
-            $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($close_animation).removeClass($open_animation);
-
-            setTimeout(function(){
-
-                $closed_modal.removeClass('open');
-
-                $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($open_animation).removeClass($close_animation);
-
-                $('[data-modal="' + $close + '"] .modal-overlay').remove();
-
-                if (!$('.modal').hasClass('open')) {
-                    body_overflow_auto()
-                }
-
-                if ($video_url) {
-                    $modal.find('.responsive').remove();
-                }
-
-            }, 200);
-
-            $modal.removeClass('resized');
-
-        });
+        return false;
 
     });
 
+
+    $(document).on('click', '[data-close]', function () {
+
+        const $close = $(this).data('close');
+
+        const $closed_modal = $('[data-modal="' + $close + '"]');
+
+        const $close_animation = $closed_modal.attr('data-close-animation');
+        const $open_animation = $closed_modal.data('open-animation');
+
+        $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($close_animation).removeClass($open_animation);
+
+        setTimeout(function () {
+
+            $closed_modal.removeClass('open');
+
+            $('[data-modal="' + $close + '"] .modal-content').eq(0).addClass($open_animation).removeClass($close_animation);
+
+            $('[data-modal="' + $close + '"] .modal-overlay').remove();
+
+            if (!$('.modal').hasClass('open')) {
+                body_overflow_auto()
+            }
+
+        }, 200);
+
+    });
     /*================================================================================================================*/
     // Accordion
     /*================================================================================================================*/

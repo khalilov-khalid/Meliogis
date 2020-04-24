@@ -257,3 +257,6 @@ C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\obj
 C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\obj\Debug\Meliogis.csproj.CopyComplete
 C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\obj\Debug\Meliogis.dll
 C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\obj\Debug\Meliogis.pdb
+C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\bin\DeltaProtocol.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\bin\ModbusTcpMaster.dll
+C:\Users\xalid.xalilov\Desktop\WorkProject\MeliogisProject\Meliogis\Meliogis\bin\Protocol.dll

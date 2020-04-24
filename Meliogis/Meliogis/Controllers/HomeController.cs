@@ -12,12 +12,44 @@ using Meliogis.GetJsonModel;
 using Meliogis.Models;
 using Meliogis.ViewModels;
 
+using DeltaProtocol;
+using Protocol;
+
+
+
+
 namespace Meliogis.Controllers
 {
     [UserAuthenticationController]
     public class HomeController : Controller
     {
         MelorEntities db = new MelorEntities();
+
+        public ArtezianRealData ArtezianRealData { get; private set; }
+
+        public ActionResult ArtRealData()
+        {
+            Plc dvpPLC = new Plc("5.191.38.48", 502);
+                     
+            dvpPLC.Open();            
+
+            int[] isig = (int[])dvpPLC.Read("D82", VarType.DInt, 5);
+            int[] su = (int[])dvpPLC.Read("D408", VarType.DInt, 5);
+
+            dvpPLC.Close();
+
+            ArtezianRealData data = new ArtezianRealData()
+            {
+                light = isig,
+                water = su
+            };
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+
+        }
+
+
+
         public ActionResult Index()
         {
             IndexViewModel vm = new IndexViewModel();
@@ -402,9 +434,9 @@ namespace Meliogis.Controllers
 
 
                     string RegionQuery = "";
-                    if (!FILTER.OCHM.Contains("REGION_ID") && !FILTER.OCHM.Contains("SSI_ID"))
+                    if (!FILTER.OCHM.Contains("REGIONS_ID") && !FILTER.OCHM.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
 
                     string querycount = "select SUM(STATISTIC.CountCH0) from STATISTIC WHERE " + FILTER.OCHM + RegionQuery;
@@ -437,9 +469,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID =1 and " + FILTER.OCHI;
 
                     string RegionQuery = "";
-                    if (!FILTER.OCHI.Contains("REGION_ID") && !FILTER.OCHI.Contains("SSI_ID"))
+                    if (!FILTER.OCHI.Contains("REGIONS_ID") && !FILTER.OCHI.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
 
                     string querycount = "select SUM(STATISTIC.CountCH1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
@@ -471,9 +503,9 @@ namespace Meliogis.Controllers
                     //string queryids = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=1 and CHANNELS.TYPE_ID = 2 and " + FILTER.OCHII;
 
                     string RegionQuery = "";
-                    if (!FILTER.OCHII.Contains("REGION_ID") && !FILTER.OCHII.Contains("SSI_ID"))
+                    if (!FILTER.OCHII.Contains("REGIONS_ID") && !FILTER.OCHII.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountCH2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
@@ -505,9 +537,9 @@ namespace Meliogis.Controllers
 
 
                     string RegionQuery = "";
-                    if (!FILTER.OCHIII.Contains("REGION_ID") && !FILTER.OCHIII.Contains("SSI_ID"))
+                    if (!FILTER.OCHIII.Contains("REGIONS_ID") && !FILTER.OCHIII.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountCH3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
@@ -538,9 +570,9 @@ namespace Meliogis.Controllers
 
 
                     string RegionQuery = "";
-                    if (!FILTER.OCH.Contains("REGION_ID") && !FILTER.OCH.Contains("SSI_ID"))
+                    if (!FILTER.OCH.Contains("REGIONS_ID") && !FILTER.OCH.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
 
                     string querycount0 = "select SUM(STATISTIC.CountCH0) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
@@ -596,9 +628,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =4 and " + FILTER.QCHM;
 
                     string RegionQuery = "";
-                    if (!FILTER.QCHM.Contains("REGION_ID") && !FILTER.QCHM.Contains("SSI_ID"))
+                    if (!FILTER.QCHM.Contains("REGIONS_ID") && !FILTER.QCHM.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountClosed0) from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CLOSED0) from STATISTIC WHERE " + FILTER.QCHM + RegionQuery;
@@ -628,9 +660,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =1 and " + FILTER.QCHI;
 
                     string RegionQuery = "";
-                    if (!FILTER.QCHI.Contains("REGION_ID") && !FILTER.QCHI.Contains("SSI_ID"))
+                    if (!FILTER.QCHI.Contains("REGIONS_ID") && !FILTER.QCHI.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountCLOSED1) from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CLOSED1) from STATISTIC WHERE " + FILTER.QCHI + RegionQuery;
@@ -660,9 +692,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =2 and " + FILTER.QCHII;
 
                     string RegionQuery = "";
-                    if (!FILTER.QCHII.Contains("REGION_ID") && !FILTER.QCHII.Contains("SSI_ID"))
+                    if (!FILTER.QCHII.Contains("REGIONS_ID") && !FILTER.QCHII.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountCLOSED2) from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CLOSED2) from STATISTIC WHERE " + FILTER.QCHII + RegionQuery;
@@ -692,9 +724,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and CHANNELS.TYPE_ID =3 and " + FILTER.QCHIII;
 
                     string RegionQuery = "";
-                    if (!FILTER.QCHIII.Contains("REGION_ID") && !FILTER.QCHIII.Contains("SSI_ID"))
+                    if (!FILTER.QCHIII.Contains("REGIONS_ID") && !FILTER.QCHIII.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select SUM(STATISTIC.CountCLOSED3) from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CLOSED3) from STATISTIC WHERE " + FILTER.QCHIII + RegionQuery;
@@ -725,9 +757,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select CHANNELS.OBJECTID from CHANNELS WHERE KIND_ID=2 and " + FILTER.QCH;
 
                     string RegionQuery = "";
-                    if (!FILTER.QCH.Contains("REGION_ID") && !FILTER.QCH.Contains("SSI_ID"))
+                    if (!FILTER.QCH.Contains("REGIONS_ID") && !FILTER.QCH.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount0 = "select SUM(STATISTIC.CountClosed0) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
                     string querycount1 = "select SUM(STATISTIC.CountCLOSED1) from STATISTIC WHERE " + FILTER.QCH + RegionQuery;
@@ -783,9 +815,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select DRENAJ.OBJECTID from DRENAJ WHERE  CHANNEL_TYPE_ID=4 and " + FILTER.DRENAJM;
 
                     string RegionQuery = "";
-                    if (!FILTER.DRENAJM.Contains("REGION_ID") && !FILTER.DRENAJM.Contains("SSI_ID"))
+                    if (!FILTER.DRENAJM.Contains("REGIONS_ID") && !FILTER.DRENAJM.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select STATISTIC.CountDREN0 from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJM + RegionQuery;
@@ -816,9 +848,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=1 and " + FILTER.DRENAJI;
 
                     string RegionQuery = "";
-                    if (!FILTER.DRENAJI.Contains("REGION_ID") && !FILTER.DRENAJI.Contains("SSI_ID"))
+                    if (!FILTER.DRENAJI.Contains("REGIONS_ID") && !FILTER.DRENAJI.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select STATISTIC.CountDREN1 from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJI + RegionQuery;
@@ -849,9 +881,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=2 and " + FILTER.DRENAJII;
 
                     string RegionQuery = "";
-                    if (!FILTER.DRENAJII.Contains("REGION_ID") && !FILTER.DRENAJII.Contains("SSI_ID"))
+                    if (!FILTER.DRENAJII.Contains("REGIONS_ID") && !FILTER.DRENAJII.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select STATISTIC.CountDREN2 from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.DREN2) from STATISTIC WHERE " + FILTER.DRENAJII + RegionQuery;
@@ -881,9 +913,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select DRENAJ.OBJECTID from DRENAJ where  CHANNEL_TYPE_ID=3 and " + FILTER.DRENAJK;
 
                     string RegionQuery = "";
-                    if (!FILTER.DRENAJK.Contains("REGION_ID") && !FILTER.DRENAJK.Contains("SSI_ID"))
+                    if (!FILTER.DRENAJK.Contains("REGIONS_ID") && !FILTER.DRENAJK.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querycount = "select STATISTIC.CountDREN3 from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.DREN3) from STATISTIC WHERE " + FILTER.DRENAJK + RegionQuery;
@@ -913,9 +945,9 @@ namespace Meliogis.Controllers
                     //string queryid = "select DRENAJ.OBJECTID from DRENAJ where " + FILTER.DRENAJ;
 
                     string RegionQuery = "";
-                    if (!FILTER.DRENAJ.Contains("REGION_ID") && !FILTER.DRENAJ.Contains("SSI_ID"))
+                    if (!FILTER.DRENAJ.Contains("REGIONS_ID") && !FILTER.DRENAJ.Contains("SSI_ID"))
                     {
-                        RegionQuery = " and REGION_ID > 0 ";
+                        RegionQuery = " and REGIONS_ID > 0 ";
                     }
                     string querylenght0 = "select SUM(STATISTIC.DREN0) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
                     string querylenght1 = "select SUM(STATISTIC.DREN1) from STATISTIC WHERE " + FILTER.DRENAJ + RegionQuery;
@@ -968,9 +1000,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select DEVICE.OBJECTID from DEVICE left join CHANNELS on CHANNELS.OBJECTID = DEVICE.CHANNEL_ID left join DRENAJ on DRENAJ.OBJECTID= DEVICE.CHANNEL_ID WHERE " + FILTER.DEVICE;
 
                 string RegionQuery = "";
-                if (!FILTER.DEVICE.Contains("REGION_ID") && !FILTER.DEVICE.Contains("SSI_ID"))
+                if (!FILTER.DEVICE.Contains("REGIONS_ID") && !FILTER.DEVICE.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string devicech = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
                 string devicedr = "select SUM(STATISTIC.DEVICEDREN) from STATISTIC WHERE " + FILTER.DEVICE + RegionQuery;
@@ -1007,9 +1039,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select ARTEZIAN_WELL.OBJECTID from ARTEZIAN_WELL WHERE " + FILTER.ARTEZIANWELL;
 
                 string RegionQuery = "";
-                if (!FILTER.ARTEZIANWELL.Contains("REGION_ID") && !FILTER.ARTEZIANWELL.Contains("SSI_ID"))
+                if (!FILTER.ARTEZIANWELL.Contains("REGIONS_ID") && !FILTER.ARTEZIANWELL.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querycount = "select SUM(STATISTIC.ARTESIANCOUNT) from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
@@ -1035,9 +1067,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select WELL.OBJECTID from WELL WHERE " + FILTER.WELL;
 
                 string RegionQuery = "";
-                if (!FILTER.WELL.Contains("REGION_ID") && !FILTER.WELL.Contains("SSI_ID"))
+                if (!FILTER.WELL.Contains("REGIONS_ID") && !FILTER.WELL.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querycount = "select SUM(STATISTIC.WELLCOUNT) from STATISTIC WHERE " + FILTER.WELL + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.WELL + RegionQuery;
@@ -1064,9 +1096,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select PUMPSTATION.OBJECTID from PUMPSTATION WHERE " + FILTER.PUMPSTATION;
 
                 string RegionQuery = "";
-                if (!FILTER.PUMPSTATION.Contains("REGION_ID") && !FILTER.PUMPSTATION.Contains("SSI_ID"))
+                if (!FILTER.PUMPSTATION.Contains("REGIONS_ID") && !FILTER.PUMPSTATION.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querychcount = "select SUM(STATISTIC.PUMPSTATIONCH) from STATISTIC WHERE " + FILTER.PUMPSTATION + RegionQuery;
                 string querydrcount = "select SUM(STATISTIC.PUMPSTATIONDREN) from STATISTIC WHERE " + FILTER.PUMPSTATION + RegionQuery;
@@ -1100,9 +1132,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select WINTERPASTURES.OBJECTID from WINTERPASTURES WHERE " + FILTER.WINTERPASTURES;
 
                 string RegionQuery = "";
-                if (!FILTER.WINTERPASTURES.Contains("REGION_ID") && !FILTER.WINTERPASTURES.Contains("SSI_ID"))
+                if (!FILTER.WINTERPASTURES.Contains("REGIONS_ID") && !FILTER.WINTERPASTURES.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querycount = "select SUM(STATISTIC.PASTURESCOUNT) from STATISTIC WHERE " + FILTER.WINTERPASTURES + RegionQuery;
                 string queryservedarea = "select SUM(STATISTIC.PASTURESAREA) from STATISTIC WHERE " + FILTER.WINTERPASTURES;
@@ -1128,9 +1160,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select RIVERBAND.OBJECTID from RIVERBAND WHERE " + FILTER.RIVERBAND;
 
                 string RegionQuery = "";
-                if (!FILTER.RIVERBAND.Contains("REGION_ID") && !FILTER.RIVERBAND.Contains("SSI_ID"))
+                if (!FILTER.RIVERBAND.Contains("REGIONS_ID") && !FILTER.RIVERBAND.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querylengnt = "select SUM(STATISTIC.RIVERBANDCOUNT) from STATISTIC WHERE " + FILTER.RIVERBAND + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.RIVERBAND + RegionQuery;
@@ -1154,9 +1186,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select BUILDINGS.OBJECTID from BUILDINGS WHERE " + FILTER.BUILDINGS;
 
                 string RegionQuery = "";
-                if (!FILTER.BUILDINGS.Contains("REGION_ID") && !FILTER.BUILDINGS.Contains("SSI_ID"))
+                if (!FILTER.BUILDINGS.Contains("REGIONS_ID") && !FILTER.BUILDINGS.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querycount = "select SUM(STATISTIC.BUILDINGCOUNT) from STATISTIC WHERE " + FILTER.BUILDINGS + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.BUILDINGS + RegionQuery;
@@ -1181,9 +1213,9 @@ namespace Meliogis.Controllers
                 //string queryid = "select EXPLOITATION_ROAD.OBJECTID from EXPLOITATION_ROAD WHERE " + FILTER.EXPLONATION_ROAD;
 
                 string RegionQuery = "";
-                if (!FILTER.EXPLONATION_ROAD.Contains("REGION_ID") && !FILTER.EXPLONATION_ROAD.Contains("SSI_ID"))
+                if (!FILTER.EXPLONATION_ROAD.Contains("REGIONS_ID") && !FILTER.EXPLONATION_ROAD.Contains("SSI_ID"))
                 {
-                    RegionQuery = " and REGION_ID > 0 ";
+                    RegionQuery = " and REGIONS_ID > 0 ";
                 }
                 string querylengnt = "select SUM(STATISTIC.ROADSCOUNT) from STATISTIC WHERE " + FILTER.EXPLONATION_ROAD + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.EXPLONATION_ROAD + RegionQuery;
@@ -1248,6 +1280,9 @@ namespace Meliogis.Controllers
             
             return Json("", JsonRequestBehavior.AllowGet);
         }
+
+
+
     }
 }
 

@@ -79,45 +79,47 @@
     <script src="~/Public/assets/js/jquery.min.js"></script>
     <script src="~/Public/assets/js/pi.js"></script>
     <script src="~/Public/assets/js/script.js"></script>
+    <script src="~/Public/assets/js/free.player.1.8.3.js"></script>
     <script src="~/Public/assets/js/Map.js"></script>
 
+
     <script>
-    const $body = $('body');
+        const $body = $('body');
 
-    $('.side-toggle').on('click', function () {
-        $body.toggleClass('side-shown');
-        if($body.hasClass('side-shown')){
-            $(this).attr('aria-expanded', 'true');
-        }else{
-            $(this).attr('aria-expanded', 'false');
-        }
-    });
+        $('.side-toggle').on('click', function () {
+            $body.toggleClass('side-shown');
+            if ($body.hasClass('side-shown')) {
+                $(this).attr('aria-expanded', 'true');
+            } else {
+                $(this).attr('aria-expanded', 'false');
+            }
+        });
 
-    $('.search-toggle').on('click', function () {
-        $body.toggleClass('search-open');
-    });
+        $('.search-toggle').on('click', function () {
+            $body.toggleClass('search-open');
+        });
 
-    $('*').click(function (e) {
+        $('*').click(function (e) {
 
-        /*if (!$(e.target).is('.side-toggle')
-            && !$(e.target).is('.side-toggle *')
-            && !$(e.target).is('.side-menu')
-            && !$(e.target).is('.side-menu *')) {
-            $body.removeClass('side-shown');
-        }*/
+            /*if (!$(e.target).is('.side-toggle')
+                && !$(e.target).is('.side-toggle *')
+                && !$(e.target).is('.side-menu')
+                && !$(e.target).is('.side-menu *')) {
+                $body.removeClass('side-shown');
+            }*/
 
-        if (!$(e.target).is('#search-input')
-            && !$(e.target).is('#search-input *')) {
-            $searchFilter.attr('hidden', true);
-        }
-    });
+            if (!$(e.target).is('#search-input')
+                && !$(e.target).is('#search-input *')) {
+                $searchFilter.attr('hidden', true);
+            }
+        });
 
-    const $searchFilter = $('.search-filter');
-    const $searchInput = $('#search-input');
+        const $searchFilter = $('.search-filter');
+        const $searchInput = $('#search-input');
 
-    $searchInput.on('focus',function () {
-        $searchFilter.attr('hidden', false);
-    });
+        $searchInput.on('focus', function () {
+            $searchFilter.attr('hidden', false);
+        });
 
     </script>
 
