@@ -212,6 +212,7 @@
                             <input type="checkbox" id="CH">
                             <label for="CH">
                                 <span class="bold">Açıq suvarma şəbəkəsi</span>
+                                <span style='font-size:20px; color:blue;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-1"></i>
@@ -1036,6 +1037,7 @@
                             <input type="checkbox" id="QCH">
                             <label for="QCH">
                                 <span class="bold">Qapalı suvarma şəbəkəsi</span>
+                                <span style='font-size:20px; color:blue;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-2"></i>
@@ -1867,6 +1869,7 @@
                             <input type="checkbox" id="DRENAJ">
                             <label for="DRENAJ">
                                 <span class="bold">Kollektor-drenaj şəbəkəsi</span>
+                                <span style='font-size:20px; color:orangered;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-3"></i>
@@ -2662,6 +2665,8 @@
                             <input type="checkbox" id="DEVICE">
                             <label for="DEVICE">
                                 <span class="bold">Hidrotexniki qurğular</span>
+                                <span style='font-size:20px; color:rebeccapurple;'>&#8718;</span>
+                                <span style='font-size:20px; color:blue;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-6"></i>
@@ -2963,6 +2968,7 @@
                             <input type="checkbox" id="ARTEZIAN_WELL">
                             <label for="ARTEZIAN_WELL">
                                 <span class="bold">Artezian Quyular</span>
+                                <span style='font-size:20px; color:forestgreen;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-7"></i>
@@ -3128,6 +3134,7 @@
                             <input type="checkbox" id="WELL">
                             <label for="WELL">
                                 <span class="bold">Quyular</span>
+                                <span style='font-size:20px; color:gray;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-8"></i>
@@ -3295,6 +3302,7 @@
                             <input type="checkbox" id="PUMPSTATION">
                             <label for="PUMPSTATION">
                                 <span class="bold">Nasos stansiyaları</span>
+                                <span style='font-size:20px; color:red;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-9"></i>
@@ -3485,6 +3493,7 @@
                             <input type="checkbox" id="WINTERPASTURES">
                             <label for="WINTERPASTURES">
                                 <span class="bold">Qış otlaqlarının su təminatı sistemləri</span>
+                                <span style='font-size:20px; color:yellow;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-10"></i>
@@ -3535,6 +3544,7 @@
                             <input type="checkbox" id="RIVERBAND">
                             <label for="RIVERBAND">
                                 <span class="bold">Mühafizə bəndləri</span>
+                                <span style='font-size:20px; color:dimgrey;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-11"></i>
@@ -3706,6 +3716,7 @@
                             <input type="checkbox" id="BUILDINGS">
                             <label for="BUILDINGS">
                                 <span class="bold">Binalar və tikililər</span>
+                                <span style='font-size:20px; color:black;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-12"></i>
@@ -3853,6 +3864,7 @@
                             <input type="checkbox" id="EXPLONATION_ROAD">
                             <label for="EXPLONATION_ROAD">
                                 <span class="bold">İstismar yolları</span>
+                                <span style='font-size:20px; color:yellow;'>&#8718;</span>
                             </label>
                         </div>
                         <i aria-hidden="true" class="icon-arrow-down float-right" data-target-collapse="attr-section-13"></i>
@@ -3886,6 +3898,7 @@
                             <input type="checkbox" id="DEPOREZERVUAR">
                             <label for="DEPOREZERVUAR">
                                 <span class="bold">Sututarlar ve Anbarlar</span>
+                                <span style='font-size:20px; color:white;'>&#8718;</span>
                             </label>
                         </div>
                     </div>
@@ -3900,6 +3913,7 @@
                             <input type="checkbox" id="RIVERS">
                             <label for="RIVERS">
                                 <span class="bold">Çaylar</span>
+                                <span style='font-size:20px; color:white;'>&#8718;</span>
                             </label>
                         </div>
                     </div>
@@ -4066,12 +4080,9 @@
             </table>
 
 
-            @*<div class="responsive pb-in-56">  
-                <video id="test_video" controls autoplay>
-                    <!--<source src="rtsp://192.168.10.205:554/ch01.264" type="application/x-rtsp">-->
-                    <!--<source src="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" type="application/x-rtsp">-->
-                </video>
-            </div>*@
+            <div class="responsive pb-in-56">  
+                <div><canvas class="camera" id="videoCanvas" width="640" height="360"></canvas></div>
+            </div>
         </div>
         <div class="panel-footer text-center">
             <span class="btn xs _closeArtezianCamera" aria-label="Bağla" aria-hidden="true" data-close="Camera-arezian">Bağla</span>

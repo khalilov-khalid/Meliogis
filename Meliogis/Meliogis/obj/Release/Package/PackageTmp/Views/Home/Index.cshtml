@@ -3912,7 +3912,7 @@
                     </div>
                     <div class="col as-6">
                         <button data-target-modal="Report-filter" type="button" id="_GetFilTER" class="btn bg-green w-100p">Hesabat ver</button>
-                    </div>
+                    </div>                    
                 </div>
 
             </div>
@@ -3999,10 +3999,11 @@
                         <th scope="col">Adı</th>
                         <th scope="col">Sayı (ədəd)</th>
                         <th scope="col">Coğrafi uzunluğu (km)</th>
-                        <th scope="col">Faktiki uzunluğu (km)</th>
+                        @*<th scope="col">Faktiki uzunluğu (km)</th>*@
                         <th scope="col">Xidmət etdiyi sahə (ha)</th>
-                        <th scope="col">Suburaxma qabiliyyəti (məhsuldarlığı) (m³/san)</th>
+                        @*<th scope="col">Suburaxma qabiliyyəti (məhsuldarlığı) (m³/san)</th>*@
                         <th scope="col">Üzərindəki qurğuların sayı (ədəd)</th>
+                        
                     </tr>
                 </thead>
                 <tbody></tbody>
@@ -4036,6 +4037,46 @@
         <div class="panel-footer text-center">
             <span class="btn xs _closeReportDetais" aria-label="Bağla" aria-hidden="true" data-close="Report-filter-Details">Bağla</span>
         </div>
+    </div>
+</div>
+
+
+<div class="modal lg tr-3s"
+     id="Camera-arezian"
+     data-modal="Camera-arezian"
+     data-open-animation="zoomIn"
+     data-close-animation="zoomOut"
+     role="dialog"
+     tabindex="-1">
+
+    <div class="modal-content panel tr-3s" role="document">
+        <div class="panel-header text-center">
+            <h4 class="panel-title">Sorğunun nəticəsi</h4>
+        </div>
+        <div class="panel-body">
+            <table id="_ArtezianResult" class="work-planning-table table bordered mb-20">
+                <thead>
+                    <tr>
+                        <th scope="col">İşıq Göstəricisi (KW/H)</th>
+                        <th scope="col">Su Göstəricisi  (M3)</th>
+
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+
+            @*<div class="responsive pb-in-56">  
+                <video id="test_video" controls autoplay>
+                    <!--<source src="rtsp://192.168.10.205:554/ch01.264" type="application/x-rtsp">-->
+                    <!--<source src="rtsp://wowzaec2demo.streamlock.net/vod/mp4:BigBuckBunny_115k.mov" type="application/x-rtsp">-->
+                </video>
+            </div>*@
+        </div>
+        <div class="panel-footer text-center">
+            <span class="btn xs _closeArtezianCamera" aria-label="Bağla" aria-hidden="true" data-close="Camera-arezian">Bağla</span>
+        </div>
+
     </div>
 </div>
 

@@ -529,6 +529,9 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Antlr3.Runtime.pdb">
       <publishTime>09/10/2013 17:29:20</publishTime>
     </File>
+    <File Include="bin/DeltaProtocol.dll">
+      <publishTime>07/31/2019 19:52:35</publishTime>
+    </File>
     <File Include="bin/EntityFramework.dll">
       <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
@@ -536,10 +539,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>06/07/2018 11:03:48</publishTime>
     </File>
     <File Include="bin/Meliogis.dll">
-      <publishTime>12/27/2019 19:55:37</publishTime>
+      <publishTime>04/25/2020 16:19:29</publishTime>
     </File>
     <File Include="bin/Meliogis.pdb">
-      <publishTime>12/27/2019 19:55:37</publishTime>
+      <publishTime>04/25/2020 16:19:29</publishTime>
     </File>
     <File Include="bin/Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -550,8 +553,14 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="bin/Microsoft.Web.Infrastructure.dll">
       <publishTime>07/25/2012 12:48:56</publishTime>
     </File>
+    <File Include="bin/ModbusTcpMaster.dll">
+      <publishTime>07/31/2019 19:52:34</publishTime>
+    </File>
     <File Include="bin/Newtonsoft.Json.dll">
       <publishTime>02/18/2018 09:44:54</publishTime>
+    </File>
+    <File Include="bin/Protocol.dll">
+      <publishTime>07/31/2019 19:52:34</publishTime>
     </File>
     <File Include="bin/roslyn/csc.exe">
       <publishTime>05/24/2018 13:38:22</publishTime>
@@ -994,14 +1003,17 @@ by editing this MSBuild file. In order to learn more about this please visit htt
     <File Include="Public/assets/images/Spin-1s-200px.gif">
       <publishTime>09/12/2019 15:56:26</publishTime>
     </File>
+    <File Include="Public/assets/js/free.player.1.8.3.js">
+      <publishTime>04/24/2020 03:26:31</publishTime>
+    </File>
     <File Include="Public/assets/js/jquery.min.js">
       <publishTime>04/15/2019 17:48:10</publishTime>
     </File>
     <File Include="Public/assets/js/Map.js">
-      <publishTime>12/27/2019 19:53:00</publishTime>
+      <publishTime>04/25/2020 16:12:56</publishTime>
     </File>
     <File Include="Public/assets/js/pi.js">
-      <publishTime>04/15/2019 17:48:10</publishTime>
+      <publishTime>04/24/2020 02:43:44</publishTime>
     </File>
     <File Include="Public/assets/js/script.js">
       <publishTime>11/18/2019 16:01:14</publishTime>
@@ -1061,7 +1073,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>05/27/2019 13:55:24</publishTime>
     </File>
     <File Include="Views/Home/Index.cshtml">
-      <publishTime>12/27/2019 19:47:18</publishTime>
+      <publishTime>04/24/2020 04:25:34</publishTime>
     </File>
     <File Include="Views/Login/Index.cshtml">
       <publishTime>07/18/2019 11:49:14</publishTime>
@@ -1100,7 +1112,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/12/2019 17:09:58</publishTime>
     </File>
     <File Include="Views/Shared/_Layout.cshtml">
-      <publishTime>10/28/2019 13:50:34</publishTime>
+      <publishTime>04/24/2020 03:25:52</publishTime>
     </File>
     <File Include="Views/Web.config">
       <publishTime>04/15/2019 15:02:52</publishTime>
@@ -1109,7 +1121,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>04/15/2019 15:02:52</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>12/15/2019 19:18:16</publishTime>
+      <publishTime>04/24/2020 15:35:42</publishTime>
     </File>
   </ItemGroup>
 </Project>

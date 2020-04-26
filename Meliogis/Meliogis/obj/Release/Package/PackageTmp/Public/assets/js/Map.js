@@ -1600,13 +1600,13 @@ function MapFunction() {
 
                 // hidrogen qurgular
                 var device = "1 = 1 and " + regionalquery + " and " + SSIandSibsquery;
-                ($("input[name*='DEVICE_EXDATA_MIN']").val() == "") ? "" : device += "and DEVICE.EXPLONATION_DATE >=" + $("input[name*='DEVICE_EXDATA_MIN']").val();
-                ($("input[name*='DEVICE_EXDATA_MAX']").val() == "") ? "" : device += "and DEVICE.EXPLONATION_DATE <=" + $("input[name*='DEVICE_EXDATA_MAX']").val();
-                ($("input[name*='DEVICE_SEVAREA_MIN']").val() == "") ? "" : device += "and DEVICE.SERVED_AREA >=" + $("input[name*='DEVICE_SEVAREA_MIN']").val();
-                ($("input[name*='DEVICE_SEVAREA_MAX']").val() == "") ? "" : device += "and DEVICE.SERVED_AREA <=" + $("input[name*='DEVICE_SEVAREA_MAX']").val();
-                ($("select[name*='DEVICE_NETWORK_TYPE']").val() == null) ? "" : device += "and DEVICE.NETWORK_TYPE_ID=" + $("select[name*='DEVICE_NETWORK_TYPE']").val();
-                ($("input[name*='DEVICE_WTRCAPASTY_MIN']").val() == "") ? "" : device += "and DEVICE.WATER_CAPABILITY >=" + $("input[name*='DEVICE_WTRCAPASTY_MIN']").val();
-                ($("input[name*='DEVICE_WTRCAPASTY_MAX']").val() == "") ? "" : device += "and DEVICE.WATER_CAPABILITY <=" + $("input[name*='DEVICE_WTRCAPASTY_MAX']").val();
+                ($("input[name*='DEVICE_EXDATA_MIN']").val() == "") ? "" : device += " and DEVICE.EXPLONATION_DATE >=" + $("input[name*='DEVICE_EXDATA_MIN']").val();
+                ($("input[name*='DEVICE_EXDATA_MAX']").val() == "") ? "" : device += " and DEVICE.EXPLONATION_DATE <=" + $("input[name*='DEVICE_EXDATA_MAX']").val();
+                ($("input[name*='DEVICE_SEVAREA_MIN']").val() == "") ? "" : device += " and DEVICE.SERVED_AREA >=" + $("input[name*='DEVICE_SEVAREA_MIN']").val();
+                ($("input[name*='DEVICE_SEVAREA_MAX']").val() == "") ? "" : device += " and DEVICE.SERVED_AREA <=" + $("input[name*='DEVICE_SEVAREA_MAX']").val();
+                ($("select[name*='DEVICE_NETWORK_TYPE']").val() == null) ? "" : device += " and DEVICE.NETWORK_TYPE_ID=" + $("select[name*='DEVICE_NETWORK_TYPE']").val();
+                ($("input[name*='DEVICE_WTRCAPASTY_MIN']").val() == "") ? "" : device += " and DEVICE.WATER_CAPABILITY >=" + $("input[name*='DEVICE_WTRCAPASTY_MIN']").val();
+                ($("input[name*='DEVICE_WTRCAPASTY_MAX']").val() == "") ? "" : device += " and DEVICE.WATER_CAPABILITY <=" + $("input[name*='DEVICE_WTRCAPASTY_MAX']").val();
 
                 var allDEVICEactnput = $(".DEVICEact");
                 var DEVICEact = checkboxlist(allDEVICEactnput);
@@ -1631,7 +1631,7 @@ function MapFunction() {
                 if ($("select[name*='DEVICE_NETWORK_TYPE']").val() == 1) {
 
                     var allDEVICECHcovernput = $(".DEVICECHcover");
-                    var DEVICEssi = checkboxlist(allDEVICECHcovernput);
+                    var DEVICECHcover = checkboxlist(allDEVICECHcovernput);
                     (DEVICECHcover.length == 0 || DEVICECHcover[0] == "0") ? "" : device += " and CHANNELS.COVER_TYPE_ID in (" + DEVICECHcover + ") ";
 
                     ($("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val() == "") ? "" : device += "and CHANNELS.WATER_CAPABILITY >=" + $("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val();
@@ -1645,8 +1645,8 @@ function MapFunction() {
                 }
                 if ($("select[name*='DEVICE_NETWORK_TYPE']").val() == 3) {
 
-                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val() == "") ? "" : device += "and DRENAJ.WATER_CAPABILITY >=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val();
-                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val() == "") ? "" : device += "and DRENAJ.WATER_CAPABILITY <=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val();
+                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val() == "") ? "" : device += " and DRENAJ.WATER_CAPABILITY >=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val();
+                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val() == "") ? "" : device += " and DRENAJ.WATER_CAPABILITY <=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val();
 
                     var allDEVICEDRtypenput = $(".DEVICEDRtype");
                     var DEVICEDRtype = checkboxlist(allDEVICEDRtypenput);
@@ -1655,59 +1655,60 @@ function MapFunction() {
                 }
 
 
-                var deviceMap = "1 = 1 and " + regionalquery + " and " + SSIandSibsquery;
-                ($("input[name*='DEVICE_EXDATA_MIN']").val() == "") ? "" : device += "and EXPLONATION_DATE >=" + $("input[name*='DEVICE_EXDATA_MIN']").val();
-                ($("input[name*='DEVICE_EXDATA_MAX']").val() == "") ? "" : device += "and EXPLONATION_DATE <=" + $("input[name*='DEVICE_EXDATA_MAX']").val();
-                ($("input[name*='DEVICE_SEVAREA_MIN']").val() == "") ? "" : device += "and SERVED_AREA >=" + $("input[name*='DEVICE_SEVAREA_MIN']").val();
-                ($("input[name*='DEVICE_SEVAREA_MAX']").val() == "") ? "" : device += "and SERVED_AREA <=" + $("input[name*='DEVICE_SEVAREA_MAX']").val();
-                ($("select[name*='DEVICE_NETWORK_TYPE']").val() == null) ? "" : device += "and NETWORK_TYPE_ID=" + $("select[name*='DEVICE_NETWORK_TYPE']").val();
-                ($("input[name*='DEVICE_WTRCAPASTY_MIN']").val() == "") ? "" : device += "and WATER_CAPABILITY >=" + $("input[name*='DEVICE_WTRCAPASTY_MIN']").val();
-                ($("input[name*='DEVICE_WTRCAPASTY_MAX']").val() == "") ? "" : device += "and WATER_CAPABILITY <=" + $("input[name*='DEVICE_WTRCAPASTY_MAX']").val();
+                var deviceMap = " 1 = 1 and " + regionalquery + " and " + SSIandSibsquery;
+                ($("input[name*='DEVICE_EXDATA_MIN']").val() == "") ? "" : deviceMap += " and EXPLONATION_DATE >=" + $("input[name*='DEVICE_EXDATA_MIN']").val();
+                ($("input[name*='DEVICE_EXDATA_MAX']").val() == "") ? "" : deviceMap += " and EXPLONATION_DATE <=" + $("input[name*='DEVICE_EXDATA_MAX']").val();
+                ($("input[name*='DEVICE_SEVAREA_MIN']").val() == "") ? "" : deviceMap += " and SERVED_AREA >=" + $("input[name*='DEVICE_SEVAREA_MIN']").val();
+                ($("input[name*='DEVICE_SEVAREA_MAX']").val() == "") ? "" : deviceMap += " and SERVED_AREA <=" + $("input[name*='DEVICE_SEVAREA_MAX']").val();
+                ($("select[name*='DEVICE_NETWORK_TYPE']").val() == null) ? "" : deviceMap += " and NETWORK_TYPE_ID=" + $("select[name*='DEVICE_NETWORK_TYPE']").val();
+                ($("input[name*='DEVICE_WTRCAPASTY_MIN']").val() == "") ? "" : deviceMap += " and WATER_CAPABILITY >=" + $("input[name*='DEVICE_WTRCAPASTY_MIN']").val();
+                ($("input[name*='DEVICE_WTRCAPASTY_MAX']").val() == "") ? "" : deviceMap += " and WATER_CAPABILITY <=" + $("input[name*='DEVICE_WTRCAPASTY_MAX']").val();
 
                 var allDEVICEactnput = $(".DEVICEact");
                 var DEVICEact = checkboxlist(allDEVICEactnput);
-                (DEVICEact.length == 0 || DEVICEact[0] == "0") ? "" : device += " and ACTIVITY_ID in (" + DEVICEact + ") ";
+                (DEVICEact.length == 0 || DEVICEact[0] == "0") ? "" : deviceMap += " and ACTIVITY_ID in (" + DEVICEact + ") ";
 
                 var allDEVICEsecnput = $(".DEVICEsec");
                 var DEVICEsec = checkboxlist(allDEVICEsecnput);
-                (DEVICEsec.length == 0 || DEVICEsec[0] == "0") ? "" : device += " and SECURITY_TYPE_ID in (" + DEVICEsec + ") ";
+                (DEVICEsec.length == 0 || DEVICEsec[0] == "0") ? "" : deviceMap += " and SECURITY_TYPE_ID in (" + DEVICEsec + ") ";
 
                 var allDEVICEtecnput = $(".DEVICEtec");
                 var DEVICEtec = checkboxlist(allDEVICEtecnput);
-                (DEVICEtec.length == 0 || DEVICEtec[0] == "0") ? "" : device += " and TECHNICAL_TYPE_ID in (" + DEVICEtec + ") ";
+                (DEVICEtec.length == 0 || DEVICEtec[0] == "0") ? "" : deviceMap += " and TECHNICAL_TYPE_ID in (" + DEVICEtec + ") ";
 
                 var allDEVICEprotypenput = $(".DEVICEprotype");
                 var DEVICEprotype = checkboxlist(allDEVICEprotypenput);
-                (DEVICEprotype.length == 0 || DEVICEprotype[0] == "0") ? "" : device += " and PROPERTY_TYPE_ID in (" + DEVICEprotype + ") ";
+                (DEVICEprotype.length == 0 || DEVICEprotype[0] == "0") ? "" : deviceMap += " and PROPERTY_TYPE_ID in (" + DEVICEprotype + ") ";
 
                 var allDEVICEssinput = $(".DEVICEssi");
                 var DEVICEssi = checkboxlist(allDEVICEssinput);
-                (DEVICEssi.length == 0 || DEVICEssi[0] == "0") ? "" : device += " and SSI_ID in (" + DEVICEssi + ") ";
+                (DEVICEssi.length == 0 || DEVICEssi[0] == "0") ? "" : deviceMap += " and SSI_ID in (" + DEVICEssi + ") ";
 
                 if ($("select[name*='DEVICE_NETWORK_TYPE']").val() == 1) {
 
                     var allDEVICECHcovernput = $(".DEVICECHcover");
                     var DEVICEssi = checkboxlist(allDEVICECHcovernput);
-                    (DEVICECHcover.length == 0 || DEVICECHcover[0] == "0") ? "" : device += " and COVER_TYPE_ID in (" + DEVICECHcover + ") ";
+                    (DEVICECHcover.length == 0 || DEVICECHcover[0] == "0") ? "" : deviceMap += " and COVER_TYPE_ID in (" + DEVICECHcover + ") ";
 
-                    ($("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val() == "") ? "" : device += "and CHANNELS_WATER_CAPABILITY  >=" + $("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val();
-                    ($("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MAX']").val() == "") ? "" : device += "and CHANNELS_WATER_CAPABILITY  <=" + $("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MAX']").val();
+                    ($("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val() == "") ? "" : deviceMap += " and CHANNELS_WATER_CAPABILITY  >=" + $("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MIN']").val();
+                    ($("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MAX']").val() == "") ? "" : deviceMap += " and CHANNELS_WATER_CAPABILITY  <=" + $("input[name*='DEVICECHANNEL_WATER_CAPABILITY_MAX']").val();
 
                     var allDEVICECHtypenput = $(".DEVICECHtype");
                     var DEVICECHtype = checkboxlist(allDEVICECHtypenput);
-                    (DEVICECHtype.length == 0 || DEVICECHtype[0] == "0") ? "" : device += " and TYPE_ID in (" + DEVICECHtype + ") ";
+                    (DEVICECHtype.length == 0 || DEVICECHtype[0] == "0") ? "" : deviceMap += " and TYPE_ID in (" + DEVICECHtype + ") ";
 
 
                 }
                 if ($("select[name*='DEVICE_NETWORK_TYPE']").val() == 3) {
 
-                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val() == "") ? "" : device += "and DRENAJ_WATER_CAPABILITY >=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val();
-                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val() == "") ? "" : device += "and DRENAJ_WATER_CAPABILITY <=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val();
+                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val() == "") ? "" : deviceMap += " and DRENAJ_WATER_CAPABILITY >=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MIN']").val();
+                    ($("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val() == "") ? "" : deviceMap += " and DRENAJ_WATER_CAPABILITY <=" + $("input[name*='DEVICE_DRENAJWTRCAPASTY_MAX']").val();
                     var allDEVICEDRtypenput = $(".DEVICEDRtype");
                     var DEVICEDRtype = checkboxlist(allDEVICEDRtypenput);
-                    (DEVICEDRtype.length == 0 || DEVICEDRtype[0] == "0") ? "" : device += " and CHANNEL_TYPE_ID in (" + DEVICEDRtype + ") ";
+                    (DEVICEDRtype.length == 0 || DEVICEDRtype[0] == "0") ? "" : deviceMap += " and CHANNEL_TYPE_ID in (" + DEVICEDRtype + ") ";
 
                 }
+                
 
 
                 // artezian quyular
@@ -1949,25 +1950,23 @@ function MapFunction() {
                         }
 
                         if (FILCHECK.CHANNEL.CHANNELFILDS.CHI == true) {
-
                             //layerChannel.setDefinitionExpression("KIND_ID = 1 and (TYPE_ID=1 or TYPE_ID=4) and (" + ICHANNEL + " or " + magistralChannel + ")");
                             channelQuery = channelQuery + " OR " + "(KIND_ID = 1 and TYPE_ID=1 and " + ICHANNEL + ")";
                             ////console.log(channelQuery);
                         }
 
                         if (FILCHECK.CHANNEL.CHANNELFILDS.CHII == true) {
-
                             //layerChannel.setDefinitionExpression("KIND_ID = 1 and TYPE_ID=2 and " + IICHANNEL);                        
                             channelQuery = channelQuery + " OR " + "(KIND_ID = 1 and TYPE_ID=2 and " + IICHANNEL + ")";
                             ////console.log(channelQuery);
                         }
 
                         if (FILCHECK.CHANNEL.CHANNELFILDS.CHIII == true) {
-
                             //layerChannel.setDefinitionExpression("KIND_ID = 1 and TYPE_ID=3 and " + IIICHANNEL);
                             channelQuery = channelQuery + " OR " + "(KIND_ID = 1 and TYPE_ID=3 and " + IIICHANNEL + ")";
                             ////console.log(channelQuery);
-                        }
+                        };
+
                         layerChannel.visible = true;
                         layerChannel.setDefinitionExpression(channelQuery);
                         map.addLayer(layerChannel);
@@ -2051,56 +2050,49 @@ function MapFunction() {
                     }
 
                     if (FILCHECK.DEVICE) {
-                        ////console.log("hidrogen")
+                        console.log(deviceMap)
                         layerDevice.visible = true;
                         layerDevice.setDefinitionExpression(deviceMap);
                         map.addLayer(layerDevice);
                     }
 
                     if (FILCHECK.ARTEZIANWELL) {
-                        ////console.log("hidrogen")
                         layerArtesian.visible = true;
                         layerArtesian.setDefinitionExpression(artezianWell);
                         map.addLayer(layerArtesian);
                     }
 
                     if (FILCHECK.WELL) {
-                        ////console.log("well")
                         layerWell.visible = true;
                         layerWell.setDefinitionExpression(well);
                         map.addLayer(layerWell);
                     }
 
                     if (FILCHECK.PUMPSTATION) {
-                        ////console.log("nasoslar")
                         layerPump.visible = true;
                         layerPump.setDefinitionExpression(Pums);
                         map.addLayer(layerPump);
                     }
 
                     if (FILCHECK.WINTERPASTURES) {
-                        ////console.log("qis otlaq")
                         layerPastures.visible = true;
                         layerPastures.setDefinitionExpression(winterpasture);
                         map.addLayer(layerPastures);
                     }
 
                     if (FILCHECK.RIVERBAND) {
-                        ////console.log("bendler")
                         layerRiverBand.visible = true;
                         layerRiverBand.setDefinitionExpression(riverbands);
                         map.addLayer(layerRiverBand);
                     }
 
                     if (FILCHECK.BUILDINGS) {
-                        ////console.log("tikililer")
                         layerBuilding.visible = true;
                         layerBuilding.setDefinitionExpression(build);
                         map.addLayer(layerBuilding);
                     }
 
                     if (FILCHECK.EXPLONATION_ROAD) {
-                        ////console.log("istismar yollarl")
                         layerRoad.visible = true;
                         layerRoad.setDefinitionExpression(EXPROAD);
                         map.addLayer(layerRoad);
@@ -2122,29 +2114,29 @@ function MapFunction() {
                 else {//db gore filterleme bolmesi
                     //////console.log(regionalquery)
                     var Filter = {
-                        OCH: regionalquery,
-                        OCHM: magistralChannel,
-                        OCHI: ICHANNEL,
-                        OCHII: IICHANNEL,
-                        OCHIII: IIICHANNEL,
-                        QCH: regionalquery,
-                        QCHM: QmagistralChannel,
-                        QCHI: QICHANNEL,
-                        QCHII: QIICHANNEL,
-                        QCHIII: QIIICHANNEL,
-                        DRENAJ: regionalquery,
-                        DRENAJM: DRENAJM,
-                        DRENAJI: DRENAJI,
-                        DRENAJII: DRENAJII,
-                        DRENAJK: DRENAJK,
-                        DEVICE: device,
-                        ARTEZIANWELL: artezianWell,
-                        WELL: well,
-                        PUMPSTATION: Pums,
-                        WINTERPASTURES: winterpasture,
-                        RIVERBAND: riverbands,
-                        BUILDINGS: build,
-                        EXPLONATION_ROAD: EXPROAD
+                        OCH: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        OCHM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//magistralChannel,
+                        OCHI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//ICHANNEL,
+                        OCHII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//IICHANNEL,
+                        OCHIII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//IIICHANNEL,
+                        QCH: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        QCHM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QmagistralChannel,
+                        QCHI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QICHANNEL,
+                        QCHII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QIICHANNEL,
+                        QCHIII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//QIIICHANNEL,
+                        DRENAJ: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//regionalquery,
+                        DRENAJM: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJM,
+                        DRENAJI: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJI,
+                        DRENAJII: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJII,
+                        DRENAJK: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//DRENAJK,
+                        DEVICE: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,//device,
+                        ARTEZIANWELL: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,// artezianWell,
+                        WELL: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery,// well,
+                        PUMPSTATION: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, // Pums,
+                        WINTERPASTURES: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //winterpasture,
+                        RIVERBAND: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //riverbands,
+                        BUILDINGS: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery, //build,
+                        EXPLONATION_ROAD: "1 = 1 and " + regionalquery + " and " + SSIandSibsquery //EXPROAD
                     }
 
                     //Clear Filer modal
@@ -2261,8 +2253,12 @@ function MapFunction() {
 
 
 //Filter result append function
+//function FilterAppent(count, lenght, area, capability, devsum, witdh, name, attrname) {
+//    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + witdh + "</td> <td>" + area + "</td> <td>" + capability + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
+//}
+
 function FilterAppent(count, lenght, area, capability, devsum, witdh, name, attrname) {
-    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + witdh + "</td> <td>" + area + "</td> <td>" + capability + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
+    $("#_FilterResult tbody").append("<tr> <td>" + name + "</td> <td>" + count + "</td> <td>" + lenght + "</td> <td>" + area + "</td> <td>" + devsum + "</td>   <td class='text-center'><button class='_DetalsReport br-100'   data-name='" + attrname + "' data-skip='0'><i aria-hidden='true' class='icon-info-circle-thin mb-30' ></i></button></td> </tr>")
 }
 
 function CreateLocalStorage(key, value) {
@@ -2349,6 +2345,42 @@ $(document).on("click", "._searchdata", function () {
     $("#_testSearch").click();
 })
 
+
+$(document).on("click", "#_GetCamera", function () {
+    $.ajax({
+        url: "/Home/ArtRealData",
+        method: "post",
+        type: "JSON",
+        success: function (response) {
+            console.log(response);
+            if (response != null) {
+                $("#_ArtezianResult tbody").append("<tr> <td>" + response.light[0] + "</td> <td>" + response.water[0] + "</td> </tr>")
+            }
+
+
+            //var stringUrl = "https://wcs5-eu.flashphoner.com:8888/embed_player?urlServer=wss://wcs5-eu.flashphoner.com:8443&streamName=rtsp://admin:Recog-567423@5.191.38.134:554/unicast/c1/s2/live&mediaProviders=WebRTC,Flash,MSE,WSPlayer?autoplay=1"
+
+            //var videoIframe = $("#fp_embed_player");
+            //videoIframe.attr("src", stringUrl);
+
+            var stringUrl ="rtsp://admin:Recog-567423@5.191.38.134:554/live/video2"
+            
+        }
+    })
+})
+
+$("._closeArtezianCamera").on("click", function () {
+    $("#_ArtezianResult tbody tr").remove();
+})
+
+
+$(document).on("click", 'image', function () {
+
+    let btn = $('<button data-target-modal="Camera-arezian" type="button" id="_GetCamera" class="btn xs bg-green">Ətraflı bax</button>')
+    $('.actionList').find('.btn').remove();
+
+    $('.actionList').append(btn)
+})
 
 
 

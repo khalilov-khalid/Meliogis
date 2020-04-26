@@ -24,25 +24,29 @@ namespace Meliogis.Controllers
     public class HomeController : Controller
     {
         MelorEntities db = new MelorEntities();
+        //System.IntPtr hDMTDll;
 
-        public ArtezianRealData ArtezianRealData { get; private set; }
+        //delegate void DelegateClose(int conn_num);
 
         public ActionResult ArtRealData()
         {
             Plc dvpPLC = new Plc("5.191.38.48", 502);
-                     
-            dvpPLC.Open();            
 
+            dvpPLC.Open();
             int[] isig = (int[])dvpPLC.Read("D82", VarType.DInt, 5);
             int[] su = (int[])dvpPLC.Read("D408", VarType.DInt, 5);
-
             dvpPLC.Close();
-
             ArtezianRealData data = new ArtezianRealData()
             {
                 light = isig,
                 water = su
             };
+            //string strReq = "";
+            //string strRes = "";
+
+
+            //DelegateClose CloseModbus = new DelegateClose(CloseSerial);
+
 
             return Json(data, JsonRequestBehavior.AllowGet);
 
@@ -476,8 +480,8 @@ namespace Meliogis.Controllers
 
                     string querycount = "select SUM(STATISTIC.CountCH1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
-                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH1) from STATISTIC WHERE " + FILTER.OCHI + RegionQuery;
 
                     string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHI;
 
@@ -509,8 +513,8 @@ namespace Meliogis.Controllers
                     }
                     string querycount = "select SUM(STATISTIC.CountCH2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
-                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH2) from STATISTIC WHERE " + FILTER.OCHII + RegionQuery;
                     string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHII;
 
 
@@ -543,8 +547,8 @@ namespace Meliogis.Controllers
                     }
                     string querycount = "select SUM(STATISTIC.CountCH3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
                     string querylenght = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
-                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
-                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string queryservedarea = "select SUM(STATISTIC.CHANNELAREA3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
+                    string querydevicesum = "select SUM(STATISTIC.DEVICESCH3) from STATISTIC WHERE " + FILTER.OCHIII + RegionQuery;
                     string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCHIII;
 
 
@@ -584,9 +588,17 @@ namespace Meliogis.Controllers
                     string querylenght1 = "select SUM(STATISTIC.CHANNEL1) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
                     string querylenght2 = "select SUM(STATISTIC.CHANNEL2) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
                     string querylenght3 = "select SUM(STATISTIC.CHANNEL3) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+
+
                     string queryservedarea = "select SUM(STATISTIC.CHANNELAREA) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string queryservedarea1 = "select SUM(STATISTIC.CHANNELAREA1) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string queryservedarea2 = "select SUM(STATISTIC.CHANNELAREA2) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string queryservedarea3 = "select SUM(STATISTIC.CHANNELAREA3) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
 
                     string querydevicesum = "select SUM(STATISTIC.DEVICESCH) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querydevicesum1 = "select SUM(STATISTIC.DEVICESCH1) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querydevicesum2 = "select SUM(STATISTIC.DEVICESCH2) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
+                    string querydevicesum3 = "select SUM(STATISTIC.DEVICESCH3) from STATISTIC WHERE " + FILTER.OCH + RegionQuery;
 
                     string queryids = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.OCH;
 
@@ -597,16 +609,26 @@ namespace Meliogis.Controllers
                     int chcount2 =db.Database.SqlQuery<int>(querycount2).First();
                     int chcount3 =db.Database.SqlQuery<int>(querycount3).First();
 
+                    decimal channelarea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
+                    decimal channelarea1 = (db.Database.SqlQuery<decimal?>(queryservedarea1).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea1).First()), 2);
+                    decimal channelarea2 = (db.Database.SqlQuery<decimal?>(queryservedarea2).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea2).First()), 2);
+                    decimal channelarea3 = (db.Database.SqlQuery<decimal?>(queryservedarea3).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea3).First()), 2);
+
                     decimal ch0= (db.Database.SqlQuery<decimal?>(querylenght0).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght0).First()), 2);
                     decimal ch1 = (db.Database.SqlQuery<decimal?>(querylenght1).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght1).First()), 2);
                     decimal ch2 = (db.Database.SqlQuery<decimal?>(querylenght2).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght2).First()), 2);
                     decimal ch3 = (db.Database.SqlQuery<decimal?>(querylenght3).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querylenght3).First()), 2);
 
+                    decimal devcount = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    decimal devcount1 = (db.Database.SqlQuery<decimal?>(querydevicesum1).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum1).First()), 2);
+                    decimal devcount2 = (db.Database.SqlQuery<decimal?>(querydevicesum2).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum2).First()), 2);
+                    decimal devcount3 = (db.Database.SqlQuery<decimal?>(querydevicesum3).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum3).First()), 2);
+
                     vm.CH_Count = chcount0+chcount1+chcount2+chcount3; //db.Database.SqlQuery<int>(queryCount).First();
                     vm.CH_Lenght = ch0 + ch1 + ch2 + ch3; //(db.Database.SqlQuery<decimal?>(queryLenght).First()==null)? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryLenght).First()), 2);
                     vm.CH_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);
-                    vm.CH_ServedArea = (db.Database.SqlQuery<decimal?>(queryservedarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryservedarea).First()), 2);
-                    vm.CH_DEVICESUM = (db.Database.SqlQuery<decimal?>(querydevicesum).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querydevicesum).First()), 2);
+                    vm.CH_ServedArea = channelarea + channelarea1 + channelarea2 + channelarea3;
+                    vm.CH_DEVICESUM = devcount + devcount1 + devcount2 + devcount3;
                     vm.CH_WITDH = 0;// (db.Database.SqlQuery<decimal?>(querywitdh).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querywitdh).First()), 2);
                     vm.CH_CHECK = true;
                     vm.CH_ID= db.Database.SqlQuery<int>(queryids).ToList();
@@ -1043,15 +1065,17 @@ namespace Meliogis.Controllers
                 {
                     RegionQuery = " and REGIONS_ID > 0 ";
                 }
-                string querycount = "select SUM(STATISTIC.ARTESIANCOUNT) from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
+                string querycount = "select SUM(STATISTIC.ARTESIAN) from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
+                string queryarea = "select SUM(STATISTIC.ARTESIAN_AREA) from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
                 string queryid = "select STATISTIC.OBJECTID from STATISTIC WHERE " + FILTER.ARTEZIANWELL + RegionQuery;
 
 
                 int count = (db.Database.SqlQuery<decimal?>(querycount).First() == null) ? 0 : (int)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycount).First()),0);
+                decimal area = (db.Database.SqlQuery<decimal?>(queryarea).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(queryarea).First()),2);
 
                 vm.ARTEZIAN_COUNT = count;// db.Database.SqlQuery<int>(querycount).First();
                 vm.ARTEZIAN_lenght = 0;
-                vm.ARTEZIAN_ServedArea = 0;
+                vm.ARTEZIAN_ServedArea = area;
                 vm.ARTEZIAN_DEVICESUM = 0;
                 vm.ARTEZIAN_WITDH = 0;
                 vm.ARTEZIAN_WATERCAPABILITY = 0;// (db.Database.SqlQuery<decimal?>(querycapability).First() == null) ? 0 : (decimal)Math.Round(Convert.ToDouble(db.Database.SqlQuery<decimal?>(querycapability).First()), 2);

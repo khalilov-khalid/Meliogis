@@ -372,8 +372,8 @@
     <Content Include="Public\assets\icons\style.css" />
     <Content Include="Public\assets\images\login-bg.png" />
     <Content Include="Public\assets\images\Spin-1s-200px.gif" />
-    <Content Include="Public\assets\js\free.player.1.8.3.js" />
     <Content Include="Public\assets\js\jquery.min.js" />
+    <Content Include="Public\assets\js\jsmpeg.js" />
     <Content Include="Public\assets\js\Map.js" />
     <Content Include="Public\assets\js\pi.js" />
     <Content Include="Public\assets\js\script.js" />
